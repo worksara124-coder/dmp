@@ -1,0 +1,33 @@
+---
+/** Grandes cartes de contact : téléphone, WhatsApp, e-mail, adresse (remplissage vert au survol) */
+import data from '@/data/contact.json';
+import { icon } from '@/lib/icons';
+const arrowUp = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>';
+---
+
+<section class="dmp-section dmp-channels-section">
+  <div class="container-main">
+    <div class="dmp-head-row">
+      <div class="dmp-head" data-reveal>
+        <span class="dmp-eyebrow">(Nous joindre)</span>
+        <h2 class="dmp-h2">Le canal qui vous convient</h2>
+      </div>
+    </div>
+    <ul class="dmp-chan-grid" role="list">
+      {data.channels.map((c, i) => (
+        <li data-reveal>
+          <a href={c.href} class="dmp-chan" {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}>
+            <span class="dmp-chan-top">
+              <span class="dmp-chan-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="dmp-chan-arrow" set:html={arrowUp} />
+            </span>
+            <span class="dmp-chan-icon" set:html={icon(c.icon, 26)} />
+            <span class="dmp-chan-label">{c.label}</span>
+            <strong class="dmp-chan-value">{c.value}</strong>
+            <span class="dmp-chan-note">{c.note}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

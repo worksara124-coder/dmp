@@ -1,0 +1,190 @@
+{
+  "hero": {
+    "title": "Contactez-nous pour la gestion de vos déchets médicaux",
+    "text": "Décrivez votre établissement et vos besoins : nous vous répondons rapidement avec une proposition adaptée.",
+    "button": "Composer ma demande",
+    "image": {
+      "url": "/images/dmp/dmp-hero-agents.webp",
+      "srcset": "/images/dmp/dmp-hero-agents-p-800.webp 800w, /images/dmp/dmp-hero-agents-p-1080.webp 1080w, /images/dmp/dmp-hero-agents.webp 1600w"
+    }
+  },
+  "channels": [
+    {
+      "icon": "phone",
+      "label": "Téléphone",
+      "value": "06 01 45 29 24",
+      "href": "tel:+212601452924",
+      "note": "Appelez-nous pour une question ou une collecte"
+    },
+    {
+      "icon": "whatsapp",
+      "label": "WhatsApp",
+      "value": "+212 6 01 45 29 24",
+      "href": "https://wa.me/212601452924",
+      "note": "Souvent le plus rapide pour programmer une collecte",
+      "external": true
+    },
+    {
+      "icon": "mail",
+      "label": "E-mail",
+      "value": "contact@dmpservices.ma",
+      "href": "mailto:contact@dmpservices.ma",
+      "note": "Pour vos demandes de devis et documents"
+    },
+    {
+      "icon": "pin",
+      "label": "Adresse",
+      "value": "10, Rue la Liberté, 3ème étage, Casablanca",
+      "href": "https://www.google.com/maps/search/?api=1&query=10%20Rue%20la%20Libert%C3%A9%20Casablanca",
+      "note": "Visite sur rendez-vous",
+      "external": true
+    }
+  ],
+  "map": {
+    "title": "Nous sommes basés à Casablanca",
+    "embed": "https://www.google.com/maps?q=10%20Rue%20la%20Libert%C3%A9%2C%20Casablanca&output=embed"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Avant de nous écrire",
+    "items": [
+      {
+        "q": "Que se passe-t-il après mon message ?",
+        "a": "Notre équipe lit chaque message et vous recontacte rapidement pour comprendre vos besoins et planifier un audit de vos pratiques."
+      },
+      {
+        "q": "Peut-on vous joindre sur WhatsApp ?",
+        "a": "Oui. Écrivez-nous sur WhatsApp au +212 601 452 924, c’est souvent le moyen le plus rapide pour programmer une collecte."
+      },
+      {
+        "q": "Que dois-je indiquer dans mon message ?",
+        "a": "Précisez le type d’établissement, la nature et le volume approximatif de vos déchets, ainsi que la fréquence de collecte souhaitée."
+      },
+      {
+        "q": "Comment programmer une collecte ?",
+        "a": "La collecte se fait sur appel : contactez-nous et un agent formé ADR se déplace avec un véhicule agréé."
+      },
+      {
+        "q": "Peut-on vous rendre visite ?",
+        "a": "Oui, sur rendez-vous. Nos bureaux se trouvent au 10, Rue la Liberté, 3ème étage, à Casablanca. Précisez vos disponibilités dans votre message."
+      },
+      {
+        "q": "Je suis un petit cabinet, est-ce adapté ?",
+        "a": "Oui. Nous accompagnons aussi bien les cabinets médicaux et dentaires que les cliniques et les hôpitaux, avec une offre adaptée à vos volumes."
+      }
+    ]
+  },
+  "builder": {
+    "eyebrow": "Votre demande",
+    "title": "Composez votre demande en 4 étapes",
+    "steps": [
+      {
+        "key": "type",
+        "title": "Quel est votre établissement ?",
+        "hint": "Un seul choix",
+        "options": [
+          {
+            "label": "Laboratoire",
+            "icon": "flask"
+          },
+          {
+            "label": "Cabinet dentaire",
+            "icon": "tooth"
+          },
+          {
+            "label": "Cabinet médical",
+            "icon": "stethoscope"
+          },
+          {
+            "label": "Clinique ou hôpital",
+            "icon": "hospital"
+          },
+          {
+            "label": "Centre d’hémodialyse",
+            "icon": "droplet"
+          },
+          {
+            "label": "Clinique vétérinaire",
+            "icon": "paw"
+          },
+          {
+            "label": "Autre",
+            "icon": "plus"
+          }
+        ]
+      },
+      {
+        "key": "needs",
+        "title": "De quoi avez-vous besoin ?",
+        "hint": "Plusieurs choix possibles",
+        "multiple": true,
+        "options": [
+          {
+            "label": "Collecte et transport",
+            "icon": "truck"
+          },
+          {
+            "label": "Traitement",
+            "icon": "flame"
+          },
+          {
+            "label": "Tri et formation",
+            "icon": "training"
+          },
+          {
+            "label": "Emballages DASRI",
+            "icon": "package"
+          },
+          {
+            "label": "Audit et diagnostic",
+            "icon": "audit"
+          },
+          {
+            "label": "Traçabilité",
+            "icon": "file"
+          }
+        ]
+      },
+      {
+        "key": "rhythm",
+        "title": "À quel rythme ?",
+        "hint": "Pour préparer votre proposition",
+        "groups": [
+          {
+            "key": "volume",
+            "label": "Volume de déchets",
+            "options": [
+              "Petit volume",
+              "Volume moyen",
+              "Gros volume",
+              "Je ne sais pas"
+            ]
+          },
+          {
+            "key": "frequency",
+            "label": "Fréquence de collecte souhaitée",
+            "options": [
+              "Ponctuelle",
+              "Mensuelle",
+              "Hebdomadaire",
+              "À définir ensemble"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "contact",
+        "title": "Où vous recontacter ?",
+        "hint": "Les champs * sont obligatoires"
+      }
+    ],
+    "slip": {
+      "title": "Bordereau de demande",
+      "subtitle": "DMP Services · Casablanca",
+      "stamp": "Demande reçue"
+    },
+    "success": "Merci ! Votre demande est bien partie. Notre équipe vous recontacte très rapidement.",
+    "error": "L’envoi n’a pas abouti. Réessayez, ou envoyez votre demande par WhatsApp.",
+    "whatsapp": "212601452924"
+  }
+}

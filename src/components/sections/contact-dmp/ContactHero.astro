@@ -1,0 +1,42 @@
+---
+/**
+ * En-tête de la page contact : photo pleine largeur assombrie, fil d'Ariane,
+ * titre centré, sous-titre et bouton vers la demande guidée.
+ * Textes et photo : src/data/contact.json (clé "hero").
+ */
+import data from '@/data/contact.json';
+import { icon } from '@/lib/icons';
+const h = data.hero;
+---
+
+<section class="dmp-chero">
+  <div class="dmp-chero-bg" aria-hidden="true">
+    <img src={h.image.url} srcset={h.image.srcset} sizes="100vw" alt="" width="1600" height="800" loading="eager" fetchpriority="high" data-chero-img />
+  </div>
+  <div class="container-main dmp-chero-inner">
+    <nav class="dmp-chero-crumb" aria-label="Fil d’Ariane" data-hero style="--i:0">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span>
+    </nav>
+    <div class="dmp-chero-center">
+      <h1 class="dmp-chero-title" data-hero style="--i:1">{h.title}</h1>
+      <p class="dmp-chero-text" data-hero style="--i:2">{h.text}</p>
+      <a href="#demande" class="dmp-btn is-primary dmp-chero-btn" data-hero style="--i:3">
+        <span>{h.button}</span>
+        <span class="dmp-btn-arrow" set:html={icon('arrow', 18, 1.8)} />
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // léger parallaxe de la photo au défilement
+  const img = document.querySelector<HTMLElement>('[data-chero-img]');
+  if (img && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    const move = () => {
+      img.style.setProperty('--py', `${(Math.min(window.scrollY, 900) * 0.25).toFixed(1)}px`);
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(move); } }, { passive: true });
+  }
+</script>

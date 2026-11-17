@@ -1,0 +1,380 @@
+---
+/**
+ * Demande guidée en 4 étapes + bordereau qui se remplit en direct.
+ * Envoi : PUBLIC_FORM_ENDPOINT (fichier .env, ex. Formspree). Sans cette variable : mode démo (succès affiché, rien n'est envoyé).
+ * Le bouton WhatsApp ouvre une conversation avec la demande déjà rédigée (fonctionne sans configuration).
+ * Contenu : src/data/contact.json (clé "builder").
+ */
+import data from '@/data/contact.json';
+import config from '@/config/config.json';
+import { icon } from '@/lib/icons';
+const b = data.builder;
+const [s1, s2, s3, s4] = b.steps as any[];
+---
+
+<section id="demande" class="dmp-section dmp-builder is-white">
+  <div class="container-main">
+    <div class="dmp-builder-head" data-reveal>
+      <span class="dmp-eyebrow">({b.eyebrow})</span>
+      <h2 class="dmp-h2">{b.title}</h2>
+    </div>
+
+    <div class="dmp-builder-grid">
+      <div class="dmp-wizard" data-wizard data-endpoint={import.meta.env.PUBLIC_FORM_ENDPOINT ?? ''} data-whatsapp={b.whatsapp} data-reveal>
+        <!-- progression -->
+        <div class="dmp-progress" aria-hidden="true">
+          {b.steps.map((st: any, i: number) => (
+            <span class:list={['dmp-progress-seg', i === 0 && 'is-current']} data-seg={i}><span></span></span>
+          ))}
+        </div>
+        <p class="dmp-progress-label"><span data-step-num>Étape 1</span> sur {b.steps.length}</p>
+
+        <form class="dmp-wform" novalidate data-form>
+          <div class="dmp-wsteps">
+            <!-- 1. établissement -->
+            <fieldset class="dmp-wstep is-active" data-step="0">
+              <legend class="dmp-wstep-title">{s1.title}</legend>
+              <p class="dmp-wstep-hint">{s1.hint}</p>
+              <div class="dmp-tiles">
+                {s1.options.map((o: any) => (
+                  <label class="dmp-tile">
+                    <input type="radio" name="Type" value={o.label} required />
+                    <span class="dmp-tile-icon" set:html={icon(o.icon, 24)} />
+                    <span class="dmp-tile-label">{o.label}</span>
+                    <span class="dmp-tile-check" set:html={icon('check', 14, 2.4)} />
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- 2. besoins -->
+            <fieldset class="dmp-wstep" data-step="1">
+              <legend class="dmp-wstep-title">{s2.title}</legend>
+              <p class="dmp-wstep-hint">{s2.hint}</p>
+              <div class="dmp-tiles is-needs">
+                {s2.options.map((o: any) => (
+                  <label class="dmp-tile">
+                    <input type="checkbox" name="Besoins" value={o.label} />
+                    <span class="dmp-tile-icon" set:html={icon(o.icon, 24)} />
+                    <span class="dmp-tile-label">{o.label}</span>
+                    <span class="dmp-tile-check" set:html={icon('check', 14, 2.4)} />
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <!-- 3. rythme -->
+            <fieldset class="dmp-wstep" data-step="2">
+              <legend class="dmp-wstep-title">{s3.title}</legend>
+              <p class="dmp-wstep-hint">{s3.hint}</p>
+              {s3.groups.map((g: any) => (
+                <div class="dmp-seg-group">
+                  <p class="dmp-seg-label">{g.label}</p>
+                  <div class="dmp-seg">
+                    {g.options.map((o: string) => (
+                      <label class="dmp-seg-opt">
+                        <input type="radio" name={g.key === 'volume' ? 'Volume' : 'Frequence'} value={o} />
+                        <span>{o}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </fieldset>
+
+            <!-- 4. coordonnées -->
+            <fieldset class="dmp-wstep" data-step="3">
+              <legend class="dmp-wstep-title">{s4.title}</legend>
+              <p class="dmp-wstep-hint">{s4.hint}</p>
+              <div class="dmp-wfields">
+                <div class="dmp-field">
+                  <label for="rq-nom">Nom complet <span aria-hidden="true">*</span></label>
+                  <input id="rq-nom" name="Nom" type="text" autocomplete="name" required placeholder="Votre nom et prénom" />
+                </div>
+                <div class="dmp-field">
+                  <label for="rq-etab">Nom de l’établissement</label>
+                  <input id="rq-etab" name="Etablissement" type="text" autocomplete="organization" placeholder="Ex. : Laboratoire Anfa" />
+                </div>
+                <div class="dmp-field">
+                  <label for="rq-tel">Téléphone <span aria-hidden="true">*</span></label>
+                  <input id="rq-tel" name="Telephone" type="tel" autocomplete="tel" required placeholder="06 00 00 00 00" />
+                </div>
+                <div class="dmp-field">
+                  <label for="rq-email">E-mail <span aria-hidden="true">*</span></label>
+                  <input id="rq-email" name="Email" type="email" autocomplete="email" required placeholder="vous@etablissement.ma" />
+                </div>
+                <div class="dmp-field is-full">
+                  <label for="rq-msg">Message</label>
+                  <textarea id="rq-msg" name="Message" rows="3" placeholder="Une précision sur vos déchets, vos locaux ou vos disponibilités…"></textarea>
+                </div>
+                <label class="dmp-consent is-full">
+                  <input type="checkbox" name="Consentement" value="oui" required />
+                  <span>J’accepte que DMP Services utilise ces informations pour répondre à ma demande. <span aria-hidden="true">*</span></span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <p class="dmp-wizard-error" role="alert" hidden data-error></p>
+
+          <div class="dmp-wnav">
+            <button type="button" class="dmp-wback" data-back hidden><span set:html={icon('back', 18, 1.8)} />Retour</button>
+            <button type="button" class="dmp-btn is-primary dmp-wnext" data-next><span>Continuer</span><span class="dmp-btn-arrow" set:html={icon('arrow', 18, 1.8)} /></button>
+            <button type="submit" class="dmp-btn is-primary dmp-wsubmit" data-submit hidden><span data-submit-label>Envoyer la demande</span><span class="dmp-btn-arrow" set:html={icon('send', 18, 1.7)} /></button>
+            <button type="button" class="dmp-btn is-secondary dmp-wwa" data-wa hidden><span class="dmp-wa-ico" set:html={icon('whatsapp', 18, 1.7)} /><span>Envoyer par WhatsApp</span></button>
+          </div>
+        </form>
+
+        <!-- après l'envoi -->
+        <div class="dmp-wdone" data-done hidden tabindex="-1">
+          <span class="dmp-icon-tile" set:html={icon('check', 26, 2)} />
+          <h3 class="dmp-h3">Demande envoyée</h3>
+          <p>{b.success}</p>
+          <p class="dmp-wdone-ref">Référence : <strong data-ref-copy></strong></p>
+          <button type="button" class="dmp-btn is-secondary" data-restart>Faire une nouvelle demande</button>
+        </div>
+        <p class="dmp-wfail" role="alert" hidden data-fail>{b.error}</p>
+      </div>
+
+      <!-- bordereau en direct -->
+      <aside class="dmp-slip-wrap" aria-label="Récapitulatif de votre demande" data-reveal>
+        <div class="dmp-slip" data-slip>
+          <div class="dmp-slip-head">
+            <img src={config.site.logo} alt="DMP Services" width="333" height="180" />
+            <div>
+              <p class="dmp-slip-title">{b.slip.title}</p>
+              <p class="dmp-slip-sub">{b.slip.subtitle}</p>
+            </div>
+          </div>
+          <div class="dmp-slip-ids">
+            <span>N° <strong data-ref>DMP-…</strong></span>
+            <span>Date <strong data-date>…</strong></span>
+          </div>
+
+          <dl class="dmp-slip-rows">
+            <div class="dmp-slip-row" data-row="type"><dt>Établissement</dt><dd data-out="type" data-empty="À choisir">À choisir</dd></div>
+            <div class="dmp-slip-row" data-row="needs"><dt>Besoins</dt><dd><ul class="dmp-slip-needs" data-out-needs>{s2.options.map((o: any) => <li data-need={o.label}><span class="dmp-slip-box" set:html={icon('check', 11, 3)} />{o.label}</li>)}</ul></dd></div>
+            <div class="dmp-slip-row" data-row="rhythm"><dt>Volume · fréquence</dt><dd data-out="rhythm" data-empty="À préciser">À préciser</dd></div>
+            <div class="dmp-slip-row" data-row="who"><dt>Contact</dt><dd data-out="who" data-empty="À compléter">À compléter</dd></div>
+          </dl>
+
+          <div class="dmp-slip-foot">
+            <div class="dmp-slip-progress"><span data-fill></span></div>
+            <p><span data-done-count>0</span>/4 rubriques complétées</p>
+          </div>
+          <div class="dmp-slip-sign">
+            <span>Cachet DMP Services</span>
+          </div>
+          <div class="dmp-stamp" data-stamp aria-hidden="true">
+            <span>{b.slip.stamp}</span>
+            <small data-stamp-date></small>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-wizard]');
+  const slip = document.querySelector<HTMLElement>('[data-slip]');
+  if (root && slip) {
+    const form = root.querySelector<HTMLFormElement>('[data-form]')!;
+    const steps = [...root.querySelectorAll<HTMLElement>('.dmp-wstep')];
+    const segs = [...root.querySelectorAll<HTMLElement>('[data-seg]')];
+    const stepNum = root.querySelector<HTMLElement>('[data-step-num]');
+    const back = root.querySelector<HTMLButtonElement>('[data-back]')!;
+    const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
+    const submit = root.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const wa = root.querySelector<HTMLButtonElement>('[data-wa]')!;
+    const error = root.querySelector<HTMLElement>('[data-error]')!;
+    const done = root.querySelector<HTMLElement>('[data-done]')!;
+    const fail = root.querySelector<HTMLElement>('[data-fail]')!;
+    const endpoint = root.dataset.endpoint || '';
+    let current = 0;
+
+    // ---------- référence et date du bordereau
+    const now = new Date();
+    const pad = (n: number) => String(n).padStart(2, '0');
+    const ref = `DMP-${String(now.getFullYear()).slice(2)}${pad(now.getMonth() + 1)}${pad(now.getDate())}-${Math.floor(1000 + Math.random() * 9000)}`;
+    const dateLabel = new Intl.DateTimeFormat('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' }).format(now);
+    slip.querySelector('[data-ref]')!.textContent = ref;
+    slip.querySelector('[data-date]')!.textContent = dateLabel;
+    slip.querySelector('[data-stamp-date]')!.textContent = dateLabel;
+    root.querySelector('[data-ref-copy]')!.textContent = ref;
+
+    // ---------- lecture de la demande
+    const read = () => {
+      const fd = new FormData(form);
+      return {
+        type: String(fd.get('Type') ?? ''),
+        needs: fd.getAll('Besoins').map(String),
+        volume: String(fd.get('Volume') ?? ''),
+        frequency: String(fd.get('Frequence') ?? ''),
+        name: String(fd.get('Nom') ?? '').trim(),
+        etab: String(fd.get('Etablissement') ?? '').trim(),
+        tel: String(fd.get('Telephone') ?? '').trim(),
+        email: String(fd.get('Email') ?? '').trim(),
+        message: String(fd.get('Message') ?? '').trim(),
+      };
+    };
+
+    // ---------- bordereau en direct
+    const setOut = (key: string, value: string) => {
+      const el = slip.querySelector<HTMLElement>(`[data-out="${key}"]`);
+      if (!el) return;
+      const text = value || el.dataset.empty || '';
+      if (el.textContent === text) return;
+      el.textContent = text;
+      el.classList.toggle('is-empty', !value);
+      const row = el.closest('.dmp-slip-row');
+      row?.classList.remove('is-updated');
+      void (row as HTMLElement | null)?.offsetWidth;
+      if (value) row?.classList.add('is-updated');
+    };
+    const render = () => {
+      const r = read();
+      setOut('type', [r.type, r.etab].filter(Boolean).join(' · '));
+      slip.querySelectorAll<HTMLElement>('[data-need]').forEach((li) => li.classList.toggle('is-on', r.needs.includes(li.dataset.need!)));
+      setOut('rhythm', [r.volume, r.frequency].filter(Boolean).join(' · '));
+      setOut('who', [r.name, r.tel, r.email].filter(Boolean).join('\n'));
+      const count = [r.type, r.needs.length, r.volume || r.frequency, r.name && (r.tel || r.email)].filter(Boolean).length;
+      slip.querySelector('[data-done-count]')!.textContent = String(count);
+      slip.querySelector<HTMLElement>('[data-fill]')!.style.transform = `scaleX(${count / 4})`;
+      slip.querySelector('[data-row="needs"]')?.classList.toggle('has-value', r.needs.length > 0);
+    };
+
+    // ---------- navigation entre les étapes
+    const show = (i: number) => {
+      current = Math.max(0, Math.min(steps.length - 1, i));
+      steps.forEach((s, k) => {
+        s.classList.toggle('is-active', k === current);
+        s.classList.toggle('is-before', k < current);
+        s.toggleAttribute('inert', k !== current);
+      });
+      segs.forEach((s, k) => {
+        s.classList.toggle('is-done', k < current);
+        s.classList.toggle('is-current', k === current);
+      });
+      if (stepNum) stepNum.textContent = `Étape ${current + 1}`;
+      const last = current === steps.length - 1;
+      back.hidden = current === 0;
+      next.hidden = last;
+      submit.hidden = !last;
+      wa.hidden = !last;
+      error.hidden = true;
+    };
+
+    const stepError = (i: number): string => {
+      const r = read();
+      if (i === 0 && !r.type) return 'Choisissez votre type d’établissement.';
+      if (i === 1 && !r.needs.length) return 'Choisissez au moins un besoin.';
+      if (i === 3) {
+        const req = [...steps[3].querySelectorAll<HTMLInputElement>('[required]')];
+        const bad = req.filter((el) => !el.checkValidity());
+        steps[3].querySelectorAll('.is-invalid').forEach((el) => el.classList.remove('is-invalid'));
+        bad.forEach((el) => (el.closest('.dmp-field, .dmp-consent') ?? el).classList.add('is-invalid'));
+        if (bad.length) {
+          bad[0].focus();
+          return 'Merci de compléter les champs obligatoires (*).';
+        }
+      }
+      return '';
+    };
+    const tryNext = () => {
+      const msg = stepError(current);
+      if (msg) {
+        error.textContent = msg;
+        error.hidden = false;
+        root.classList.remove('is-shake');
+        void root.offsetWidth;
+        root.classList.add('is-shake');
+        return;
+      }
+      show(current + 1);
+    };
+
+    next.addEventListener('click', tryNext);
+    back.addEventListener('click', () => show(current - 1));
+    form.addEventListener('change', (e) => {
+      render();
+      const t = e.target as HTMLInputElement;
+      // étape 1 : passage automatique à l'étape suivante après le choix
+      if (t.name === 'Type' && current === 0) setTimeout(() => show(1), 380);
+      if (t.closest('.dmp-field, .dmp-consent') && t.checkValidity()) t.closest('.dmp-field, .dmp-consent')?.classList.remove('is-invalid');
+    });
+    form.addEventListener('input', render);
+    form.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && (e.target as HTMLElement).tagName === 'INPUT' && current < steps.length - 1) {
+        e.preventDefault();
+        tryNext();
+      }
+    });
+
+    // ---------- message WhatsApp rédigé à partir des réponses
+    const summary = () => {
+      const r = read();
+      return [
+        `Bonjour DMP Services, voici ma demande (réf. ${ref}) :`,
+        `- Établissement : ${[r.type, r.etab].filter(Boolean).join(' · ') || 'non précisé'}`,
+        `- Besoins : ${r.needs.join(', ') || 'non précisés'}`,
+        `- Volume : ${r.volume || 'non précisé'} · Fréquence : ${r.frequency || 'non précisée'}`,
+        `- Contact : ${[r.name, r.tel, r.email].filter(Boolean).join(' · ') || 'non précisé'}`,
+        r.message ? `Message : ${r.message}` : '',
+      ]
+        .filter(Boolean)
+        .join('\n');
+    };
+    wa.addEventListener('click', () => {
+      window.open(`https://wa.me/${root.dataset.whatsapp}?text=${encodeURIComponent(summary())}`, '_blank', 'noopener');
+    });
+
+    // ---------- envoi
+    const stamp = () => {
+      slip.classList.add('is-stamped');
+    };
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = stepError(3);
+      if (msg) {
+        error.textContent = msg;
+        error.hidden = false;
+        return;
+      }
+      fail.hidden = true;
+      submit.disabled = true;
+      const label = submit.querySelector('[data-submit-label]')!;
+      label.textContent = 'Envoi en cours…';
+      let ok = true;
+      if (endpoint) {
+        try {
+          const fd = new FormData(form);
+          fd.set('Besoins', read().needs.join(', '));
+          fd.append('Reference', ref);
+          fd.append('form-name', 'Demande DMP');
+          const res = await fetch(endpoint, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+          ok = res.ok;
+        } catch {
+          ok = false;
+        }
+      }
+      submit.disabled = false;
+      label.textContent = 'Envoyer la demande';
+      if (!ok) {
+        fail.hidden = false;
+        return;
+      }
+      stamp();
+      form.hidden = true;
+      root.querySelector('.dmp-progress')?.classList.add('is-complete');
+      segs.forEach((s) => s.classList.add('is-done'));
+      done.hidden = false;
+      done.focus();
+    });
+
+    root.querySelector('[data-restart]')?.addEventListener('click', () => window.location.reload());
+
+    show(0);
+    render();
+  }
+</script>

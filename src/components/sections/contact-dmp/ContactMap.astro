@@ -1,0 +1,23 @@
+---
+/** Carte Google Maps de l'adresse, avec une carte d'informations par-dessus */
+import data from '@/data/contact.json';
+import Button from '@/components/dmp/Button.astro';
+import { icon } from '@/lib/icons';
+const m = data.map;
+const address = data.channels.find((c) => c.icon === 'pin');
+---
+
+<section class="dmp-section dmp-map-section">
+  <div class="container-main">
+    <div class="dmp-map" data-reveal>
+      <iframe src={m.embed} title="Carte : 10, Rue la Liberté, Casablanca" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="dmp-map-card">
+        <span class="dmp-icon-tile" set:html={icon('pin', 22)} />
+        <h2 class="dmp-h3">{m.title}</h2>
+        <p>{address?.value}</p>
+        <p class="dmp-map-note">{address?.note}</p>
+        {address && <Button href={address.href} label="Itinéraire" variant="secondary" arrow external />}
+      </div>
+    </div>
+  </div>
+</section>
