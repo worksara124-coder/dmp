@@ -1,30 +1,25 @@
 ---
-/** 05 — Nos services : 6 cartes numérotées avec icône, titre, description et lien (sans photo) */
+/** 05 — Nos services : 6 cartes numérotées avec icône, titre et description (sans photo, sans lien) */
 import data from '@/data/accueil.json';
 import SectionHead from '@/components/dmp/SectionHead.astro';
-import Button from '@/components/dmp/Button.astro';
 import { icon } from '@/lib/icons';
 const s = data.services;
 ---
 
 <section class="dmp-section dmp-svc">
   <div class="container-main">
-    <div class="dmp-head-row">
-      <SectionHead eyebrow={s.eyebrow} title={s.title} text={s.text} />
-      <div class="dmp-head-action" data-reveal><Button href={s.button.url} label={s.button.label} variant="secondary" arrow /></div>
-    </div>
+    <SectionHead eyebrow={s.eyebrow} title={s.title} text={s.text} />
     <ul class="dmp-svc-cards" role="list">
       {s.items.map((item, i) => (
         <li data-reveal>
-          <a href={item.url} class="dmp-svc-card">
+          <div class="dmp-svc-card">
             <span class="dmp-svc-card-top">
               <span class="dmp-icon-tile" set:html={icon(item.icon, 24)} />
               <span class="dmp-svc-card-num">{String(i + 1).padStart(2, '0')}/</span>
             </span>
             <h3 class="dmp-h3">{item.title}</h3>
             <span class="dmp-svc-card-text">{item.text}</span>
-            <span class="dmp-link">En savoir plus <span set:html={icon('arrow', 16, 1.8)} /></span>
-          </a>
+          </div>
         </li>
       ))}
     </ul>

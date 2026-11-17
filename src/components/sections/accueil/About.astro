@@ -1,7 +1,6 @@
 ---
 /** 04 — À propos (sans photo) : texte qui se colore mot à mot au défilement, chiffres clés à rouleaux, bouton */
 import data from '@/data/accueil.json';
-import Button from '@/components/dmp/Button.astro';
 const a = data.about;
 const words = a.statement.split(' ');
 ---
@@ -10,12 +9,13 @@ const words = a.statement.split(' ');
   <div class="container-main">
     <div class="dmp-about-grid is-text">
       <div class="dmp-about-content">
+        <div class="dmp-about-left">
         <span class="dmp-eyebrow" data-reveal>({a.eyebrow})</span>
         <h2 class="dmp-sr">{a.title}</h2>
         <p class="dmp-statement" data-scrub>
           {words.map((w) => <span class="dmp-word">{w} </span>)}
         </p>
-        <div data-reveal><Button href={a.button.url} label={a.button.label} variant="primary" arrow /></div>
+        </div>
         <dl class="dmp-stats" data-reveal>
           {a.stats.map((s) => {
             const m = s.value.match(/^(\d+)(.*)$/);

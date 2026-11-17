@@ -28,6 +28,7 @@ const link = currentLinkProps(href, Astro.url.pathname, classes);
   data-wf-component-id={c.id}
   data-wf-variant-state={onDark ? c.onDarkVariant : 'base'}
   href={href}
+  {...(/^https?:/.test(href) ? { target: '_blank', rel: 'noopener' } : {})}
   {...link}
 >
   <div class="button-text-mask">
