@@ -2,13 +2,9 @@
 import SeoMeta, { type Props as SeoProps } from '@/components/SeoMeta.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
+import FloatingContact from '@/components/layout/FloatingContact.astro';
 
 // Stylesheet order matches the template: normalize -> webflow -> theme -> interactions -> lenis -> dmp
-// Police de la charte : Poppins, auto-hébergée (paquet @fontsource/poppins)
-import '@fontsource/poppins/latin-400.css';
-import '@fontsource/poppins/latin-500.css';
-import '@fontsource/poppins/latin-600.css';
-import '@fontsource/poppins/latin-700.css';
 import '@/styles/normalize.css';
 import '@/styles/webflow.css';
 import '@/styles/alphawave.css';
@@ -37,6 +33,7 @@ const WF_SITE = '6abf3fb2113c777049f29442';
 <!doctype html>
 <html data-wf-page={wfPage} data-wf-site={WF_SITE} lang="fr">
   <head>
+    <link rel="preload" href="/fonts/poppins-500.woff2" as="font" type="font/woff2" crossorigin />
     <SeoMeta {...seo} />
     <script is:inline>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
     <link href="/images/favicon.png" rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" />
@@ -57,6 +54,7 @@ const WF_SITE = '6abf3fb2113c777049f29442';
             <slot />
           </main>
           <Footer wfPage={wfPage} />
+          <FloatingContact />
         </>
       )}
     </div>

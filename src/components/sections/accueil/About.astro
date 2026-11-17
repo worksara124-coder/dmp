@@ -1,5 +1,5 @@
 ---
-/** 04 — À propos : texte qui se colore mot à mot au défilement, chiffres clés à rouleaux, bouton */
+/** 04 — À propos (sans photo) : texte qui se colore mot à mot au défilement, chiffres clés à rouleaux, bouton */
 import data from '@/data/accueil.json';
 import Button from '@/components/dmp/Button.astro';
 const a = data.about;
@@ -8,10 +8,7 @@ const words = a.statement.split(' ');
 
 <section class="dmp-section dmp-about is-white">
   <div class="container-main">
-    <div class="dmp-about-grid">
-      <div class="dmp-about-media" data-reveal>
-        <img src={a.image.url} alt={a.image.alt} loading="lazy" width="1400" height="998" />
-      </div>
+    <div class="dmp-about-grid is-text">
       <div class="dmp-about-content">
         <span class="dmp-eyebrow" data-reveal>({a.eyebrow})</span>
         <h2 class="dmp-sr">{a.title}</h2>

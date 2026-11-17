@@ -1,23 +1,55 @@
 ---
-/** 12 — CTA final : grande photo assombrie, texte centré, « Demander un devis » / « Contactez-nous » */
+/**
+ * 12 — CTA final, effet « bandes » (reproduction de la section « Layers » de Nacre) :
+ * 1. un grand mot en dégradé monte jusqu'au centre de l'écran ;
+ * 2. la photo arrive découpée en 7 bandes aux bords ondulés, en perspective, qui recouvrent le mot ;
+ * 3. les bandes se resserrent jusqu'à former une image pleine largeur aux coins arrondis ;
+ * 4. l'image se voile, puis le titre apparaît du flou au net, avec le texte et les boutons.
+ * La section reste fixe pendant l'animation (pilotée par Reveal.astro, [data-layers]) et tout s'inverse en remontant.
+ */
 import data from '@/data/accueil.json';
 import Button from '@/components/dmp/Button.astro';
 const c = data.cta;
+const STRIPS = 7;
 ---
 
-<section class="dmp-section dmp-cta is-white">
-  <div class="container-main">
-    <div class="dmp-cta-card" data-reveal>
-      <img src={c.image.url} alt="" loading="lazy" class="dmp-cta-bg" data-parallax="0.08" />
-      <div class="dmp-cta-content">
-        <span class="dmp-eyebrow">(Devis gratuit)</span>
+<section class="dmp-layers" data-layers style={`--n:${STRIPS}`}>
+  <div class="dmp-layers-sticky">
+    <p class="dmp-layers-word" aria-hidden="true"><span>{c.bigWord}</span></p>
+    <div class="dmp-layers-stage">
+      <div class="dmp-layers-frame">
+        <div class="dmp-layers-strips" aria-hidden="true">
+          {Array.from({ length: STRIPS }, (_, i) => (
+            <div class="dmp-layers-strip" style={`--i:${i}`}>
+              <img src={c.image.url} alt="" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="dmp-layers-veil" aria-hidden="true"></div>
+      <div class="container-main dmp-layers-content">
         <h2 class="dmp-h2">{c.title}</h2>
         <p class="dmp-lead">{c.text}</p>
         <div class="dmp-cta-buttons">
           <Button href={c.primary.url} label={c.primary.label} variant="primary" arrow />
-          <Button href={c.secondary.url} label={c.secondary.label} variant="light" />
+          <Button href={c.secondary.url} label={c.secondary.label} variant="secondary" />
         </div>
       </div>
+      <button type="button" class="dmp-layers-pause" data-layers-pause aria-label="Mettre l'animation de la photo en pause">
+        <svg class="i-pause" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+        <svg class="i-play" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg>
+      </button>
     </div>
   </div>
 </section>
+
+<script>
+  // bouton pause : arrête le léger mouvement continu de la photo
+  document.querySelectorAll<HTMLButtonElement>('[data-layers-pause]').forEach((btn) => {
+    const section = btn.closest<HTMLElement>('[data-layers]');
+    btn.addEventListener('click', () => {
+      const paused = section?.classList.toggle('is-paused') ?? false;
+      btn.setAttribute('aria-label', paused ? "Relancer l'animation de la photo" : "Mettre l'animation de la photo en pause");
+    });
+  });
+</script>

@@ -1,5 +1,5 @@
 ---
-/** 06 — Pourquoi nous choisir : section sombre, deux photos, 4 avantages */
+/** 06 — Pourquoi nous choisir : section sombre, 4 avantages */
 import data from '@/data/accueil.json';
 import { icon } from '@/lib/icons';
 const w = data.why;
@@ -10,9 +10,6 @@ const w = data.why;
     <div class="dmp-why-head">
       <span class="dmp-eyebrow" data-reveal>({w.eyebrow})</span>
       <h2 class="dmp-h2 dmp-why-title" data-reveal>{w.title}</h2>
-    </div>
-    <div class="dmp-why-images">
-      {w.images.map((img) => <div class="dmp-why-img" data-reveal><img src={img.url} alt={img.alt} loading="lazy" data-parallax="0.06" /></div>)}
     </div>
     <ul class="dmp-why-grid" role="list">
       {w.items.map((item) => (

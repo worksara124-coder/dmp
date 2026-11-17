@@ -17,7 +17,7 @@
   "navigation_buttons": [
     {
       "label": "Demander un devis",
-      "link": "/devis/",
+      "link": "/contact/#demande",
       "variant": "primary"
     },
     {

@@ -1,28 +1,11 @@
 ---
 // Hero de la page d'accueil (styles : src/styles/dmp.css, section « Hero accueil »)
 // Animations d'entrée : attributs data-hero (ordre via --i), déclenchées par html.dmp-ready (voir Intro.astro et accueil.css)
-import data from '@/data/accueil.json';
-const slides = data.hero.slides;
 ---
 
 <section class="section_home-hero dmp-hero">
   <div class="dmp-hero-bg">
     <img src="/images/dmp/dmp-hero-agents.webp" loading="eager" fetchpriority="high" sizes="100vw" srcset="/images/dmp/dmp-hero-agents-p-500.webp 500w, /images/dmp/dmp-hero-agents-p-800.webp 800w, /images/dmp/dmp-hero-agents-p-1080.webp 1080w, /images/dmp/dmp-hero-agents.webp 1600w" alt="Deux agents DMP Services en tenue de travail avec un conteneur jaune pour DASRI, devant un véhicule de collecte" class="dmp-hero-image" width="1600" height="800">
-    <div class="dmp-slides" data-hero style="--i:6" data-slides>
-      <div class="dmp-slides-media">
-        {slides.map((sl, k) => <img src={sl.image} alt="" loading="lazy" class:list={[k === 0 && 'is-active']} />)}
-        <button type="button" class="dmp-slides-pause" data-slides-pause aria-label="Mettre le diaporama en pause">
-          <svg class="i-pause" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
-          <svg class="i-play" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg>
-        </button>
-      </div>
-      <div class="dmp-slides-captions" aria-live="polite">
-        {slides.map((sl, k) => <p class:list={[k === 0 && 'is-active']}>{sl.title}</p>)}
-      </div>
-      <div class="dmp-slides-dots">
-        {slides.map((sl, k) => <button type="button" class:list={[k === 0 && 'is-active']} data-slide={k} aria-label={`Afficher : ${sl.title}`}><span></span></button>)}
-      </div>
-    </div>
   </div>
   <div class="dmp-hero-veil" aria-hidden="true"></div>
   <div class="w-layout-blockcontainer container-main w-container">
@@ -69,37 +52,3 @@ const slides = data.hero.slides;
     </div>
   </div>
 </section>
-
-<script>
-  // Diaporama de la carte du hero : 4 s par image, pause au bouton, points cliquables
-  document.querySelectorAll<HTMLElement>('[data-slides]').forEach((root) => {
-    const imgs = [...root.querySelectorAll<HTMLElement>('.dmp-slides-media img')];
-    const caps = [...root.querySelectorAll<HTMLElement>('.dmp-slides-captions p')];
-    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-slide]')];
-    const pause = root.querySelector<HTMLButtonElement>('[data-slides-pause]');
-    let i = 0;
-    let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let timer = 0;
-    const show = (n: number) => {
-      i = (n + imgs.length) % imgs.length;
-      [imgs, caps, dots].forEach((list) => list.forEach((el, k) => el.classList.toggle('is-active', k === i)));
-      dots.forEach((d) => d.classList.remove('is-running'));
-      if (!paused) requestAnimationFrame(() => dots[i]?.classList.add('is-running'));
-    };
-    const start = () => {
-      clearInterval(timer);
-      if (!paused) timer = window.setInterval(() => show(i + 1), 4000);
-    };
-    dots.forEach((d) => d.addEventListener('click', () => { show(Number(d.dataset.slide)); start(); }));
-    pause?.addEventListener('click', () => {
-      paused = !paused;
-      root.classList.toggle('is-paused', paused);
-      pause.setAttribute('aria-label', paused ? 'Relancer le diaporama' : 'Mettre le diaporama en pause');
-      show(i);
-      start();
-    });
-    root.classList.toggle('is-paused', paused);
-    show(0);
-    start();
-  });
-</script>

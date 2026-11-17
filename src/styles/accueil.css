@@ -1404,59 +1404,223 @@ html.dmp-static .dmp-stack-card {
 }
 
 /* =========================================================
-   12 — CTA final : grande photo assombrie
+   12 — CTA final : photo en bandes (reproduction de « Layers », Nacre)
+   Variables pilotées par Reveal.astro : --word, --q, --text (0 → 1)
    ========================================================= */
-.dmp-cta {
-  padding-top: 1rem;
-}
-.dmp-cta-card {
+.dmp-layers {
+  --word: 1;
+  --q: 1;
+  --text: 1;
   position: relative;
+  background-color: var(--dmp-beige, #f8f6f3);
+}
+html:not(.dmp-static) .dmp-layers {
+  height: 320vh;
+  --word: 0;
+  --q: 0;
+  --text: 0;
+}
+.dmp-layers-sticky {
+  position: relative;
+  height: 100vh;
+  min-height: 34rem;
+  overflow: clip;
+}
+html:not(.dmp-static) .dmp-layers-sticky {
+  position: sticky;
+  top: 0;
+}
+
+/* 1. grand mot en dégradé, qui monte jusqu'au centre */
+.dmp-layers-word {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 32rem;
-  overflow: hidden;
-  border-radius: 28px;
-  isolation: isolate;
+  margin: 0;
+  pointer-events: none;
 }
-.dmp-cta-bg {
+.dmp-layers-word span {
+  display: block;
+  padding: 0 .05em .12em;
+  background: linear-gradient(180deg, #e4ebe4 0%, #c6d3c7 45%, #9fb3a1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: var(--font-poppins);
+  font-size: clamp(3.5rem, 15vw, 15rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+  opacity: calc(.2 + var(--word) * .8);
+  transform: translateY(calc((1 - var(--word)) * 32vh));
+}
+
+/* 2-3. bandes ; le cadre garde une petite marge et des coins arrondis une fois recomposé */
+.dmp-layers-stage {
   position: absolute;
   inset: 0;
-  z-index: -2;
-  width: 100%;
+  z-index: 1;
+}
+.dmp-layers-frame {
+  position: absolute;
+  inset: .5rem;
+  border-radius: 18px;
+}
+.dmp-layers-strips {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  filter: blur(calc(var(--text) * 2px));
+  transition: filter .2s linear;
+}
+.dmp-layers-strip {
+  position: relative;
+  flex: 1 1 0;
+  height: 100%;
+  margin-right: -1px; /* recouvrement d'1 px : aucune ligne une fois recomposée */
+  overflow: hidden;
+  opacity: 0;
+  transform-origin: center center;
+  will-change: transform, clip-path;
+}
+html.dmp-static .dmp-layers-strip {
+  opacity: 1;
+}
+.dmp-layers-strip:first-child {
+  border-radius: 18px 0 0 18px;
+}
+.dmp-layers-strip:last-child {
+  margin-right: 0;
+  border-radius: 0 18px 18px 0;
+}
+.dmp-layers-strip img {
+  position: absolute;
+  top: 0;
+  left: calc(-100% * var(--i));
+  width: calc(100% * var(--n));
+  max-width: none;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.12);
-  will-change: transform;
+  object-position: 50% 40%;
+  transform-origin: 50% 50%;
 }
-.dmp-cta-card::before {
-  content: '';
+/* léger mouvement continu de la photo, comme une vidéo (arrêté par le bouton pause) */
+.dmp-layers-strips {
+  animation: dmp-layers-drift 16s ease-in-out infinite alternate;
+}
+.dmp-layers.is-paused .dmp-layers-strips {
+  animation-play-state: paused;
+}
+@keyframes dmp-layers-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+.dmp-layers-frame {
+  overflow: visible;
+}
+.dmp-layers.is-joined .dmp-layers-frame,
+html.dmp-static .dmp-layers-frame {
+  overflow: hidden;
+}
+
+/* 4. voile clair puis texte du flou au net */
+.dmp-layers-veil {
   position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(180deg, rgba(31, 42, 36, .55) 0%, rgba(31, 42, 36, .82) 100%);
+  inset: .5rem;
+  z-index: 1;
+  border-radius: 18px;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(248, 246, 243, .95) 0%, rgba(248, 246, 243, .72) 26%, rgba(248, 246, 243, .18) 58%, rgba(248, 246, 243, .1) 100%),
+    linear-gradient(90deg, rgba(248, 246, 243, .45) 0%, rgba(248, 246, 243, 0) 50%);
+  opacity: var(--text);
 }
-.dmp-cta-content {
-  max-width: 40rem;
-  padding: 3rem 1.5rem;
-  text-align: center;
+.dmp-layers-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4.5rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: none;
 }
-.dmp-cta-content .dmp-eyebrow {
-  color: #7fd481;
+.dmp-layers-content > * {
+  opacity: var(--text);
+  filter: blur(calc((1 - var(--text)) * 10px));
+  transform: translateY(calc((1 - var(--text)) * 12px));
 }
-.dmp-cta-content .dmp-h2 {
-  color: #fff;
-  font-size: 2.5rem;
+.dmp-layers-content > .dmp-lead {
+  opacity: clamp(0, calc(var(--text) * 1.4 - .4), 1);
 }
-.dmp-cta-content .dmp-lead {
-  color: rgba(255, 255, 255, .82);
+.dmp-layers-content > .dmp-cta-buttons {
+  opacity: clamp(0, calc(var(--text) * 1.8 - .8), 1);
+}
+.dmp-layers.is-text .dmp-layers-content,
+html.dmp-static .dmp-layers-content {
+  pointer-events: auto;
+}
+.dmp-layers-content .dmp-h2 {
+  max-width: 36rem;
+  font-size: 3rem;
+  line-height: 1.1;
+}
+.dmp-layers-content .dmp-lead {
+  max-width: 32rem;
+  margin-top: 1.125rem;
+  color: #4d5852;
 }
 .dmp-cta-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: .75rem;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
+}
+/* bouton pause (carré, coins arrondis) */
+.dmp-layers-pause {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, .9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--dmp-anthracite);
+  cursor: pointer;
+  opacity: clamp(0, calc(var(--word) * 2 - 1), 1);
+  box-shadow: 0 4px 14px -6px rgba(31, 42, 36, .3);
+}
+.dmp-layers-pause .i-play,
+.dmp-layers.is-paused .dmp-layers-pause .i-pause {
+  display: none;
+}
+.dmp-layers.is-paused .dmp-layers-pause .i-play {
+  display: block;
+}
+.dmp-layers-pause:focus-visible {
+  outline: 2px solid var(--dmp-green-dark);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dmp-layers-strips {
+    animation: none;
+  }
+  .dmp-layers-pause {
+    display: none;
+  }
 }
 
 /* =========================================================
@@ -1516,8 +1680,7 @@ html.dmp-static .dmp-stack-card {
     padding: 3.5rem 0;
   }
   .dmp-h2,
-  .dmp-why-title,
-  .dmp-cta-content .dmp-h2 {
+  .dmp-why-title {
     font-size: 1.625rem;
   }
   .dmp-head-row {
@@ -1592,12 +1755,22 @@ html.dmp-static .dmp-stack-card {
     gap: 1rem;
     margin-top: 2rem;
   }
-  .dmp-cta-card {
-    min-height: 28rem;
-    border-radius: 20px;
+  .dmp-layers-content {
+    bottom: 2.5rem;
+  }
+  .dmp-layers-content .dmp-h2 {
+    font-size: 2rem;
+  }
+  .dmp-layers-pause {
+    right: 1.25rem;
+    bottom: 1.25rem;
+  }
+  .dmp-layers-veil {
+    background: linear-gradient(0deg, rgba(248, 246, 243, .98) 0%, rgba(248, 246, 243, .9) 45%, rgba(248, 246, 243, 0) 78%);
   }
   .dmp-cta-buttons {
     flex-direction: column;
+    width: 100%;
   }
   .dmp-cta-buttons .dmp-btn {
     width: 100%;

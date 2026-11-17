@@ -20,7 +20,6 @@ const arrowUp = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" str
     {posts.map((post) => (
       <li class="dmp-post">
         <a href={`/blog/${post.slug}`} draggable="false">
-          <span class="dmp-post-media"><img src={post.mainImage.url} alt={post.mainImage.alt} loading="lazy" draggable="false" /></span>
           <span class="dmp-post-meta"><time datetime={post.publishedDate.toISOString()}>{formatDate(post.publishedDate)}</time>{post.category && <><span class="dmp-post-sep">/</span>{post.category}</>}</span>
           <span class="dmp-post-title">
             <span>{post.title}</span>

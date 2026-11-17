@@ -27,7 +27,7 @@
         "label": "secteurs de santé accompagnés"
       },
       {
-        "value": "12 ans",
+        "value": "3 ans",
         "label": "d’archivage de vos documents"
       },
       {
@@ -57,7 +57,8 @@
         "image": {
           "url": "/images/dmp/dmp-agents-collecte.webp",
           "alt": "Agents DMP Services préparant une collecte"
-        }
+        },
+        "icon": "truck"
       },
       {
         "title": "Traitement des DASRI",
@@ -66,7 +67,8 @@
         "image": {
           "url": "/images/dmp/dmp-prise-en-charge.webp",
           "alt": "Étapes de prise en charge des DASRI : collecte, transport, traitement, traçabilité"
-        }
+        },
+        "icon": "flame"
       },
       {
         "title": "Tri et formation",
@@ -75,7 +77,8 @@
         "image": {
           "url": "/images/dmp/dmp-reunion-equipe.webp",
           "alt": "Formation d’une équipe soignante au tri des DASRI"
-        }
+        },
+        "icon": "training"
       },
       {
         "title": "Emballages DASRI",
@@ -84,7 +87,8 @@
         "image": {
           "url": "/images/dmp/dmp-equipe-sensibilisation.webp",
           "alt": "Présentation d’un conteneur homologué pour DASRI"
-        }
+        },
+        "icon": "package"
       },
       {
         "title": "Audit et diagnostic",
@@ -93,7 +97,8 @@
         "image": {
           "url": "/images/dmp/dmp-audit-cabinet-medical.webp",
           "alt": "Audit des pratiques de tri dans un cabinet médical"
-        }
+        },
+        "icon": "audit"
       },
       {
         "title": "Traçabilité",
@@ -102,7 +107,8 @@
         "image": {
           "url": "/images/dmp/dmp-bordereaux-archives.webp",
           "alt": "Archivage des bordereaux de suivi des DASRI"
-        }
+        },
+        "icon": "file"
       }
     ]
   },
@@ -129,16 +135,6 @@
         "icon": "shield",
         "title": "Prise en charge complète",
         "text": "Collecte, transport, traitement et suivi documentaire : un seul prestataire, de l’audit à l’archivage."
-      }
-    ],
-    "images": [
-      {
-        "url": "/images/dmp/dmp-agente-tablette.webp",
-        "alt": "Agente DMP Services avec une tablette de suivi"
-      },
-      {
-        "url": "/images/dmp/dmp-equipe-sensibilisation.webp",
-        "alt": "Sensibilisation d’une équipe au tri des DASRI"
       }
     ]
   },
@@ -300,33 +296,15 @@
       "url": "/contact/"
     },
     "image": {
-      "url": "/images/dmp/dmp-agents-collecte.webp"
-    }
+      "url": "/images/dmp/dmp-reunion-equipe-large.webp",
+      "alt": "Équipe DMP Services échangeant avec un établissement de santé"
+    },
+    "bigWord": "Conformité."
   },
   "contact": {
     "address": "10, Rue la Liberté, 3ème étage, Casablanca",
     "phone": "06 01 45 29 24",
     "phoneHref": "tel:+212601452924",
     "email": "contact@dmpservices.ma"
-  },
-  "hero": {
-    "slides": [
-      {
-        "title": "Collecte sur appel par un agent formé ADR",
-        "image": "/images/dmp/dmp-agents-collecte.webp"
-      },
-      {
-        "title": "Formation de vos équipes au tri",
-        "image": "/images/dmp/dmp-reunion-equipe.webp"
-      },
-      {
-        "title": "Audit de vos pratiques sur place",
-        "image": "/images/dmp/dmp-audit-cabinet-medical.webp"
-      },
-      {
-        "title": "Bordereau à chaque collecte, archivé 3 ans",
-        "image": "/images/dmp/dmp-bordereaux-archives.webp"
-      }
-    ]
   }
 }

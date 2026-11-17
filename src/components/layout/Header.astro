@@ -25,6 +25,20 @@ const phone = config.site.whatsapp; // 212601452924
 const phoneLabel = `+${phone.slice(0, 3)} ${phone.slice(3, 4)} ${phone.slice(4, 6)} ${phone.slice(6, 8)} ${phone.slice(8, 10)} ${phone.slice(10)}`;
 
 const isCurrent = (url?: string) => !!url && normalizePath(url) === current;
+
+// Pages existantes (détectées dans src/pages) : un lien vers une page qui n'existe pas encore
+// est affiché grisé et non cliquable. Il se réactive tout seul quand la page est créée.
+const pageFiles = Object.keys(import.meta.glob('/src/pages/**/*.{astro,md,mdx}'));
+const routes = new Set(
+  pageFiles
+    .filter((f) => !f.includes('['))
+    .map((f) => normalizePath(f.replace('/src/pages', '').replace(/\.(astro|mdx?)$/, '').replace(/\/index$/, '') || '/')),
+);
+const isLive = (url?: string) => {
+  if (!url) return false;
+  if (/^(https?:|tel:|mailto:)/.test(url)) return true;
+  return routes.has(normalizePath(url.split('#')[0] || '/'));
+};
 const isActive = (item: Item) =>
   [item.url, ...(item.children ?? []).map((c) => c.url)]
     .filter(Boolean)
@@ -90,7 +104,7 @@ const brand = currentLinkProps('/', pathname, 'brand-logo-block w-nav-brand');
                   return (
                     <li class:list={['dmp-nav-item', hasChildren && 'has-children', isActive(item) && 'is-active']}>
                       <div class="dmp-nav-row">
-                        {item.url ? (
+                        {item.url && isLive(item.url) ? (
                           <a href={item.url} class="nav-link-item dmp-nav-link" aria-current={isCurrent(item.url) ? 'page' : undefined}>{item.name}</a>
                         ) : (
                           <span class="nav-link-item dmp-nav-link" tabindex="0">{item.name}</span>
@@ -106,17 +120,27 @@ const brand = currentLinkProps('/', pathname, 'brand-logo-block w-nav-brand');
                           <ul class="dmp-panel-grid" role="list">
                             {children.map((child) => (
                               <li>
-                                <a href={child.url} class="dmp-panel-link" aria-current={isCurrent(child.url) ? 'page' : undefined}>
-                                  <span class="dmp-panel-icon" set:html={svg(child.icon)} />
-                                  <span class="dmp-panel-text">
-                                    <span class="dmp-panel-title">{child.name}</span>
-                                    {child.desc && <span class="dmp-panel-desc">{child.desc}</span>}
+                                {isLive(child.url) ? (
+                                  <a href={child.url} class="dmp-panel-link" aria-current={isCurrent(child.url) ? 'page' : undefined}>
+                                    <span class="dmp-panel-icon" set:html={svg(child.icon)} />
+                                    <span class="dmp-panel-text">
+                                      <span class="dmp-panel-title">{child.name}</span>
+                                      {child.desc && <span class="dmp-panel-desc">{child.desc}</span>}
+                                    </span>
+                                  </a>
+                                ) : (
+                                  <span class="dmp-panel-link is-disabled" aria-disabled="true">
+                                    <span class="dmp-panel-icon" set:html={svg(child.icon)} />
+                                    <span class="dmp-panel-text">
+                                      <span class="dmp-panel-title">{child.name}</span>
+                                      {child.desc && <span class="dmp-panel-desc">{child.desc}</span>}
+                                    </span>
                                   </span>
-                                </a>
+                                )}
                               </li>
                             ))}
                           </ul>
-                          {item.url && item.all && (
+                          {item.url && item.all && isLive(item.url) && (
                             <a href={item.url} class="dmp-panel-all">
                               <span>{item.all}</span>
                               <span set:html={arrow} />
