@@ -17,7 +17,7 @@
   "navigation_buttons": [
     {
       "label": "Demander un devis",
-      "link": "/contact/#demande",
+      "link": "https://wa.me/212601452924?text=Bonjour%20DMP%20Services%2C%20je%20souhaite%20recevoir%20un%20devis%20pour%20la%20gestion%20de%20mes%20d%C3%A9chets%20m%C3%A9dicaux.",
       "variant": "primary"
     },
     {

@@ -1173,3 +1173,13 @@ body:has(.w-nav-button.w--open) .dmp-float {
   background-color: #eef0ee;
   color: var(--dmp-muted);
 }
+/* rubrique sans sous-menu désactivée (ex. Contact) */
+.dmp-nav-link.is-disabled {
+  cursor: default;
+}
+.dmp-nav-item:has(.dmp-nav-link.is-disabled):hover > .dmp-nav-row {
+  background-color: transparent !important;
+}
+.dmp-nav-item:has(.dmp-nav-link.is-disabled):hover .dmp-nav-link {
+  color: var(--dmp-anthracite) !important;
+}

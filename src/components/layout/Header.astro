@@ -34,8 +34,12 @@ const routes = new Set(
     .filter((f) => !f.includes('['))
     .map((f) => normalizePath(f.replace('/src/pages', '').replace(/\.(astro|mdx?)$/, '').replace(/\/index$/, '') || '/')),
 );
+// ONLY_HOME = true : tous les liens du menu sont désactivés, seul le logo (accueil) reste cliquable.
+// Passer à false pour réactiver automatiquement les liens vers les pages existantes.
+const ONLY_HOME = true;
 const isLive = (url?: string) => {
   if (!url) return false;
+  if (ONLY_HOME) return /^(https?:|tel:|mailto:)/.test(url);
   if (/^(https?:|tel:|mailto:)/.test(url)) return true;
   return routes.has(normalizePath(url.split('#')[0] || '/'));
 };
@@ -106,8 +110,10 @@ const brand = currentLinkProps('/', pathname, 'brand-logo-block w-nav-brand');
                       <div class="dmp-nav-row">
                         {item.url && isLive(item.url) ? (
                           <a href={item.url} class="nav-link-item dmp-nav-link" aria-current={isCurrent(item.url) ? 'page' : undefined}>{item.name}</a>
-                        ) : (
+                        ) : hasChildren ? (
                           <span class="nav-link-item dmp-nav-link" tabindex="0">{item.name}</span>
+                        ) : (
+                          <span class="nav-link-item dmp-nav-link is-disabled" aria-disabled="true">{item.name}</span>
                         )}
                         {hasChildren && (
                           <button type="button" class="dmp-nav-toggle" aria-expanded="false" aria-controls={panelId} aria-label={`Afficher le sous-menu ${item.name}`} set:html={chevron} />
