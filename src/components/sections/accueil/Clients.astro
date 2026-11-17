@@ -1,0 +1,27 @@
+---
+/**
+ * 03 — Clients et partenaires : bande de logos qui défile.
+ * Ajouter les logos dans src/data/accueil.json → clients.logos : [{ "url": "/images/clients/x.svg", "alt": "Nom" }]
+ * Tant que la liste est vide, des emplacements neutres s'affichent.
+ */
+import data from '@/data/accueil.json';
+const { title, logos } = data.clients as { title: string; logos: { url: string; alt: string }[] };
+const items = logos.length ? logos : Array.from({ length: 6 }, () => null);
+---
+
+<section class="dmp-section dmp-clients">
+  <div class="container-main">
+    <p class="dmp-clients-title" data-reveal>{title}</p>
+  </div>
+  <div class="dmp-marquee" data-reveal>
+    {[0, 1].map((copy) => (
+      <ul class="dmp-marquee-track" role="list" aria-hidden={copy === 1 ? 'true' : undefined}>
+        {items.map((logo) => (
+          <li class="dmp-logo-slot">
+            {logo ? <img src={logo.url} alt={copy === 0 ? logo.alt : ''} loading="lazy" /> : <span class="dmp-logo-placeholder">Logo client</span>}
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</section>

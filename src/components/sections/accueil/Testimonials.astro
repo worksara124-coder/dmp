@@ -1,0 +1,43 @@
+---
+/**
+ * 09 — Témoignages : fond sombre flouté, titre fixe au centre,
+ * cartes vitrées qui montent par-dessus pendant le défilement (vitesses différentes).
+ */
+import data from '@/data/accueil.json';
+import { star } from '@/lib/icons';
+const t = data.testimonials;
+// position et vitesse de chaque carte (gauche / droite en alternance)
+const slots = [
+  { top: 6, left: 4, speed: 0.10 },
+  { top: 18, left: 62, speed: 0.22 },
+  { top: 36, left: 10, speed: 0.16 },
+  { top: 50, left: 58, speed: 0.08 },
+  { top: 64, left: 2, speed: 0.20 },
+  { top: 76, left: 64, speed: 0.14 },
+];
+const cards = slots.map((slot, i) => ({ ...slot, ...t.items[i % t.items.length] }));
+---
+
+<section class="dmp-testi is-dark">
+  <div class="dmp-testi-stage" data-testi>
+    <div class="dmp-testi-sticky">
+      <div class="dmp-testi-bg" aria-hidden="true"><img src="/images/dmp/dmp-hero-agents.webp" alt="" loading="lazy" /></div>
+      <div class="dmp-testi-head">
+        <span class="dmp-eyebrow">({t.eyebrow})</span>
+        <h2 class="dmp-h2">{t.title}</h2>
+      </div>
+    </div>
+    <ul class="dmp-testi-cards" role="list">
+      {cards.map((c, i) => (
+        <li class="dmp-testi-glass" style={`--top:${c.top}%;--left:${c.left}%;--speed:${c.speed}`} aria-hidden={i >= t.items.length ? 'true' : undefined}>
+          <div class="dmp-testi-who">
+            <span class="dmp-testi-initial" aria-hidden="true">{c.role.charAt(0)}</span>
+            <span><strong>{c.role}</strong><small>{c.place}</small></span>
+          </div>
+          <blockquote>« {c.text} »</blockquote>
+          <span class="dmp-testi-rate" role="img" aria-label={`Note : ${c.rating} sur 5`}><span set:html={star} />{c.rating}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,743 @@
+[
+  {
+    "title": "Market Analyst",
+    "slug": "market-analyst",
+    "company": "harvest-table-group",
+    "location": "Chicago, IL",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Strategy",
+    "experience": "1-3 Years",
+    "monthlySalary": "$5,300",
+    "salaryRange": "$58K - $68K",
+    "postedDate": "2026-10-02T09:00:00.000Z",
+    "featuredOnHome": true,
+    "showInRelated": true,
+    "shortSummary": "Harvest Table Group is hiring a Market Analyst to turn sales, pricing and competitor data into clear recommendations for its restaurant network.",
+    "overview": [
+      "<p>Harvest Table Group runs more than 80 restaurants across the Midwest and is looking for a curious Market Analyst.</p>",
+      "<p>You will join six analysts and work with strategy and menu teams on pricing studies and market reports.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Collect and clean sales, pricing and competitor data from many sources.</li>",
+      "<li>Build dashboards and monthly reports that track category and menu trends.</li>",
+      "<li>Analyze guest surveys and segment customers by visit behavior and value.</li>",
+      "<li>Present findings to leadership and help shape pricing and location decisions.</li>",
+      "<li>Keep research notes and data sources organized and current.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>1-3 years in market research or business analysis</li>",
+      "<li>Strong Excel or Google Sheets skills, including pivot tables</li>",
+      "<li>Working knowledge of SQL and Looker or Power BI</li>",
+      "<li>Confidence explaining numbers in simple language</li>",
+      "<li>Degree in economics, statistics or business</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience with Python or R for analysis</li>",
+      "<li>Background in restaurants, retail or hospitality</li>",
+      "<li>Familiarity with survey platforms and sampling</li>",
+      "<li>Experience with location or footfall data</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with a yearly bonus</li>",
+      "<li>Hybrid schedule in downtown Chicago</li>",
+      "<li>Yearly learning budget for courses</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Small team where analysis drives decisions</li>",
+      "</ul>"
+    ],
+    "contactEmail": "careers.harvesttable@example.com",
+    "contactPhone": "+1 (555) 014-2286"
+  },
+  {
+    "title": "Mid-Level UI/UX Designer",
+    "slug": "mid-level-ui-ux-designer",
+    "company": "orbitly-apps",
+    "location": "Austin, TX",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Design",
+    "experience": "2-4 Years",
+    "monthlySalary": "$6,000",
+    "salaryRange": "$66K - $78K",
+    "postedDate": "2026-09-30T09:00:00.000Z",
+    "featuredOnHome": true,
+    "showInRelated": true,
+    "shortSummary": "Orbitly Apps needs a Mid-Level UI/UX Designer to shape web and mobile products, from early research to polished, developer-ready screens.",
+    "overview": [
+      "<p>Orbitly Apps designs web and mobile apps for SaaS and health-tech companies and is adding a Mid-Level UI/UX Designer.</p>",
+      "<p>You will own features end to end, from user interviews and flows to prototypes and clean, documented files for engineers.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Turn product requirements into user flows, wireframes and high-fidelity screens.</li>",
+      "<li>Run quick usability tests and feed results back into the design.</li>",
+      "<li>Maintain and extend client design systems in Figma.</li>",
+      "<li>Work with developers during the build to keep the product true to design.</li>",
+      "<li>Present design decisions clearly to clients and the wider product team.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>2-4 years of experience designing digital products</li>",
+      "<li>A portfolio showing shipped work and thinking</li>",
+      "<li>Advanced Figma skills, including variables and auto layout</li>",
+      "<li>Solid understanding of accessibility and responsive design</li>",
+      "<li>Comfortable working async across time zones</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience with motion design or micro-interactions</li>",
+      "<li>Basic knowledge of HTML and CSS</li>",
+      "<li>Background in SaaS dashboards or health-tech</li>",
+      "<li>Experience mentoring junior designers</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Fully remote role with flexible hours</li>",
+      "<li>Home office setup allowance</li>",
+      "<li>Four-day week every other Friday</li>",
+      "<li>Paid conferences and design tools</li>",
+      "<li>Team that reviews work kindly</li>",
+      "</ul>"
+    ],
+    "contactEmail": "jobs.orbitly@example.com",
+    "contactPhone": "+1 (555) 019-7341"
+  },
+  {
+    "title": "UI/UX Designer",
+    "slug": "ui-ux-designer",
+    "company": "quantra-software",
+    "location": "New York, NY",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Design",
+    "experience": "2-4 Years",
+    "monthlySalary": "$7,100",
+    "salaryRange": "$80K - $90K",
+    "postedDate": "2026-09-28T09:00:00.000Z",
+    "featuredOnHome": true,
+    "showInRelated": true,
+    "shortSummary": "Quantra Software is hiring a UI/UX Designer to design clear, accessible screens for its customer platform, working closely with product and engineering.",
+    "overview": [
+      "<p>Quantra Software builds a customer platform used daily by small businesses and is looking for a thoughtful UI/UX Designer.</p>",
+      "<p>You will work with a product manager and four engineers to research, design and ship new features in every sprint.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Design user flows, wireframes and polished interfaces for web and mobile.</li>",
+      "<li>Run usability sessions and turn feedback into design changes.</li>",
+      "<li>Keep the Figma design system tidy, documented and up to date.</li>",
+      "<li>Pair with engineers during the build and review each release before launch.</li>",
+      "<li>Share work early and explain design decisions clearly.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>2-4 years of UI/UX or product design experience</li>",
+      "<li>A portfolio showing shipped work and process</li>",
+      "<li>Strong Figma skills, including components and auto layout</li>",
+      "<li>Good understanding of accessibility and responsive design</li>",
+      "<li>Clear written and spoken communication</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience with motion or interaction design tools</li>",
+      "<li>Basic knowledge of HTML and CSS</li>",
+      "<li>Background in B2B or SaaS products</li>",
+      "<li>Experience running user interviews</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary reviewed twice yearly</li>",
+      "<li>Hybrid working in New York</li>",
+      "<li>Yearly learning and conference budget</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Team that gives kind, useful feedback</li>",
+      "</ul>"
+    ],
+    "contactEmail": "design.quantra@example.com",
+    "contactPhone": "+1 (555) 017-4488"
+  },
+  {
+    "title": "Digital Marketer",
+    "slug": "digital-marketer",
+    "company": "quantra-software",
+    "location": "New York, NY",
+    "jobType": "Full-time",
+    "workMode": "Remote",
+    "department": "Marketing",
+    "experience": "4-5 Years",
+    "monthlySalary": "$4,600",
+    "salaryRange": "$50K - $60K",
+    "postedDate": "2026-09-10T09:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Quantra Software is hiring a Digital Marketer in New York to plan campaigns, grow qualified traffic and turn product launches into measurable pipeline.",
+    "overview": [
+      "<p>Quantra Software builds a customer platform for small businesses and is looking for an experienced Digital Marketer.</p>",
+      "<p>You will own paid, email and content campaigns, working closely with product marketing and sales to turn launches into qualified leads.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Plan and launch paid search, social and email campaigns for every product release.</li>",
+      "<li>Grow organic traffic with SEO-focused content, landing pages and regular site audits.</li>",
+      "<li>Track campaign performance and report weekly on leads, pipeline and cost per acquisition.</li>",
+      "<li>Run A/B tests on ads, emails and landing pages to improve conversion rates.</li>",
+      "<li>Work with sales to keep lead scoring, nurture flows and handoffs running smoothly.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>4-5 years of B2B digital marketing experience</li>",
+      "<li>Hands-on experience with Google Ads and LinkedIn Ads</li>",
+      "<li>Strong knowledge of SEO and Google Analytics 4</li>",
+      "<li>Experience with HubSpot or a similar marketing platform</li>",
+      "<li>Clear, persuasive writing and confident data analysis</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience marketing SaaS or analytics products</li>",
+      "<li>Basic HTML skills for landing page edits</li>",
+      "<li>Knowledge of marketing attribution models</li>",
+      "<li>Previous experience in a remote team</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with performance-based reviews</li>",
+      "<li>Fully remote role with flexible hours</li>",
+      "<li>Yearly learning and conference budget</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Supportive, growth-focused team culture</li>",
+      "</ul>"
+    ],
+    "contactEmail": "marketing.quantra@example.com",
+    "contactPhone": "+1 (555) 010-7488"
+  },
+  {
+    "title": "Medical Assistant",
+    "slug": "medical-assistant",
+    "company": "novalink-health",
+    "location": "Boston, MA",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Clinical Care",
+    "experience": "1-3 Years",
+    "monthlySalary": "$3,700",
+    "salaryRange": "$40K - $48K",
+    "postedDate": "2026-10-05T09:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Novalink Health is hiring a Medical Assistant to support patients and clinicians at its Boston outpatient clinics, from check-in to follow-up.",
+    "overview": [
+      "<p>Novalink Health runs outpatient clinics across Boston and is looking for a calm, organized and caring Medical Assistant.</p>",
+      "<p>You will support doctors and nurses with patient intake, basic clinical tasks and scheduling to keep every clinic day on time.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Greet patients, update their records and prepare exam rooms between visits.</li>",
+      "<li>Take vital signs and record each patient history accurately in the system.</li>",
+      "<li>Assist clinicians during exams, vaccinations and other routine procedures.</li>",
+      "<li>Schedule follow-up visits and send clear appointment reminders to patients.</li>",
+      "<li>Keep medical supplies stocked and all equipment clean, safe and ready.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>1-3 years of experience as a medical assistant</li>",
+      "<li>Medical assistant certification (CMA or RMA)</li>",
+      "<li>Confident with electronic health record systems</li>",
+      "<li>Friendly and patient with people of all ages</li>",
+      "<li>Current BLS certification from the American Heart Association</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Phlebotomy experience in a clinic setting</li>",
+      "<li>Spanish language skills for bilingual patients</li>",
+      "<li>Experience in a busy outpatient clinic</li>",
+      "<li>Knowledge of medical billing codes</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive pay with yearly reviews</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Paid continuing education and renewals</li>",
+      "<li>Daytime shifts with no weekends</li>",
+      "<li>Caring team that supports each other</li>",
+      "</ul>"
+    ],
+    "contactEmail": "clinics.novalink@example.com",
+    "contactPhone": "+1 (555) 016-3317"
+  },
+  {
+    "title": "Web Designer",
+    "slug": "web-designer",
+    "company": "brightly-digital",
+    "location": "Los Angeles, CA",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Design",
+    "experience": "3-5 Years",
+    "monthlySalary": "$8,500",
+    "salaryRange": "$95K - $110K",
+    "postedDate": "2026-10-04T09:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Brightly Digital is hiring a Web Designer to design and build fast, responsive marketing websites for brands across Los Angeles.",
+    "overview": [
+      "<p>Brightly Digital designs marketing websites for consumer and tech brands and is looking for a talented Web Designer.</p>",
+      "<p>You will take projects from moodboard to launch, working closely with strategists, copywriters and our in-house development team.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Design responsive website layouts, landing pages and campaign microsites.</li>",
+      "<li>Build and maintain client sites in Webflow with clean, consistent class naming.</li>",
+      "<li>Create design systems, reusable components and simple style guides for clients.</li>",
+      "<li>Prepare assets and detailed hand-offs for the development team.</li>",
+      "<li>Present concepts to clients and refine them based on their feedback.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>3-5 years of professional web design experience</li>",
+      "<li>A portfolio of live, responsive websites</li>",
+      "<li>Strong Figma and Webflow skills for responsive builds</li>",
+      "<li>Good understanding of typography, grids and accessibility</li>",
+      "<li>Able to manage several projects at once</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience with interactions and motion design</li>",
+      "<li>Basic HTML, CSS and JavaScript knowledge</li>",
+      "<li>Agency experience with consumer brands</li>",
+      "<li>Photography or art direction skills</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with a yearly bonus</li>",
+      "<li>Hybrid schedule with studio days</li>",
+      "<li>Latest design tools and hardware budget</li>",
+      "<li>Paid winter studio break</li>",
+      "<li>Creative team that celebrates good work</li>",
+      "</ul>"
+    ],
+    "contactEmail": "studio.brightly@example.com",
+    "contactPhone": "+1 (555) 018-6620"
+  },
+  {
+    "title": "Ethical Hacker",
+    "slug": "ethical-hacker",
+    "company": "shieldpoint-security",
+    "location": "Seattle, WA",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Security",
+    "experience": "2-4 Years",
+    "monthlySalary": "$5,400",
+    "salaryRange": "$60K - $70K",
+    "postedDate": "2026-09-26T09:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": true,
+    "shortSummary": "Shieldpoint Security is hiring an Ethical Hacker to test client systems, find weaknesses before attackers do and explain fixes in plain language.",
+    "overview": [
+      "<p>Shieldpoint Security helps growing companies protect their apps and data, and is looking for an experienced Ethical Hacker.</p>",
+      "<p>You will run authorized penetration tests, write clear reports and work with client engineers until every issue is closed.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Plan and run authorized penetration tests on web apps, APIs and networks.</li>",
+      "<li>Find, verify and rank security weaknesses by their real business risk.</li>",
+      "<li>Write clear reports with practical, step-by-step fixes.</li>",
+      "<li>Retest every fix and confirm each issue is fully resolved and closed.</li>",
+      "<li>Share security tips with client teams in short, practical workshops.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>2-4 years of penetration testing experience</li>",
+      "<li>Good knowledge of the OWASP Top 10</li>",
+      "<li>Hands-on experience with Burp Suite and Nmap</li>",
+      "<li>Basic scripting skills in Python or Bash</li>",
+      "<li>Clear writing for technical and non-technical readers</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>OSCP, CEH or a similar certification</li>",
+      "<li>Experience testing AWS or Azure environments</li>",
+      "<li>Bug bounty or capture-the-flag experience</li>",
+      "<li>Knowledge of mobile application security</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with a yearly bonus</li>",
+      "<li>Hybrid schedule with flexible hours</li>",
+      "<li>Paid certifications and lab subscriptions</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Team that loves sharing knowledge</li>",
+      "</ul>"
+    ],
+    "contactEmail": "careers.shieldpoint@example.com",
+    "contactPhone": "+1 (555) 013-5521"
+  },
+  {
+    "title": "Software Tester",
+    "slug": "software-tester",
+    "company": "quantra-software",
+    "location": "Raleigh, NC",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Quality Assurance",
+    "experience": "1-3 Years",
+    "monthlySalary": "$6,300",
+    "salaryRange": "$70K - $82K",
+    "postedDate": "2026-09-29T21:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Quantra Software is hiring a Software Tester to plan, run and automate tests that keep its customer platform stable on every release.",
+    "overview": [
+      "<p>Quantra Software ships its customer platform every two weeks and needs a detail-minded Software Tester.</p>",
+      "<p>You will join a squad of developers and designers, write test plans for new features and grow our automated test suite.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Write clear test plans and test cases straight from product requirements.</li>",
+      "<li>Run manual and exploratory tests on every web and mobile release build.</li>",
+      "<li>Build and maintain automated tests for the most important user journeys.</li>",
+      "<li>Log reproducible bug reports and follow each one through to closure.</li>",
+      "<li>Join sprint reviews and sign off every release.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>1-3 years of software testing or QA experience</li>",
+      "<li>Hands-on experience with Cypress, Playwright or Selenium</li>",
+      "<li>Good understanding of APIs and Postman</li>",
+      "<li>A careful eye for detail and clear writing</li>",
+      "<li>Experience working in Agile or Scrum teams</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>ISTQB Foundation certification</li>",
+      "<li>Basic JavaScript or Python scripting skills</li>",
+      "<li>Experience with performance or accessibility testing</li>",
+      "<li>Familiarity with CI pipelines such as GitHub Actions</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary reviewed twice yearly</li>",
+      "<li>Hybrid schedule with Raleigh office days</li>",
+      "<li>Yearly learning budget for certifications</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Team that values quality over speed</li>",
+      "</ul>"
+    ],
+    "contactEmail": "qa.quantra@example.com",
+    "contactPhone": "+1 (555) 012-4407"
+  },
+  {
+    "title": "Scrum Master",
+    "slug": "scrum-master",
+    "company": "brightly-digital",
+    "location": "Denver, CO",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Engineering",
+    "experience": "2-4 Years",
+    "monthlySalary": "$5,600",
+    "salaryRange": "$62K - $72K",
+    "postedDate": "2026-09-29T15:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Brightly Digital is hiring a Scrum Master to coach two product teams, run smooth sprints and remove the blockers that slow delivery down.",
+    "overview": [
+      "<p>Brightly Digital builds web and mobile products for startups and is looking for a Scrum Master who helps teams ship on time.</p>",
+      "<p>You will support two cross-functional product teams and work with product owners to keep every backlog clear and focused.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Facilitate sprint planning, daily stand-ups, reviews and honest team retrospectives.</li>",
+      "<li>Help product owners keep backlogs ordered, sized and clearly written for developers.</li>",
+      "<li>Spot blockers early and remove them before they slow the sprint down.</li>",
+      "<li>Track sprint health with simple metrics that the whole team understands.</li>",
+      "<li>Coach teams on Agile habits, open feedback and continuous improvement.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>2-4 years as a Scrum Master or Agile coach</li>",
+      "<li>PSM I, CSM or a similar certification</li>",
+      "<li>Confident with Jira, Linear or similar tools</li>",
+      "<li>Calm, clear communication at every level</li>",
+      "<li>Experience supporting software development teams</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience with Kanban or SAFe frameworks</li>",
+      "<li>A background in development, QA or design</li>",
+      "<li>Experience coaching remote or hybrid teams</li>",
+      "<li>Workshop facilitation skills with Miro</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with a yearly bonus</li>",
+      "<li>Hybrid working with flexible hours</li>",
+      "<li>Paid Agile certifications and conferences</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Teams that welcome new ideas</li>",
+      "</ul>"
+    ],
+    "contactEmail": "teams.brightly@example.com",
+    "contactPhone": "+1 (555) 015-2093"
+  },
+  {
+    "title": "Team Leader",
+    "slug": "team-leader",
+    "company": "clearline-support",
+    "location": "Phoenix, AZ",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Customer Support",
+    "experience": "2-4 Years",
+    "monthlySalary": "$3,300",
+    "salaryRange": "$36K - $44K",
+    "postedDate": "2026-09-29T09:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Clearline Support is hiring a Team Leader to guide a team of twelve support agents, coach daily and keep customer satisfaction high.",
+    "overview": [
+      "<p>Clearline Support runs customer support for software and retail brands and is looking for an energetic Team Leader.</p>",
+      "<p>You will lead a team of twelve support agents, own daily service targets and help plan training, scheduling and onboarding.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Lead daily huddles and set clear, achievable goals for the whole team.</li>",
+      "<li>Coach agents with call reviews and one-on-one meetings.</li>",
+      "<li>Handle escalated customer cases with care, patience and a quick resolution.</li>",
+      "<li>Track service levels and customer satisfaction and report results every week.</li>",
+      "<li>Help plan shift schedules, training sessions and onboarding for new hires.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>2-4 years in customer support, including team leading</li>",
+      "<li>Strong people skills and a coaching mindset</li>",
+      "<li>Comfortable with Zendesk, Freshdesk or similar tools</li>",
+      "<li>Confident working with targets and simple reports</li>",
+      "<li>Clear spoken and written English</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience in a SaaS support team</li>",
+      "<li>Spanish language skills for bilingual customers</li>",
+      "<li>A customer service or leadership certificate</li>",
+      "<li>Experience running workforce schedules</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Monthly bonus on top of base pay</li>",
+      "<li>Hybrid schedule after three months</li>",
+      "<li>Leadership training and career path</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Team that celebrates wins together</li>",
+      "</ul>"
+    ],
+    "contactEmail": "careers.clearline@example.com",
+    "contactPhone": "+1 (555) 011-8834"
+  },
+  {
+    "title": "Project Manager",
+    "slug": "project-manager",
+    "company": "corehub-logistics",
+    "location": "Atlanta, GA",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Operations",
+    "experience": "3-5 Years",
+    "monthlySalary": "$4,400",
+    "salaryRange": "$48K - $58K",
+    "postedDate": "2026-09-28T21:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Corehub Logistics is hiring a Project Manager to plan and deliver warehouse and software projects on time, on budget and with clear updates.",
+    "overview": [
+      "<p>Corehub Logistics is upgrading its warehouses and tracking systems and needs a Project Manager to keep plans on track.</p>",
+      "<p>You will lead projects from kickoff to handover, working closely with operations, IT teams and outside technology partners.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Plan project scope, timelines, budgets and resources with each project sponsor.</li>",
+      "<li>Run kickoffs, weekly check-ins and clear status updates for every stakeholder.</li>",
+      "<li>Track risks, issues and dependencies and solve problems before they grow.</li>",
+      "<li>Keep project plans, documents and dashboards accurate and easy to read.</li>",
+      "<li>Hand over finished projects with training, notes and a short review.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>3-5 years of project management experience</li>",
+      "<li>Confident with Asana, Monday.com or MS Project</li>",
+      "<li>Strong planning, budgeting and communication skills</li>",
+      "<li>Able to manage several projects at once</li>",
+      "<li>Degree in business, engineering or a related field</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>PMP, CAPM or PRINCE2 certification</li>",
+      "<li>Experience in logistics or supply chain</li>",
+      "<li>Working knowledge of Agile delivery methods</li>",
+      "<li>Experience with warehouse management systems</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with a yearly bonus</li>",
+      "<li>Hybrid schedule with flexible start times</li>",
+      "<li>Paid project management certification</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Clear path to senior project roles</li>",
+      "</ul>"
+    ],
+    "contactEmail": "projects.corehub@example.com",
+    "contactPhone": "+1 (555) 019-2251"
+  },
+  {
+    "title": "Marketing Coordinator",
+    "slug": "marketing-coordinator",
+    "company": "stackwise-marketing",
+    "location": "Miami, FL",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Marketing",
+    "experience": "1-3 Years",
+    "monthlySalary": "$4,200",
+    "salaryRange": "$46K - $54K",
+    "postedDate": "2026-09-24T09:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Stackwise Marketing is hiring a Marketing Coordinator to plan content, manage campaign calendars and keep every launch running smoothly.",
+    "overview": [
+      "<p>Stackwise Marketing is looking for a Marketing Coordinator to keep campaigns for hospitality brands organized and on time.</p>",
+      "<p>You will support account managers with planning, content, reporting and day-to-day client updates across social, email and web.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Manage campaign calendars, creative briefs and delivery deadlines for each client.</li>",
+      "<li>Schedule social posts, newsletters and blog content across every brand channel.</li>",
+      "<li>Coordinate designers, writers and freelancers so assets arrive ready to publish.</li>",
+      "<li>Pull weekly campaign reports and highlight the results that matter most.</li>",
+      "<li>Keep brand assets, approvals and client files organized in shared folders.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>1-3 years of marketing or agency experience</li>",
+      "<li>Good knowledge of social media and email platforms</li>",
+      "<li>Strong organization and time management skills</li>",
+      "<li>Clear, friendly writing for clients and teammates</li>",
+      "<li>Comfortable with Google Analytics and spreadsheets</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Basic Canva or Figma design skills</li>",
+      "<li>Hands-on experience with HubSpot or Mailchimp</li>",
+      "<li>Interest in hospitality and lifestyle brands</li>",
+      "<li>Previous experience in a busy agency</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with a yearly bonus</li>",
+      "<li>Hybrid schedule with Miami studio days</li>",
+      "<li>Paid marketing certifications</li>",
+      "<li>Health insurance from day one</li>",
+      "<li>Team that shares ideas freely</li>",
+      "</ul>"
+    ],
+    "contactEmail": "careers.stackwise@example.com",
+    "contactPhone": "+1 (555) 014-7719"
+  },
+  {
+    "title": "Junior Web Designer",
+    "slug": "web-designer-brand-studio",
+    "company": "northlane-studio",
+    "location": "Portland, OR",
+    "jobType": "Full-time",
+    "workMode": "Hybrid Flexible",
+    "department": "Design",
+    "experience": "1-2 Years",
+    "monthlySalary": "$5,200",
+    "salaryRange": "$58K - $66K",
+    "postedDate": "2026-09-22T09:00:00.000Z",
+    "featuredOnHome": false,
+    "showInRelated": false,
+    "shortSummary": "Northlane Studio is hiring a Junior Web Designer for its Portland brand studio to design and launch websites for small businesses and startups.",
+    "overview": [
+      "<p>The Northlane brand studio in Portland is looking for a Junior Web Designer to turn fresh brand identities into clear websites.</p>",
+      "<p>You will design and build sites from first sketch to launch, working closely with our brand designers, copywriters and clients.</p>"
+    ],
+    "responsibilities": [
+      "<ul>",
+      "<li>Design website layouts that bring new brand identities to life.</li>",
+      "<li>Build responsive sites in Webflow with tidy structure and clean class names.</li>",
+      "<li>Create simple style guides and reusable components for each client.</li>",
+      "<li>Test each site on phones, tablets and desktops before launch.</li>",
+      "<li>Train clients to update their own content after launch.</li>",
+      "</ul>"
+    ],
+    "requiredQualifications": [
+      "<ul>",
+      "<li>1-2 years of web or digital design experience</li>",
+      "<li>A portfolio of live websites you designed yourself</li>",
+      "<li>Strong Figma and Webflow skills for responsive layouts</li>",
+      "<li>A good eye for typography, color and spacing</li>",
+      "<li>Friendly, clear communication with small business clients</li>",
+      "</ul>"
+    ],
+    "niceToHave": [
+      "<ul>",
+      "<li>Experience with brand identity or logo design</li>",
+      "<li>Basic knowledge of HTML and CSS</li>",
+      "<li>Experience with simple web animations</li>",
+      "<li>Previous work in a small creative studio</li>",
+      "</ul>"
+    ],
+    "whatWeOffer": [
+      "<ul>",
+      "<li>Competitive salary with yearly reviews</li>",
+      "<li>Hybrid schedule with Portland studio days</li>",
+      "<li>Hardware and design tool budget</li>",
+      "<li>Paid summer studio break</li>",
+      "<li>Small team that sees your work</li>",
+      "</ul>"
+    ],
+    "contactEmail": "careers.northlane@example.com",
+    "contactPhone": "+1 (555) 016-9045"
+  }
+]

@@ -1,0 +1,44 @@
+---
+/**
+ * Page d'accueil — architecture en 13 sections :
+ * 01 Introduction animée · 02 Header + hero · 03 Clients · 04 À propos · 05 Services
+ * 06 Pourquoi nous choisir · 07 Méthode · 08 Réalisations · 09 Témoignages · 10 FAQ
+ * 11 Derniers articles · 12 CTA final · 13 Footer (dans BaseLayout)
+ * Les textes se modifient dans src/data/accueil.json ; les styles sont dans src/styles/accueil.css
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Intro from '@/components/sections/accueil/Intro.astro';
+import Hero from '@/components/sections/home/Hero.astro';
+import Clients from '@/components/sections/accueil/Clients.astro';
+import About from '@/components/sections/accueil/About.astro';
+import Services from '@/components/sections/accueil/Services.astro';
+import Why from '@/components/sections/accueil/Why.astro';
+import Method from '@/components/sections/accueil/Method.astro';
+import Work from '@/components/sections/accueil/Work.astro';
+import Testimonials from '@/components/sections/accueil/Testimonials.astro';
+import Faq from '@/components/sections/accueil/Faq.astro';
+import Articles from '@/components/sections/accueil/Articles.astro';
+import Cta from '@/components/sections/accueil/Cta.astro';
+import Reveal from '@/components/sections/accueil/Reveal.astro';
+import '@/styles/accueil.css';
+---
+
+<BaseLayout
+  wfPage="6abf3fb4113c777049f29446"
+  title="DMP Services - Gestion des déchets médicaux à Casablanca"
+  description="DMP Services gère vos déchets médicaux à risques infectieux (DASRI) à Casablanca : audit, formation, emballages, collecte, traitement et traçabilité."
+>
+  <Intro />
+  <Hero />
+  <Clients />
+  <About />
+  <Services />
+  <Why />
+  <Method />
+  <Work />
+  <Testimonials />
+  <Faq />
+  <Articles />
+  <Cta />
+  <Reveal />
+</BaseLayout>

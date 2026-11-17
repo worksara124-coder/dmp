@@ -1,0 +1,27 @@
+---
+/** 06 — Pourquoi nous choisir : section sombre, deux photos, 4 avantages */
+import data from '@/data/accueil.json';
+import { icon } from '@/lib/icons';
+const w = data.why;
+---
+
+<section class="dmp-section dmp-why is-dark">
+  <div class="container-main">
+    <div class="dmp-why-head">
+      <span class="dmp-eyebrow" data-reveal>({w.eyebrow})</span>
+      <h2 class="dmp-h2 dmp-why-title" data-reveal>{w.title}</h2>
+    </div>
+    <div class="dmp-why-images">
+      {w.images.map((img) => <div class="dmp-why-img" data-reveal><img src={img.url} alt={img.alt} loading="lazy" data-parallax="0.06" /></div>)}
+    </div>
+    <ul class="dmp-why-grid" role="list">
+      {w.items.map((item) => (
+        <li class="dmp-why-item" data-reveal>
+          <span class="dmp-icon-tile is-dark" set:html={icon(item.icon, 22)} />
+          <h3 class="dmp-h3">{item.title}</h3>
+          <p>{item.text}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

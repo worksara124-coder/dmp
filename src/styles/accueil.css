@@ -1,0 +1,1633 @@
+/* =========================================================
+   DMP Services — page d'accueil (sections 01 et 03 à 12)
+   Charte : vert DMP #03A105 (graphismes), vert foncé #027A04 (boutons, liens, titres en couleur),
+   anthracite #1F2A24 (texte), Poppins. Boutons : coins 8 px, 48 px.
+   Variables communes : src/styles/dmp.css
+   ========================================================= */
+
+/* ---------- Base des sections */
+.dmp-section {
+  padding: 6rem 0;
+  background-color: var(--dmp-beige, #f8f6f3);
+}
+.dmp-section.is-white {
+  background-color: #fff;
+}
+.dmp-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 40rem;
+}
+.dmp-head.is-center {
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.dmp-eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: .3125rem .75rem;
+  border-radius: 8px;
+  background-color: var(--dmp-green-tint);
+  color: var(--dmp-green-dark);
+  font-size: .8125rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+/* H2 : Poppins Bold 32 px (26 px mobile) */
+.dmp-h2 {
+  margin: 0;
+  color: var(--dmp-anthracite);
+  font-family: var(--font-poppins);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+/* H3 : Poppins SemiBold 20 px (18 px mobile) */
+.dmp-h3 {
+  margin: 0;
+  color: var(--dmp-anthracite);
+  font-family: var(--font-poppins);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -.01em;
+}
+.dmp-lead {
+  margin: 1rem 0 0;
+  color: var(--dmp-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.dmp-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.dmp-head-action {
+  flex-shrink: 0;
+}
+.dmp-tag {
+  display: inline-block;
+  padding: .1875rem .5rem;
+  border-radius: 6px;
+  background-color: var(--dmp-green-tint);
+  color: var(--dmp-green-dark);
+  font-size: .75rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.dmp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  color: var(--dmp-green-dark);
+  font-size: .9375rem;
+  font-weight: 500;
+}
+.dmp-link > span {
+  display: inline-flex;
+  transition: transform .2s var(--dmp-ease);
+}
+.dmp-icon-tile {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background-color: var(--dmp-green-tint);
+  color: var(--dmp-green-dark);
+}
+.dmp-icon-tile.is-sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+/* ---------- Boutons de la charte */
+.dmp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-height: 48px;
+  padding: 0 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: var(--font-poppins);
+  font-size: .9375rem;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+.dmp-btn.is-primary {
+  background-color: var(--dmp-green-dark);
+  color: #fff;
+}
+.dmp-btn.is-primary:hover {
+  background-color: var(--dmp-anthracite);
+}
+.dmp-btn.is-secondary {
+  border-color: var(--dmp-green-dark);
+  background-color: #fff;
+  color: var(--dmp-green-dark);
+}
+.dmp-btn.is-secondary:hover {
+  background-color: var(--dmp-green-dark);
+  color: #fff;
+}
+.dmp-btn-arrow {
+  display: inline-flex;
+  transition: transform .2s var(--dmp-ease);
+}
+.dmp-btn:hover .dmp-btn-arrow {
+  transform: translateX(3px);
+}
+.dmp-btn:focus-visible,
+.dmp-service-card:focus-visible,
+.dmp-article-card:focus-visible,
+.dmp-contact-line:focus-visible,
+.dmp-faq-item summary:focus-visible {
+  outline: 2px solid var(--dmp-green-dark);
+  outline-offset: 3px;
+}
+
+/* ---------- Apparition douce au défilement */
+html.dmp-reveal-on [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s var(--dmp-ease);
+}
+html.dmp-reveal-on [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================
+   01 — Introduction animée
+   ========================================================= */
+.dmp-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dmp-beige, #f8f6f3);
+  transition: opacity .6s ease, visibility 0s linear .6s;
+}
+.dmp-intro.is-playing {
+  display: flex;
+}
+.dmp-intro.is-done {
+  opacity: 0;
+  visibility: hidden;
+}
+html.dmp-intro-lock,
+html.dmp-intro-lock body {
+  overflow: hidden;
+}
+.dmp-intro-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  transition: transform .6s var(--dmp-ease);
+}
+.dmp-intro.is-done .dmp-intro-inner {
+  transform: translateY(-12px);
+}
+.dmp-intro-logo {
+  width: 150px;
+  height: auto;
+  opacity: 0;
+  animation: dmp-intro-in .8s var(--dmp-ease) .1s forwards;
+}
+.dmp-intro-slogan {
+  margin: 0;
+  color: var(--dmp-anthracite);
+  font-family: var(--font-poppins);
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0;
+  animation: dmp-intro-in .8s var(--dmp-ease) .45s forwards;
+}
+.dmp-intro-bar {
+  display: block;
+  width: 140px;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--dmp-green-tint);
+}
+.dmp-intro-bar > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background-color: var(--dmp-green);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: dmp-intro-bar 1.3s var(--dmp-ease) .2s forwards;
+}
+@keyframes dmp-intro-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes dmp-intro-bar {
+  to { transform: scaleX(1); }
+}
+
+/* =========================================================
+   03 — Clients et partenaires
+   ========================================================= */
+.dmp-clients {
+  padding: 1rem 0 4.5rem;
+}
+.dmp-clients-title {
+  margin: 0 0 1.75rem;
+  color: var(--dmp-muted);
+  font-size: .9375rem;
+  text-align: center;
+}
+.dmp-marquee {
+  display: flex;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.dmp-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 1rem;
+  margin: 0;
+  padding: 0 .5rem;
+  list-style: none;
+  animation: dmp-marquee 36s linear infinite;
+}
+@media (hover: hover) {
+  .dmp-marquee:hover .dmp-marquee-track {
+    animation-play-state: paused;
+  }
+}
+@keyframes dmp-marquee {
+  to { transform: translateX(calc(-100% - 1rem)); }
+}
+.dmp-logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 11rem;
+  height: 4.5rem;
+  padding: 0 1.25rem;
+  border: 1px solid var(--dmp-border);
+  border-radius: 14px;
+  background-color: #fff;
+}
+.dmp-logo-slot img {
+  max-width: 100%;
+  max-height: 2.25rem;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: .7;
+  transition: filter .3s, opacity .3s;
+}
+.dmp-logo-slot:hover img {
+  filter: none;
+  opacity: 1;
+}
+.dmp-logo-placeholder {
+  color: #b3bab6;
+  font-size: .8125rem;
+  font-weight: 500;
+}
+
+/* =========================================================
+   Animations d'entrée : intro → header → hero
+   html.dmp-anim  : animations autorisées (états de départ)
+   html.dmp-ready : l'intro est terminée, tout entre en scène
+   ========================================================= */
+
+/* ---------- Sortie de l'intro : le logo rejoint le header, le fond s'efface */
+.dmp-intro-logo {
+  transform-origin: center;
+  transition: transform .75s cubic-bezier(.65, 0, .25, 1);
+}
+.dmp-intro.is-leaving {
+  background-color: rgba(248, 246, 243, 0);
+  transition: background-color .6s ease .15s;
+}
+.dmp-intro.is-leaving .dmp-intro-slogan,
+.dmp-intro.is-leaving .dmp-intro-bar {
+  animation: dmp-intro-out .3s ease forwards;
+}
+@keyframes dmp-intro-out {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(8px); }
+}
+.dmp-intro.is-leaving .dmp-intro-inner {
+  transform: none;
+}
+/* le vrai logo du header reste caché pendant l'intro */
+html.dmp-intro-playing .nav-content-block > .brand-logo-block {
+  opacity: 0;
+}
+
+/* ---------- Header : les îlots glissent depuis le haut */
+html.dmp-anim .nav-content-block > .brand-logo-block,
+html.dmp-anim .dmp-nav,
+html.dmp-anim .nav-button-block {
+  transition: opacity .6s ease, transform .7s var(--dmp-ease);
+}
+html.dmp-anim:not(.dmp-ready) .nav-content-block > .brand-logo-block,
+html.dmp-anim:not(.dmp-ready) .nav-button-block {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+@media screen and (min-width: 992px) {
+  html.dmp-anim:not(.dmp-ready) .dmp-nav {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  html.dmp-anim .dmp-nav { transition-delay: .08s; }
+  html.dmp-anim .nav-button-block { transition-delay: .16s; }
+}
+/* pas de glissement du logo quand il arrive de l'intro */
+html.dmp-intro-playing .nav-content-block > .brand-logo-block {
+  transform: none !important;
+  transition: none;
+}
+
+/* ---------- Hero : photo qui se pose doucement */
+html.dmp-anim .dmp-hero-image {
+  transition: transform 1.8s var(--dmp-ease);
+}
+html.dmp-anim:not(.dmp-ready) .dmp-hero-image {
+  transform: scale(1.07);
+}
+
+/* blocs du hero, l'un après l'autre (ordre --i) */
+html.dmp-anim [data-hero] {
+  transition: opacity .7s ease, transform .8s var(--dmp-ease);
+  transition-delay: calc(.25s + var(--i, 0) * .11s);
+}
+html.dmp-anim:not(.dmp-ready) [data-hero] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+html.dmp-anim:not(.dmp-ready) .dmp-hero-card[data-hero] {
+  transform: translateY(18px) scale(.96);
+}
+
+/* titre : chaque mot monte depuis un masque */
+.dmp-w {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: .12em;
+  margin-bottom: -.12em;
+  vertical-align: top;
+}
+.dmp-w > span {
+  display: inline-block;
+}
+html.dmp-anim .dmp-w > span {
+  transition: transform .8s var(--dmp-ease), opacity .5s ease;
+  transition-delay: calc(.3s + var(--w, 0) * .07s);
+}
+html.dmp-anim:not(.dmp-ready) .dmp-w > span {
+  opacity: 0;
+  transform: translateY(105%);
+}
+
+/* trait sous « gérés » : se dessine de gauche à droite après le titre */
+.dmp-hero-accent::after {
+  transform-origin: left center;
+}
+html.dmp-anim .dmp-hero-accent::after {
+  transition: transform .7s var(--dmp-ease) .95s;
+}
+html.dmp-anim:not(.dmp-ready) .dmp-hero-accent::after {
+  transform: scaleX(0);
+}
+
+/* =========================================================
+   Animations qui attirent l'œil, en restant sobres
+   ========================================================= */
+
+/* reflet lumineux qui traverse le bouton principal du hero, toutes les 6 s */
+.dmp-hero-buttons .primary-button {
+  position: relative;
+  overflow: hidden;
+}
+.dmp-hero-buttons .primary-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 45%;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .28) 50%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  animation: dmp-shine 6s ease-in-out 2.6s infinite;
+}
+@keyframes dmp-shine {
+  0% { left: -60%; }
+  18%, 100% { left: 130%; }
+}
+
+/* =========================================================
+   Chiffres clés : compteurs à rouleaux (chiffre par chiffre)
+   ========================================================= */
+.dmp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.dmp-odo {
+  display: inline-flex;
+  align-items: flex-start;
+  line-height: 1.1;
+}
+.dmp-odo-win {
+  display: inline-block;
+  height: 1.1em;
+  overflow: hidden;
+}
+.dmp-odo-col {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(calc(var(--d) * -1.1em));
+}
+.dmp-odo-col > span {
+  display: block;
+  height: 1.1em;
+  text-align: center;
+}
+.dmp-odo-rest {
+  margin-left: .2em;
+}
+html.dmp-reveal-on .dmp-odo-col {
+  transform: translateY(0);
+  transition: transform 1.6s cubic-bezier(.2, .8, .2, 1);
+  transition-delay: calc(.35s + var(--k, 0) * .12s);
+}
+html.dmp-reveal-on .dmp-stats.is-in .dmp-odo-col {
+  transform: translateY(calc(var(--d) * -1.1em));
+}
+html.dmp-reveal-on .dmp-odo-rest {
+  opacity: 0;
+  transition: opacity .6s ease 1.2s;
+}
+html.dmp-reveal-on .dmp-stats.is-in .dmp-odo-rest {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   Style « Rooftick » adapté à la charte DMP
+   ========================================================= */
+
+/* étiquettes de section entre parenthèses : (À propos) */
+.dmp-eyebrow {
+  margin-bottom: 1rem;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--dmp-muted);
+  font-size: .875rem;
+  font-weight: 400;
+}
+.is-dark .dmp-eyebrow {
+  color: var(--dmp-green);
+}
+.dmp-section.is-dark,
+.dmp-testi.is-dark {
+  background-color: var(--dmp-anthracite);
+  color: #fff;
+}
+.is-dark .dmp-h2,
+.is-dark .dmp-h3 {
+  color: #fff;
+}
+.dmp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.dmp-btn.is-light {
+  border-color: rgba(255, 255, 255, .7);
+  background-color: transparent;
+  color: #fff;
+}
+.dmp-btn.is-light:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: var(--dmp-anthracite);
+}
+
+/* =========================================================
+   02 — Carte diaporama du hero
+   ========================================================= */
+.dmp-slides {
+  position: absolute;
+  z-index: 3;
+  right: max(1.25rem, calc((100vw - 82.5rem) / 2 + 1.25rem));
+  bottom: 6rem;
+  width: 19rem;
+  padding: .5rem .5rem 1rem;
+  border-radius: 14px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(31, 42, 36, .06), 0 24px 50px -20px rgba(31, 42, 36, .35);
+}
+.dmp-slides-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+}
+.dmp-slides-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity .8s ease, transform 4.5s ease-out;
+}
+.dmp-slides-media img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+.dmp-slides-pause {
+  position: absolute;
+  right: .625rem;
+  bottom: .625rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, .92);
+  color: var(--dmp-anthracite);
+  cursor: pointer;
+}
+.dmp-slides-pause .i-play,
+.dmp-slides.is-paused .dmp-slides-pause .i-pause {
+  display: none;
+}
+.dmp-slides.is-paused .dmp-slides-pause .i-play {
+  display: block;
+}
+.dmp-slides-captions {
+  display: grid;
+  margin: .875rem .5rem 0;
+  text-align: center;
+}
+.dmp-slides-captions p {
+  grid-area: 1 / 1;
+  margin: 0;
+  color: var(--dmp-anthracite);
+  font-size: .9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .5s ease, transform .5s var(--dmp-ease);
+}
+.dmp-slides-captions p.is-active {
+  opacity: 1;
+  transform: none;
+  transition-delay: .15s;
+}
+.dmp-slides-dots {
+  display: flex;
+  justify-content: center;
+  gap: .375rem;
+  margin-top: .875rem;
+}
+.dmp-slides-dots button {
+  position: relative;
+  width: 22px;
+  height: 6px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 2px;
+  background-color: #dfe4e0;
+  cursor: pointer;
+}
+.dmp-slides-dots button > span {
+  position: absolute;
+  inset: 0;
+  background-color: var(--dmp-green-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.dmp-slides-dots button.is-active > span {
+  transform: scaleX(1);
+}
+.dmp-slides-dots button.is-running > span {
+  animation: dmp-dot 4s linear forwards;
+}
+@keyframes dmp-dot {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.dmp-slides-pause:focus-visible,
+.dmp-slides-dots button:focus-visible {
+  outline: 2px solid var(--dmp-green-dark);
+  outline-offset: 2px;
+}
+html.dmp-anim:not(.dmp-ready) .dmp-slides[data-hero] {
+  transform: translateY(24px) scale(.96);
+}
+
+/* =========================================================
+   04 — À propos : texte qui se colore au défilement
+   ========================================================= */
+.dmp-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+  align-items: start;
+  gap: 4rem;
+}
+.dmp-about-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.dmp-about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dmp-statement {
+  margin: 0 0 2rem;
+  color: var(--dmp-anthracite);
+  font-family: var(--font-poppins);
+  font-size: 1.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -.015em;
+}
+html:not(.dmp-static) .dmp-word {
+  color: #c9cfcb;
+  transition: color .35s ease;
+}
+html:not(.dmp-static) .dmp-word.is-lit {
+  color: var(--dmp-anthracite);
+}
+.dmp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: 100%;
+  margin: 3rem 0 0;
+}
+.dmp-stat {
+  padding: 0 1.5rem;
+  border-left: 1px solid var(--dmp-line);
+}
+.dmp-stat:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.dmp-stat dt {
+  color: var(--dmp-anthracite);
+  font-family: var(--font-poppins);
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+.dmp-stat .dmp-odo-rest {
+  color: var(--dmp-green-dark);
+  font-size: .6em;
+}
+.dmp-stat dd {
+  margin: .5rem 0 0;
+  color: var(--dmp-muted);
+  font-size: .8125rem;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   05 — Services : liste fixe, photo qui change
+   ========================================================= */
+.dmp-svc-scroller {
+  margin-top: 2.5rem;
+}
+.dmp-svc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 4rem;
+}
+.dmp-svc-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background-color: var(--dmp-green-wash);
+}
+.dmp-svc-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: inset(100% 0 0 0);
+  transform: scale(1.08);
+  transition: clip-path .9s cubic-bezier(.7, 0, .2, 1), transform 1.2s var(--dmp-ease);
+}
+.dmp-svc-media img:nth-child(1) { z-index: 1; }
+.dmp-svc-media img:nth-child(2) { z-index: 2; }
+.dmp-svc-media img:nth-child(3) { z-index: 3; }
+.dmp-svc-media img:nth-child(4) { z-index: 4; }
+.dmp-svc-media img:nth-child(5) { z-index: 5; }
+.dmp-svc-media img:nth-child(6) { z-index: 6; }
+.dmp-svc-media img.is-active,
+.dmp-svc-media img.is-past {
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+}
+.dmp-svc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dmp-svc-item {
+  border-bottom: 1px solid var(--dmp-line);
+}
+.dmp-svc-title {
+  display: flex;
+  align-items: baseline;
+  gap: .875rem;
+  width: 100%;
+  padding: 1.125rem 0 1.125rem 1.25rem;
+  border: 0;
+  border-left: 2px solid transparent;
+  background: none;
+  color: #9aa39e;
+  font-family: var(--font-poppins);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: color .3s ease, border-color .3s ease;
+}
+.dmp-svc-num {
+  color: inherit;
+  font-size: .8125rem;
+  font-weight: 500;
+}
+.dmp-svc-item.is-active .dmp-svc-title {
+  border-left-color: var(--dmp-green-dark);
+  color: var(--dmp-anthracite);
+}
+.dmp-svc-item.is-active .dmp-svc-num {
+  color: var(--dmp-green-dark);
+}
+.dmp-svc-title:hover {
+  color: var(--dmp-anthracite);
+}
+.dmp-svc-title:focus-visible {
+  outline: 2px solid var(--dmp-green-dark);
+  outline-offset: -2px;
+}
+.dmp-svc-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .5s var(--dmp-ease);
+}
+.dmp-svc-body > div {
+  min-height: 0;
+  overflow: hidden;
+  padding-left: calc(1.25rem + 2px);
+}
+.dmp-svc-item.is-active .dmp-svc-body {
+  grid-template-rows: 1fr;
+}
+.dmp-svc-body p {
+  max-width: 30rem;
+  margin: 0 0 .75rem;
+  color: var(--dmp-muted);
+  font-size: .9375rem;
+  line-height: 1.65;
+}
+.dmp-svc-body .dmp-link {
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width: 992px) {
+  html:not(.dmp-static) .dmp-svc-scroller {
+    height: calc(var(--n) * 45vh + 100vh);
+    margin-top: 0;
+  }
+  html:not(.dmp-static) .dmp-svc-sticky {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding-top: 5rem;
+  }
+  html:not(.dmp-static) .dmp-svc-sticky > .container-main {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   06 — Pourquoi nous choisir : section sombre
+   ========================================================= */
+.dmp-why-head {
+  max-width: 44rem;
+}
+.dmp-why-title {
+  font-size: 2.5rem;
+}
+.dmp-why-images {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.dmp-why-img {
+  overflow: hidden;
+  height: 26rem;
+  border-radius: 20px;
+}
+.dmp-why-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+  will-change: transform;
+}
+.dmp-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 3.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.dmp-why-item {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+.dmp-icon-tile.is-dark {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, .06);
+  color: var(--dmp-green);
+}
+.dmp-why-item .dmp-h3 {
+  margin-top: 1.125rem;
+  font-size: 1.125rem;
+}
+.dmp-why-item p {
+  margin: .625rem 0 0;
+  color: rgba(255, 255, 255, .62);
+  font-size: .9375rem;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   07 — Méthode : cartes « 01/ » avec bande dégradée
+   ========================================================= */
+.dmp-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 3.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.dmp-step-band {
+  display: block;
+  padding: .75rem 1rem 2.25rem;
+  border-top: 2px solid var(--dmp-green);
+  border-radius: 4px 4px 0 0;
+  background: linear-gradient(180deg, var(--dmp-green-tint) 0%, rgba(238, 246, 238, 0) 100%);
+  color: var(--dmp-green-dark);
+  font-size: .875rem;
+  font-weight: 600;
+}
+.dmp-step .dmp-h3 {
+  padding: 0 1rem;
+  font-size: 1.125rem;
+}
+.dmp-step p {
+  margin: .625rem 0 0;
+  padding: 0 1rem;
+  color: var(--dmp-muted);
+  font-size: .9375rem;
+  line-height: 1.65;
+}
+html.dmp-reveal-on .dmp-step .dmp-step-band {
+  background-size: 100% 0%;
+  background-repeat: no-repeat;
+  transition: background-size .9s var(--dmp-ease) .2s;
+}
+html.dmp-reveal-on .dmp-step.is-in .dmp-step-band {
+  background-size: 100% 100%;
+}
+
+/* =========================================================
+   08 — Réalisations : photos empilées, compteur qui roule
+   ========================================================= */
+.dmp-roll {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.dmp-roll-col {
+  display: flex;
+  flex-direction: column;
+  transition: transform .7s cubic-bezier(.7, 0, .2, 1);
+}
+.dmp-stack {
+  margin-top: 1rem;
+}
+.dmp-stack-grid {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr) 11rem;
+  align-items: end;
+  gap: 2.5rem;
+}
+.dmp-stack-count {
+  display: flex;
+  align-items: flex-end;
+  gap: .375rem;
+  padding-bottom: 1rem;
+}
+.dmp-stack-count .dmp-roll {
+  height: 4.5rem;
+}
+.dmp-stack-count .dmp-roll-col > span {
+  display: block;
+  height: 4.5rem;
+  color: var(--dmp-anthracite);
+  font-family: var(--font-poppins);
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 4.5rem;
+  letter-spacing: -.03em;
+}
+.dmp-stack-total {
+  padding-bottom: .625rem;
+  color: var(--dmp-muted);
+  font-size: .875rem;
+}
+.dmp-stack-names {
+  padding-bottom: 1rem;
+}
+.dmp-roll.is-names {
+  height: 4.2rem;
+}
+.dmp-roll.is-names .dmp-roll-col > span {
+  display: flex;
+  align-items: flex-end;
+  height: 4.2rem;
+  color: var(--dmp-anthracite);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.dmp-stack-cards {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dmp-stack-card {
+  --dim: 0;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  transform-origin: center bottom;
+  will-change: transform;
+  box-shadow: 0 -10px 40px -20px rgba(31, 42, 36, .35);
+}
+.dmp-stack-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.dmp-stack-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(31, 42, 36, var(--dim));
+  pointer-events: none;
+}
+.dmp-stack-chips {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+  transform: translate(-50%, -50%);
+}
+.dmp-stack-chips span {
+  padding: .375rem .75rem;
+  border-radius: 8px;
+  background-color: rgba(31, 42, 36, .55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: .8125rem;
+  white-space: nowrap;
+}
+html:not(.dmp-static) .dmp-stack {
+  height: calc(var(--n) * 60vh + 100vh);
+}
+html:not(.dmp-static) .dmp-stack-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding-top: 5rem;
+}
+html:not(.dmp-static) .dmp-stack-sticky > .container-main {
+  width: 100%;
+}
+.dmp-stack-cards {
+  width: 100%;
+  max-height: calc(100vh - 9rem);
+}
+/* sans animation : simple grille */
+html.dmp-static .dmp-stack-grid {
+  display: block;
+}
+html.dmp-static .dmp-stack-count,
+html.dmp-static .dmp-stack-names {
+  display: none;
+}
+html.dmp-static .dmp-stack-cards {
+  display: grid;
+  gap: 1rem;
+  aspect-ratio: auto;
+  max-height: none;
+}
+html.dmp-static .dmp-stack-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+/* =========================================================
+   09 — Témoignages : titre fixe, cartes vitrées qui montent
+   ========================================================= */
+.dmp-testi {
+  position: relative;
+  overflow: clip; /* « clip » et non « hidden » : garde le titre fixe (sticky) */
+}
+.dmp-testi-stage {
+  position: relative;
+  height: 240vh;
+}
+.dmp-testi-sticky {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+.dmp-testi-bg {
+  position: absolute;
+  inset: 0;
+}
+.dmp-testi-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(28px) grayscale(.5) brightness(.55);
+  transform: scale(1.25);
+}
+.dmp-testi-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 70% 85%, rgba(3, 161, 5, .28), rgba(3, 161, 5, 0) 70%),
+    linear-gradient(180deg, rgba(20, 28, 24, .9) 0%, rgba(20, 28, 24, .78) 100%);
+}
+.dmp-testi-head {
+  position: relative;
+  z-index: 1;
+  max-width: 36rem;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+.dmp-testi-head .dmp-h2 {
+  font-size: 2.75rem;
+  line-height: 1.15;
+}
+.dmp-testi-cards {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;
+}
+.dmp-testi-glass {
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: min(22rem, 34vw);
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, .08);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  color: #fff;
+  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, .6);
+  pointer-events: auto;
+  will-change: transform;
+}
+.dmp-testi-who {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.dmp-testi-initial {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--dmp-green-dark);
+  color: #fff;
+  font-weight: 600;
+}
+.dmp-testi-who strong {
+  display: block;
+  font-size: .9375rem;
+  font-weight: 600;
+}
+.dmp-testi-who small {
+  display: block;
+  color: rgba(255, 255, 255, .6);
+  font-size: .75rem;
+}
+.dmp-testi-glass blockquote {
+  margin: 1rem 0 .875rem;
+  padding: 0;
+  border: 0;
+  color: rgba(255, 255, 255, .88);
+  font-size: .875rem;
+  line-height: 1.6;
+}
+.dmp-testi-rate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .25rem;
+  font-size: .9375rem;
+  font-weight: 600;
+}
+.dmp-testi-rate > span {
+  display: inline-flex;
+  color: var(--dmp-green);
+}
+
+/* =========================================================
+   10 — FAQ : une colonne centrée
+   ========================================================= */
+.dmp-faq-cta {
+  margin-top: 1.75rem;
+}
+.dmp-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  max-width: 48rem;
+  margin: 3rem auto 0;
+}
+.dmp-faq-item {
+  border: 1px solid var(--dmp-border);
+  border-radius: 12px;
+  background-color: #fff;
+  transition: box-shadow .3s ease;
+}
+.dmp-faq-item[open] {
+  box-shadow: var(--dmp-shadow);
+}
+.dmp-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
+  border-radius: 12px;
+  color: var(--dmp-anthracite);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+  list-style: none;
+  cursor: pointer;
+}
+.dmp-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.dmp-faq-item summary:focus-visible {
+  outline: 2px solid var(--dmp-green-dark);
+  outline-offset: 2px;
+}
+.dmp-faq-plus {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: var(--dmp-green-dark);
+  color: #fff;
+  transition: background-color .25s;
+}
+.dmp-faq-plus svg {
+  transition: transform .35s var(--dmp-ease);
+}
+.dmp-faq-item[open] .dmp-faq-plus {
+  background-color: var(--dmp-anthracite);
+}
+.dmp-faq-item[open] .dmp-faq-plus svg {
+  transform: rotate(45deg);
+}
+.dmp-faq-item p {
+  margin: 0;
+  padding: 0 1.25rem 1.25rem;
+  color: var(--dmp-muted);
+  font-size: .9375rem;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   11 — Articles : défilement horizontal + barre
+   ========================================================= */
+.dmp-hscroll {
+  --edge: max(var(--container-sizes--container-pd), calc((100vw - var(--container-sizes--container-main)) / 2 + var(--container-sizes--container-pd)));
+  display: flex;
+  gap: 1.5rem;
+  margin: 3rem 0 0;
+  padding: 0 var(--edge);
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: var(--edge);
+  scrollbar-width: none;
+  cursor: grab;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.dmp-hscroll::-webkit-scrollbar {
+  display: none;
+}
+.dmp-hscroll.is-dragging {
+  scroll-snap-type: none;
+  cursor: grabbing;
+}
+.dmp-post {
+  flex: 0 0 min(25rem, 80vw);
+  scroll-snap-align: start;
+}
+.dmp-post a {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+.dmp-post a:focus-visible {
+  outline: 2px solid var(--dmp-green-dark);
+  outline-offset: 4px;
+  border-radius: 16px;
+}
+.dmp-post-media {
+  display: block;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.dmp-post-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform .8s var(--dmp-ease);
+}
+.dmp-post:hover .dmp-post-media img {
+  transform: scale(1.05);
+}
+.dmp-post-meta {
+  display: flex;
+  gap: .5rem;
+  margin-top: 1.125rem;
+  color: var(--dmp-muted);
+  font-size: .8125rem;
+}
+.dmp-post-sep {
+  color: #c9cfcb;
+}
+.dmp-post-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: .5rem;
+  color: var(--dmp-anthracite);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+.dmp-post-arrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--dmp-green-dark);
+  transition: transform .3s var(--dmp-ease);
+}
+.dmp-post:hover .dmp-post-arrow {
+  transform: translate(3px, -3px);
+}
+.dmp-hscroll-bar {
+  position: relative;
+  height: 2px;
+  margin-top: 2.25rem;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: var(--dmp-line);
+}
+.dmp-hscroll-bar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 30%;
+  border-radius: 2px;
+  background-color: var(--dmp-green-dark);
+  transition: transform .15s linear;
+}
+
+/* =========================================================
+   12 — CTA final : grande photo assombrie
+   ========================================================= */
+.dmp-cta {
+  padding-top: 1rem;
+}
+.dmp-cta-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32rem;
+  overflow: hidden;
+  border-radius: 28px;
+  isolation: isolate;
+}
+.dmp-cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+  will-change: transform;
+}
+.dmp-cta-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(31, 42, 36, .55) 0%, rgba(31, 42, 36, .82) 100%);
+}
+.dmp-cta-content {
+  max-width: 40rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.dmp-cta-content .dmp-eyebrow {
+  color: #7fd481;
+}
+.dmp-cta-content .dmp-h2 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+.dmp-cta-content .dmp-lead {
+  color: rgba(255, 255, 255, .82);
+}
+.dmp-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .75rem;
+  margin-top: 2rem;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media screen and (max-width: 1199px) {
+  .dmp-why-grid,
+  .dmp-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+  .dmp-stack-grid {
+    grid-template-columns: 7rem minmax(0, 1fr) 9rem;
+    gap: 1.5rem;
+  }
+  .dmp-statement {
+    font-size: 1.625rem;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .dmp-section {
+    padding: 4.5rem 0;
+  }
+  .dmp-about-grid,
+  .dmp-svc-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .dmp-about-media img {
+    aspect-ratio: 16 / 10;
+  }
+  .dmp-svc-media {
+    aspect-ratio: 16 / 10;
+  }
+  .dmp-slides {
+    display: none;
+  }
+  .dmp-stack-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'count names' 'cards cards';
+    row-gap: 1rem;
+  }
+  .dmp-stack-count { grid-area: count; padding-bottom: 0; }
+  .dmp-stack-names { grid-area: names; padding-bottom: 0; text-align: right; justify-self: end; }
+  .dmp-stack-cards { grid-area: cards; }
+  .dmp-roll.is-names .dmp-roll-col > span {
+    justify-content: flex-end;
+  }
+  .dmp-testi-glass {
+    width: min(22rem, 46vw);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .dmp-section {
+    padding: 3.5rem 0;
+  }
+  .dmp-h2,
+  .dmp-why-title,
+  .dmp-cta-content .dmp-h2 {
+    font-size: 1.625rem;
+  }
+  .dmp-head-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .dmp-statement {
+    font-size: 1.3125rem;
+  }
+  .dmp-stats {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.75rem;
+    margin-top: 2.25rem;
+  }
+  .dmp-stat:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .dmp-stat dt {
+    font-size: 2rem;
+  }
+  .dmp-svc-title {
+    font-size: 1.0625rem;
+  }
+  .dmp-why-images {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+  .dmp-why-img {
+    height: 15rem;
+  }
+  .dmp-why-grid,
+  .dmp-steps {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-top: 2rem;
+  }
+  .dmp-stack-count .dmp-roll,
+  .dmp-stack-count .dmp-roll-col > span {
+    height: 3rem;
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  .dmp-roll.is-names,
+  .dmp-roll.is-names .dmp-roll-col > span {
+    height: 3.2rem;
+    font-size: .875rem;
+  }
+  .dmp-stack-cards {
+    aspect-ratio: 4 / 5;
+    max-height: calc(100vh - 13rem);
+  }
+  .dmp-stack-chips span {
+    font-size: .75rem;
+  }
+  .dmp-testi-stage {
+    height: 220vh;
+  }
+  .dmp-testi-head .dmp-h2 {
+    font-size: 1.875rem;
+  }
+  .dmp-testi-glass {
+    left: 5% !important;
+    width: 80vw;
+  }
+  .dmp-testi-glass:nth-child(even) {
+    left: auto !important;
+    right: 5%;
+  }
+  .dmp-hscroll {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .dmp-cta-card {
+    min-height: 28rem;
+    border-radius: 20px;
+  }
+  .dmp-cta-buttons {
+    flex-direction: column;
+  }
+  .dmp-cta-buttons .dmp-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dmp-testi-stage {
+    height: auto;
+  }
+  .dmp-testi-sticky {
+    position: relative;
+    height: auto;
+    padding: 5rem 0 2rem;
+  }
+  .dmp-testi-cards {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    padding: 0 1.25rem 5rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+  .dmp-testi-glass {
+    position: relative;
+    top: auto;
+    left: auto !important;
+    right: auto;
+    width: auto;
+  }
+  .dmp-testi-glass[aria-hidden='true'] {
+    display: none;
+  }
+}

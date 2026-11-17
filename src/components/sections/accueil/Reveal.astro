@@ -1,0 +1,189 @@
+---
+/**
+ * Animations au défilement de l'accueil (inspirées de Rooftick) :
+ * - [data-reveal]      apparition douce
+ * - [data-scrub]       texte qui se colore mot à mot (À propos)
+ * - [data-svc]         services : section fixe, le service actif change avec le défilement
+ * - [data-stack]       réalisations : photos qui s'empilent, compteur et nom qui roulent
+ * - [data-testi]       témoignages : cartes qui montent à des vitesses différentes
+ * - [data-parallax]    léger décalage des photos
+ * - [data-hscroll]     défilement horizontal glissable + barre de progression (articles)
+ */
+---
+<script>
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const desktop = window.matchMedia('(min-width: 992px)');
+  const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // ---------- apparition douce
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          const siblings = el.parentElement ? [...el.parentElement.children].filter((c) => c.hasAttribute('data-reveal')) : [];
+          el.style.transitionDelay = `${Math.min(siblings.indexOf(el), 5) * 70}ms`;
+          el.classList.add('is-in');
+          io.unobserve(el);
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+    );
+    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => io.observe(el));
+  }
+
+  // ---------- éléments pilotés par la position de défilement
+  const scrubs = [...document.querySelectorAll<HTMLElement>('[data-scrub]')].map((el) => ({ el, words: [...el.querySelectorAll<HTMLElement>('.dmp-word')], lit: -1 }));
+  const parallax = [...document.querySelectorAll<HTMLElement>('[data-parallax]')];
+
+  const svc = document.querySelector<HTMLElement>('[data-svc]');
+  const svcItems = svc ? [...svc.querySelectorAll<HTMLElement>('.dmp-svc-item')] : [];
+  const svcImgs = svc ? [...svc.querySelectorAll<HTMLElement>('.dmp-svc-media img')] : [];
+  let svcIndex = 0;
+  const setSvc = (i: number) => {
+    if (i === svcIndex) return;
+    svcIndex = i;
+    svcItems.forEach((li, k) => {
+      li.classList.toggle('is-active', k === i);
+      li.querySelector('button')?.setAttribute('aria-expanded', String(k === i));
+    });
+    svcImgs.forEach((img, k) => {
+      img.classList.toggle('is-active', k === i);
+      img.classList.toggle('is-past', k < i);
+    });
+  };
+  svc?.querySelectorAll<HTMLButtonElement>('[data-svc-go]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const i = Number(btn.dataset.svcGo);
+      if (desktop.matches && !reduced) {
+        const r = svc.getBoundingClientRect();
+        const span = svc.offsetHeight - window.innerHeight;
+        window.scrollTo({ top: window.scrollY + r.top + ((i + 0.5) / svcItems.length) * span, behavior: 'smooth' });
+      } else setSvc(i);
+    });
+  });
+
+  const stack = document.querySelector<HTMLElement>('[data-stack]');
+  const cards = stack ? [...stack.querySelectorAll<HTMLElement>('.dmp-stack-card')] : [];
+  const stackNum = stack?.querySelector<HTMLElement>('[data-stack-num]');
+  const stackName = stack?.querySelector<HTMLElement>('[data-stack-name]');
+
+  const testi = document.querySelector<HTMLElement>('[data-testi]');
+  const glass = testi ? [...testi.querySelectorAll<HTMLElement>('.dmp-testi-glass')] : [];
+
+  // progression 0 → 1 d'une section « fixe » (sticky) pendant qu'on la traverse
+  const pinProgress = (el: HTMLElement) => {
+    const r = el.getBoundingClientRect();
+    const span = el.offsetHeight - window.innerHeight;
+    return span > 0 ? clamp(-r.top / span) : 0;
+  };
+
+  const update = () => {
+    const vh = window.innerHeight;
+
+    scrubs.forEach((s) => {
+      const r = s.el.getBoundingClientRect();
+      const p = clamp((vh * 0.85 - r.top) / (r.height + vh * 0.35));
+      const lit = Math.round(p * s.words.length);
+      if (lit !== s.lit) {
+        s.words.forEach((w, k) => w.classList.toggle('is-lit', k < lit));
+        s.lit = lit;
+      }
+    });
+
+    parallax.forEach((img) => {
+      const r = img.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      const speed = Number(img.dataset.parallax) || 0.06;
+      const offset = (r.top + r.height / 2 - vh / 2) * -speed;
+      img.style.transform = `translateY(${offset.toFixed(1)}px) scale(1.12)`;
+    });
+
+    if (svc && desktop.matches) {
+      const p = pinProgress(svc);
+      setSvc(Math.min(svcItems.length - 1, Math.floor(p * svcItems.length)));
+    }
+
+    if (stack) {
+      const p = clamp(pinProgress(stack) / 0.85) * (cards.length - 1); // 0 → n-1, la dernière photo se pose avant la fin
+      cards.forEach((card, i) => {
+        const d = p - i;
+        let y = 0, scale = 1, dim = 0;
+        if (d < 0) {
+          y = Math.min(-d, 1) * 110; // arrive par le bas
+        } else {
+          const k = Math.min(d, 3);
+          y = k * 4; // les précédentes dépassent légèrement en dessous
+          scale = 1 - k * 0.06;
+          dim = Math.min(d, 2) * 0.28;
+        }
+        card.style.transform = `translateY(${y.toFixed(2)}%) scale(${scale.toFixed(3)})`;
+        card.style.setProperty('--dim', dim.toFixed(3));
+      });
+      const idx = Math.round(p);
+      const step = 100 / cards.length;
+      if (stackNum) stackNum.style.transform = `translateY(${-idx * step}%)`;
+      if (stackName) stackName.style.transform = `translateY(${-idx * step}%)`;
+    }
+
+    if (testi) {
+      const r = testi.getBoundingClientRect();
+      const travelled = -r.top;
+      glass.forEach((g) => {
+        const speed = Number(g.style.getPropertyValue('--speed')) || 0.1;
+        g.style.transform = `translateY(${(-travelled * speed).toFixed(1)}px)`;
+      });
+    }
+  };
+
+  if (!reduced) {
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        update();
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  } else {
+    document.documentElement.classList.add('dmp-static');
+  }
+
+  // ---------- défilement horizontal glissable + barre de progression
+  document.querySelectorAll<HTMLElement>('[data-hscroll]').forEach((track) => {
+    const thumb = track.parentElement?.querySelector<HTMLElement>('[data-hscroll-thumb]');
+    const sync = () => {
+      if (!thumb) return;
+      const max = track.scrollWidth - track.clientWidth;
+      const ratio = track.clientWidth / track.scrollWidth;
+      thumb.style.width = `${Math.max(12, ratio * 100)}%`;
+      thumb.style.transform = `translateX(${max > 0 ? (track.scrollLeft / max) * ((1 - ratio) / ratio) * 100 : 0}%)`;
+    };
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+
+    let down = false, startX = 0, startLeft = 0, moved = false;
+    track.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) { moved = true; track.classList.add('is-dragging'); }
+      track.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      down = false;
+      setTimeout(() => track.classList.remove('is-dragging'), 0);
+    });
+    // un glisser ne doit pas ouvrir l'article
+    track.addEventListener('click', (e) => { if (moved) { e.preventDefault(); moved = false; } }, true);
+  });
+</script>

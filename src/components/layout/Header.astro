@@ -1,0 +1,222 @@
+---
+import config from '@/config/config.json';
+import menu from '@/config/menu.json';
+import PrimaryButton from '@/components/ui/PrimaryButton.astro';
+import SecondaryButton from '@/components/ui/SecondaryButton.astro';
+import { currentLinkProps, normalizePath } from '@/lib/webflow';
+
+/**
+ * Menu principal : src/config/menu.json (clé "main").
+ * Une rubrique peut avoir :
+ *   "url"      lien de la rubrique (facultatif)
+ *   "all"      libellé du lien « voir tout » en bas du sous-menu (facultatif)
+ *   "children" sous-liens { name, url, desc, icon } ; icon = une clé de la liste ICONS ci-dessous
+ * Ordinateur : le sous-menu s'ouvre au survol, au clavier ou au clic sur la flèche.
+ * Mobile : un appui sur la rubrique ouvre son accordéon.
+ */
+type Link = { name: string; url: string; desc?: string; icon?: string };
+type Item = { name: string; url?: string; all?: string; children?: Link[] };
+
+const { pathname } = Astro.url;
+const current = normalizePath(pathname);
+const mainMenu: Item[] = menu.main;
+const [primary, secondary] = config.navigation_buttons;
+const phone = config.site.whatsapp; // 212601452924
+const phoneLabel = `+${phone.slice(0, 3)} ${phone.slice(3, 4)} ${phone.slice(4, 6)} ${phone.slice(6, 8)} ${phone.slice(8, 10)} ${phone.slice(10)}`;
+
+const isCurrent = (url?: string) => !!url && normalizePath(url) === current;
+const isActive = (item: Item) =>
+  [item.url, ...(item.children ?? []).map((c) => c.url)]
+    .filter(Boolean)
+    .some((u) => {
+      const p = normalizePath(u as string);
+      return p === current || (p !== '/' && current.startsWith(p + '/'));
+    });
+
+// Icônes trait (24 × 24), dessinées en currentColor
+const ICONS: Record<string, string> = {
+  truck: '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+  flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+  training: '<path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/>',
+  package: '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/><path d="m7.5 4.3 9 5.1"/>',
+  audit: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/>',
+  file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
+  flask: '<path d="M10 2v7.53a2 2 0 0 1-.21.9L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.07-10.12a2 2 0 0 1-.21-.9V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/>',
+  tooth: '<path d="M12 5.5C10.5 4.5 9 4 7.5 4 5 4 4 6 4 8c0 3 1 4.5 1.5 7 .4 2 .8 5 2 5 1.5 0 1.5-4 2.5-4h4c1 0 1 4 2.5 4 1.2 0 1.6-3 2-5 .5-2.5 1.5-4 1.5-7 0-2-1-4-3.5-4-1.5 0-3 .5-4.5 1.5z"/>',
+  stethoscope: '<path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>',
+  hospital: '<path d="M12 6v4"/><path d="M14 14h-4"/><path d="M14 18h-4"/><path d="M14 8h-4"/><path d="M18 12h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2h2"/><path d="M18 22V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v18"/>',
+  droplet: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+  paw: '<circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.05Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10z"/>',
+  pin: '<path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>',
+  news: '<path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/>',
+  help: '<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
+};
+const svg = (key?: string) =>
+  `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[key ?? ''] ?? ICONS.file}</svg>`;
+const chevron = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const arrow = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>';
+
+// Webflow component instance ids of the two button groups (desktop menu / mobile bar)
+const groups = [
+  { className: 'general-button-block is-1', instance: ['f1cb9cc2-0bdb-19f7-6d62-c32898b672d8'], ids: ['01b3274b-9abb-c5d9-bdc8-79a2477391f4', '01b3274b-9abb-c5d9-bdc8-79a2477391f5'] },
+  { className: 'general-button-block is-2', instance: ['f1cb9cc2-0bdb-19f7-6d62-c32898b672d8'], ids: ['01b3274b-9abb-c5d9-bdc8-79a2477391f8', '01b3274b-9abb-c5d9-bdc8-79a2477391f9'] },
+];
+const brand = currentLinkProps('/', pathname, 'brand-logo-block w-nav-brand');
+---
+
+<header class="section_header">
+  <div data-animation="over-right" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+    <div class="nav-inner-block">
+      <div class="container-main w-container">
+        <div class="nav-content-block">
+          <a href="/" {...brand}><img loading="eager" src={config.site.logo} alt={config.site.logo_alt} width="333" height="180" class="brand-logo" /></a>
+          <nav role="navigation" aria-label="Menu principal" class="nav-menu-content w-nav-menu">
+            <div class="nav-link-block">
+              <div class="nav-menu-top">
+                <a href="/" {...brand}><img loading="lazy" src={config.site.logo} alt={config.site.logo_alt} width="333" height="180" class="brand-logo" /></a>
+                <div class="menu-button-block">
+                  <div class="menu-open-button w-nav-button" aria-label="Fermer le menu">
+                    <div class="menu-button-icon w-icon-nav-menu"></div>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="dmp-nav" role="list">
+                {mainMenu.map((item, i) => {
+                  const panelId = `dmp-sub-${i}`;
+                  const children = item.children ?? [];
+                  const hasChildren = children.length > 0;
+                  const wide = children.length > 3;
+                  return (
+                    <li class:list={['dmp-nav-item', hasChildren && 'has-children', isActive(item) && 'is-active']}>
+                      <div class="dmp-nav-row">
+                        {item.url ? (
+                          <a href={item.url} class="nav-link-item dmp-nav-link" aria-current={isCurrent(item.url) ? 'page' : undefined}>{item.name}</a>
+                        ) : (
+                          <span class="nav-link-item dmp-nav-link" tabindex="0">{item.name}</span>
+                        )}
+                        {hasChildren && (
+                          <button type="button" class="dmp-nav-toggle" aria-expanded="false" aria-controls={panelId} aria-label={`Afficher le sous-menu ${item.name}`} set:html={chevron} />
+                        )}
+                      </div>
+
+                      {hasChildren && (
+                        <div id={panelId} class:list={['dmp-panel', wide && 'is-wide']}>
+                          <div class="dmp-panel-inner">
+                          <ul class="dmp-panel-grid" role="list">
+                            {children.map((child) => (
+                              <li>
+                                <a href={child.url} class="dmp-panel-link" aria-current={isCurrent(child.url) ? 'page' : undefined}>
+                                  <span class="dmp-panel-icon" set:html={svg(child.icon)} />
+                                  <span class="dmp-panel-text">
+                                    <span class="dmp-panel-title">{child.name}</span>
+                                    {child.desc && <span class="dmp-panel-desc">{child.desc}</span>}
+                                  </span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                          {item.url && item.all && (
+                            <a href={item.url} class="dmp-panel-all">
+                              <span>{item.all}</span>
+                              <span set:html={arrow} />
+                            </a>
+                          )}
+                          </div>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div class={groups[0].className}>
+                <PrimaryButton href={primary.link} label={primary.label} instance={[...groups[0].instance, groups[0].ids[0]]} />
+                <SecondaryButton href={secondary.link} label={secondary.label} instance={[...groups[0].instance, groups[0].ids[1]]} />
+              </div>
+              <a href={`tel:+${phone}`} class="dmp-mobile-phone">
+                <span>Une question ?</span>
+                <strong>{phoneLabel}</strong>
+              </a>
+            </div>
+          </nav>
+
+          <div class="nav-button-block">
+            <a href={secondary.link} class="dmp-wa-link" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.2 8.6c.3-.6.9-.6 1.1-.1l.6 1.4c.1.3 0 .6-.2.8l-.5.5c.5 1 1.3 1.8 2.3 2.3l.5-.5c.2-.2.5-.3.8-.2l1.4.6c.5.2.5.8-.1 1.1-1 .6-2.3.6-3.4-.1a8 8 0 0 1-2.6-2.6c-.6-1-.7-2.3-.1-3.2Z" fill="currentColor"/></svg>
+              <span>WhatsApp</span>
+            </a>
+            <div class={groups[1].className}>
+              <PrimaryButton href={primary.link} label={primary.label} instance={[...groups[1].instance, groups[1].ids[0]]} />
+              <SecondaryButton href={secondary.link} label={secondary.label} instance={[...groups[1].instance, groups[1].ids[1]]} />
+            </div>
+            <div class="menu-button-block">
+              <div class="menu-open-button w-nav-button" aria-label="Ouvrir le menu">
+                <div class="menu-button-icon w-icon-nav-menu"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Header : fond flouté une fois la page défilée
+  const header = document.querySelector('.section_header');
+  const onScroll = () => header?.classList.toggle('is-scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Sous-menus
+  const mobile = window.matchMedia('(max-width: 991px)');
+  const items = document.querySelectorAll<HTMLElement>('.dmp-nav-item.has-children');
+  const setOpen = (li: HTMLElement, open: boolean) => {
+    li.classList.toggle('is-open', open);
+    li.querySelector('.dmp-nav-toggle')?.setAttribute('aria-expanded', String(open));
+  };
+  const toggle = (li: HTMLElement) => {
+    const open = !li.classList.contains('is-open');
+    items.forEach((other) => other !== li && setOpen(other, false));
+    setOpen(li, open);
+  };
+
+  items.forEach((li) => {
+    const btn = li.querySelector<HTMLButtonElement>('.dmp-nav-toggle');
+    const link = li.querySelector<HTMLElement>('.dmp-nav-link');
+    btn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggle(li);
+    });
+    // mobile : un appui sur la rubrique ouvre l'accordéon (le lien « voir tout » reste dans le panneau)
+    link?.addEventListener('click', (e) => {
+      if (mobile.matches || link.tagName !== 'A') {
+        e.preventDefault();
+        toggle(li);
+      }
+    });
+    link?.addEventListener('keydown', (e) => {
+      if (link.tagName !== 'A' && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        toggle(li);
+      }
+    });
+    li.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        setOpen(li, false);
+        (btn ?? link)?.focus();
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!mobile.matches && !(e.target as Element).closest('.dmp-nav')) items.forEach((li) => setOpen(li, false));
+  });
+  // la rubrique de la page en cours est ouverte d'office dans le menu mobile
+  if (mobile.matches) {
+    const active = document.querySelector<HTMLElement>('.dmp-nav-item.has-children.is-active');
+    if (active) setOpen(active, true);
+  }
+</script>

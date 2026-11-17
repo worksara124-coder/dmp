@@ -1,0 +1,46 @@
+---
+/** 04 — À propos : présentation, chiffres clés, bouton « En savoir plus » */
+import data from '@/data/accueil.json';
+import SectionHead from '@/components/dmp/SectionHead.astro';
+import Button from '@/components/dmp/Button.astro';
+const a = data.about;
+---
+
+<section class="dmp-section dmp-about is-white">
+  <div class="container-main">
+    <div class="dmp-about-grid">
+      <div class="dmp-about-media" data-reveal>
+        <img src={a.image.url} alt={a.image.alt} loading="lazy" width="1400" height="998" />
+      </div>
+      <div class="dmp-about-content">
+        <SectionHead eyebrow={a.eyebrow} title={a.title} />
+        <div class="dmp-about-text" data-reveal>
+          {a.text.map((p) => <p>{p}</p>)}
+        </div>
+        <dl class="dmp-stats" data-reveal>
+          {a.stats.map((s) => {
+            const m = s.value.match(/^(\d+)(.*)$/);
+            const digits = m ? m[1].split('') : [];
+            return (
+              <div class="dmp-stat">
+                <dt>
+                  <span class="dmp-sr">{s.value}</span>
+                  {m ? (
+                    <span class="dmp-odo" aria-hidden="true">
+                      {digits.map((d, i) => (
+                        <span class="dmp-odo-win"><span class="dmp-odo-col" style={`--d:${d};--k:${i}`}>{'0123456789'.split('').map((n) => <span>{n}</span>)}</span></span>
+                      ))}
+                      {m[2] && <span class="dmp-odo-rest">{m[2]}</span>}
+                    </span>
+                  ) : <span aria-hidden="true">{s.value}</span>}
+                </dt>
+                <dd>{s.label}</dd>
+              </div>
+            );
+          })}
+        </dl>
+        <div data-reveal><Button href={a.button.url} label={a.button.label} variant="secondary" arrow /></div>
+      </div>
+    </div>
+  </div>
+</section>

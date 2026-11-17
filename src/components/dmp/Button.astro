@@ -1,0 +1,17 @@
+---
+/** Bouton de la charte : coins 8 px, hauteur 48 px, Poppins Medium 15 px */
+import { icon } from '@/lib/icons';
+interface Props {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'secondary' | 'light';
+  arrow?: boolean;
+  external?: boolean;
+}
+const { href, label, variant = 'primary', arrow = false, external = false } = Astro.props;
+---
+
+<a href={href} class:list={['dmp-btn', `is-${variant}`]} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
+  <span>{label}</span>
+  {arrow && <span class="dmp-btn-arrow" set:html={icon('arrow', 18, 1.8)} />}
+</a>

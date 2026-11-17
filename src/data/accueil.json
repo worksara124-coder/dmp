@@ -1,0 +1,332 @@
+{
+  "intro": {
+    "slogan": "Vos déchets médicaux gérés de A à Z"
+  },
+  "clients": {
+    "title": "Laboratoires, cabinets, cliniques et hôpitaux nous font confiance",
+    "logos": []
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "Un partenaire unique pour vos déchets de soins",
+    "text": [
+      "Basée à Casablanca, DMP Services accompagne les établissements de santé dans la gestion de leurs déchets d’activités de soins à risques infectieux (DASRI).",
+      "Notre équipe intervient sur le terrain à chaque étape : audit de vos pratiques, formation du personnel, fourniture des emballages, collecte, traitement en installation agréée et archivage des documents, dans le respect de la réglementation."
+    ],
+    "image": {
+      "url": "/images/dmp/dmp-conseillere-telephone.webp",
+      "alt": "Conseillère DMP Services au téléphone avec un établissement de santé"
+    },
+    "stats": [
+      {
+        "value": "6",
+        "label": "services, de l’audit à la traçabilité"
+      },
+      {
+        "value": "6",
+        "label": "secteurs de santé accompagnés"
+      },
+      {
+        "value": "12 ans",
+        "label": "d’archivage de vos documents"
+      },
+      {
+        "value": "1",
+        "label": "seul interlocuteur pour vos DASRI"
+      }
+    ],
+    "button": {
+      "label": "En savoir plus",
+      "url": "/a-propos/"
+    },
+    "statement": "Basée à Casablanca, notre équipe accompagne laboratoires, cabinets, cliniques et hôpitaux dans la gestion de leurs déchets de soins à risques infectieux, de l’audit de vos pratiques jusqu’à l’archivage des documents, dans le respect de la réglementation."
+  },
+  "services": {
+    "eyebrow": "Nos services",
+    "title": "Une prise en charge complète de vos DASRI",
+    "text": "Six services complémentaires pour sécuriser vos déchets, de leur production jusqu’à leur traitement.",
+    "button": {
+      "label": "Tous nos services",
+      "url": "/services/"
+    },
+    "items": [
+      {
+        "title": "Collecte et transport",
+        "text": "Collecte sur appel ou planifiée, par un agent formé ADR avec un véhicule agréé.",
+        "url": "/services/collecte-dechets-medicaux/",
+        "image": {
+          "url": "/images/dmp/dmp-agents-collecte.webp",
+          "alt": "Agents DMP Services préparant une collecte"
+        }
+      },
+      {
+        "title": "Traitement des DASRI",
+        "text": "Le traitement de vos déchets dans une unité agréée, pour neutraliser les risques infectieux.",
+        "url": "/services/traitement-dechets-medicaux/",
+        "image": {
+          "url": "/images/dmp/dmp-prise-en-charge.webp",
+          "alt": "Étapes de prise en charge des DASRI : collecte, transport, traitement, traçabilité"
+        }
+      },
+      {
+        "title": "Tri et formation",
+        "text": "Des formations au tri, au stockage et à la traçabilité, avec une signalétique claire.",
+        "url": "/services/tri-dechets-medicaux/",
+        "image": {
+          "url": "/images/dmp/dmp-reunion-equipe.webp",
+          "alt": "Formation d’une équipe soignante au tri des DASRI"
+        }
+      },
+      {
+        "title": "Emballages DASRI",
+        "text": "Des contenants homologués et imperforables pour conditionner vos déchets dès leur production.",
+        "url": "/services/emballages-dasri/",
+        "image": {
+          "url": "/images/dmp/dmp-equipe-sensibilisation.webp",
+          "alt": "Présentation d’un conteneur homologué pour DASRI"
+        }
+      },
+      {
+        "title": "Audit et diagnostic",
+        "text": "Un audit de votre gestion des DASRI pour repérer les non-conformités et sécuriser vos pratiques.",
+        "url": "/services/audit-diagnostic/",
+        "image": {
+          "url": "/images/dmp/dmp-audit-cabinet-medical.webp",
+          "alt": "Audit des pratiques de tri dans un cabinet médical"
+        }
+      },
+      {
+        "title": "Traçabilité",
+        "text": "Bordereau à chaque passage, bilan mensuel et archivage des documents pendant 3 ans.",
+        "url": "/services/tracabilite-dasri/",
+        "image": {
+          "url": "/images/dmp/dmp-bordereaux-archives.webp",
+          "alt": "Archivage des bordereaux de suivi des DASRI"
+        }
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Pourquoi nous choisir",
+    "title": "La sécurité et la conformité, sans contrainte",
+    "items": [
+      {
+        "icon": "truck",
+        "title": "Suivi de chaque collecte",
+        "text": "Collecte par un agent formé ADR, transport en véhicule agréé et bordereau signé à chaque passage."
+      },
+      {
+        "icon": "hospital",
+        "title": "Tous les secteurs de santé",
+        "text": "Laboratoires, cabinets médicaux et dentaires, cliniques, centres d’hémodialyse et vétérinaires."
+      },
+      {
+        "icon": "file",
+        "title": "Traçabilité des lots",
+        "text": "Chaque lot est suivi de la collecte au traitement, avec un bilan mensuel et un archivage de 3 ans."
+      },
+      {
+        "icon": "shield",
+        "title": "Prise en charge complète",
+        "text": "Collecte, transport, traitement et suivi documentaire : un seul prestataire, de l’audit à l’archivage."
+      }
+    ],
+    "images": [
+      {
+        "url": "/images/dmp/dmp-agente-tablette.webp",
+        "alt": "Agente DMP Services avec une tablette de suivi"
+      },
+      {
+        "url": "/images/dmp/dmp-equipe-sensibilisation.webp",
+        "alt": "Sensibilisation d’une équipe au tri des DASRI"
+      }
+    ]
+  },
+  "method": {
+    "eyebrow": "Notre méthode",
+    "title": "Démarrer avec DMP Services, c’est simple",
+    "steps": [
+      {
+        "title": "Audit de vos pratiques",
+        "text": "Nous analysons vos pratiques de tri et de stockage, vos volumes et vos locaux."
+      },
+      {
+        "title": "Formation et équipement",
+        "text": "Nous formons vos équipes, installons la signalétique et fournissons les emballages homologués."
+      },
+      {
+        "title": "Collecte sur appel",
+        "text": "Un agent formé ADR se déplace avec un véhicule agréé et enlève vos déchets conditionnés."
+      },
+      {
+        "title": "Traitement et traçabilité",
+        "text": "Traitement en installation agréée, bordereau à chaque passage, bilan mensuel et archivage."
+      }
+    ]
+  },
+  "work": {
+    "eyebrow": "Nos réalisations",
+    "title": "Sur le terrain, au quotidien",
+    "text": "Un aperçu de nos interventions auprès des établissements de santé de Casablanca.",
+    "items": [
+      {
+        "title": "Collecte dans un établissement de santé",
+        "tag": "Collecte",
+        "image": {
+          "url": "/images/dmp/dmp-hero-agents.webp",
+          "alt": "Agents DMP Services avec un conteneur jaune pour DASRI devant un véhicule de collecte"
+        }
+      },
+      {
+        "title": "Audit d’un cabinet médical",
+        "tag": "Audit",
+        "image": {
+          "url": "/images/dmp/dmp-audit-cabinet-medical.webp",
+          "alt": "Audit dans un cabinet médical"
+        }
+      },
+      {
+        "title": "Sensibilisation des équipes au tri",
+        "tag": "Formation",
+        "image": {
+          "url": "/images/dmp/dmp-equipe-sensibilisation.webp",
+          "alt": "Sensibilisation d’une équipe au tri des DASRI"
+        }
+      },
+      {
+        "title": "Suivi de collecte sur le terrain",
+        "tag": "Traçabilité",
+        "image": {
+          "url": "/images/dmp/dmp-agente-tablette.webp",
+          "alt": "Agente DMP Services avec une tablette de suivi"
+        }
+      },
+      {
+        "title": "Archivage des bordereaux",
+        "tag": "Traçabilité",
+        "image": {
+          "url": "/images/dmp/dmp-bordereaux-archives.webp",
+          "alt": "Classeurs de bordereaux archivés"
+        }
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Témoignages",
+    "title": "Ce que disent nos clients",
+    "items": [
+      {
+        "rating": 5,
+        "text": "Depuis que nous travaillons avec DMP Services, la gestion de nos déchets est devenue simple et parfaitement tracée.",
+        "role": "Responsable qualité",
+        "place": "Laboratoire d’analyses"
+      },
+      {
+        "rating": 5,
+        "text": "Leur réactivité et leur maîtrise de la réglementation nous rassurent. Ils sont devenus un vrai partenaire de notre clinique.",
+        "role": "Directeur administratif",
+        "place": "Clinique privée"
+      },
+      {
+        "rating": 5,
+        "text": "La formation de notre équipe et la signalétique ont changé nos habitudes de tri au quotidien.",
+        "role": "Chirurgien-dentiste",
+        "place": "Cabinet dentaire"
+      },
+      {
+        "rating": 5,
+        "text": "De l’audit à l’archivage, tout est pris en charge. Nous n’avons plus à nous soucier de nos déchets médicaux.",
+        "role": "Responsable hygiène",
+        "place": "Centre d’hémodialyse"
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Questions fréquentes",
+    "text": "Vous ne trouvez pas votre réponse ? Notre équipe vous répond par téléphone ou sur WhatsApp.",
+    "items": [
+      {
+        "q": "Quels établissements accompagnez-vous ?",
+        "a": "Laboratoires, cabinets médicaux et dentaires, hôpitaux et cliniques, centres d’hémodialyse et cliniques vétérinaires."
+      },
+      {
+        "q": "Comment se déroule la collecte ?",
+        "a": "La collecte se fait sur appel. Un agent formé ADR se déplace avec un véhicule agréé pour enlever vos déchets dans le respect des règles de transport."
+      },
+      {
+        "q": "Où sont traités les déchets collectés ?",
+        "a": "Vos déchets sont acheminés vers une installation de traitement agréée."
+      },
+      {
+        "q": "Fournissez-vous les emballages ?",
+        "a": "Oui. Nous fournissons des emballages homologués, adaptés à la nature de vos déchets et à vos volumes."
+      },
+      {
+        "q": "Comment suivez-vous la traçabilité ?",
+        "a": "Un bordereau est établi à chaque passage. Vous recevez un bilan mensuel, et tous les documents sont archivés pendant 3 ans pour vos contrôles."
+      },
+      {
+        "q": "Formez-vous nos équipes ?",
+        "a": "Oui. Nous formons votre personnel au tri et au conditionnement des DASRI, et nous installons la signalétique adaptée dans vos locaux."
+      },
+      {
+        "q": "Comment démarrer avec DMP Services ?",
+        "a": "Appelez-nous au 06 01 45 29 24, écrivez-nous sur WhatsApp ou à contact@dmpservices.ma. Nous commençons par un audit."
+      }
+    ],
+    "button": {
+      "label": "Parler à notre équipe",
+      "url": "/contact/"
+    }
+  },
+  "articles": {
+    "eyebrow": "DASRI News",
+    "title": "Nos derniers articles",
+    "button": {
+      "label": "Tous les articles",
+      "url": "/blog/"
+    }
+  },
+  "cta": {
+    "title": "Une question sur vos DASRI ? Parlons-en",
+    "text": "Parlez-nous de votre établissement et de vos déchets : nous vous proposons une prise en charge complète, de l’audit à la traçabilité.",
+    "primary": {
+      "label": "Demander un devis",
+      "url": "/devis/"
+    },
+    "secondary": {
+      "label": "Contactez-nous",
+      "url": "/contact/"
+    },
+    "image": {
+      "url": "/images/dmp/dmp-agents-collecte.webp"
+    }
+  },
+  "contact": {
+    "address": "10, Rue la Liberté, 3ème étage, Casablanca",
+    "phone": "06 01 45 29 24",
+    "phoneHref": "tel:+212601452924",
+    "email": "contact@dmpservices.ma"
+  },
+  "hero": {
+    "slides": [
+      {
+        "title": "Collecte sur appel par un agent formé ADR",
+        "image": "/images/dmp/dmp-agents-collecte.webp"
+      },
+      {
+        "title": "Formation de vos équipes au tri",
+        "image": "/images/dmp/dmp-reunion-equipe.webp"
+      },
+      {
+        "title": "Audit de vos pratiques sur place",
+        "image": "/images/dmp/dmp-audit-cabinet-medical.webp"
+      },
+      {
+        "title": "Bordereau à chaque collecte, archivé 3 ans",
+        "image": "/images/dmp/dmp-bordereaux-archives.webp"
+      }
+    ]
+  }
+}

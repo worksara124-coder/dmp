@@ -1,0 +1,23 @@
+---
+/** 12 — CTA final : grande photo assombrie, texte centré, « Demander un devis » / « Contactez-nous » */
+import data from '@/data/accueil.json';
+import Button from '@/components/dmp/Button.astro';
+const c = data.cta;
+---
+
+<section class="dmp-section dmp-cta is-white">
+  <div class="container-main">
+    <div class="dmp-cta-card" data-reveal>
+      <img src={c.image.url} alt="" loading="lazy" class="dmp-cta-bg" data-parallax="0.08" />
+      <div class="dmp-cta-content">
+        <span class="dmp-eyebrow">(Devis gratuit)</span>
+        <h2 class="dmp-h2">{c.title}</h2>
+        <p class="dmp-lead">{c.text}</p>
+        <div class="dmp-cta-buttons">
+          <Button href={c.primary.url} label={c.primary.label} variant="primary" arrow />
+          <Button href={c.secondary.url} label={c.secondary.label} variant="light" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

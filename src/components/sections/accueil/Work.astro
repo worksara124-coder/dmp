@@ -1,0 +1,41 @@
+---
+/**
+ * 08 — Nos réalisations : les photos s'empilent au défilement (la section reste fixe à l'écran),
+ * avec un compteur « 01 / 05 » et le nom de la réalisation qui roulent.
+ */
+import data from '@/data/accueil.json';
+import SectionHead from '@/components/dmp/SectionHead.astro';
+const w = data.work;
+const n = w.items.length;
+const total = String(n).padStart(2, '0');
+---
+
+<section class="dmp-section dmp-work is-white">
+  <div class="container-main">
+    <SectionHead eyebrow={w.eyebrow} title={w.title} text={w.text} align="center" />
+  </div>
+  <div class="dmp-stack" data-stack style={`--n:${n}`}>
+    <div class="dmp-stack-sticky">
+      <div class="container-main dmp-stack-grid">
+        <div class="dmp-stack-count" aria-hidden="true">
+          <span class="dmp-roll"><span class="dmp-roll-col" data-stack-num>{w.items.map((_, i) => <span>{String(i + 1).padStart(2, '0')}</span>)}</span></span>
+          <span class="dmp-stack-total">/{total}</span>
+        </div>
+        <ul class="dmp-stack-cards" role="list">
+          {w.items.map((item, i) => (
+            <li class="dmp-stack-card" style={`--i:${i}`}>
+              <img src={item.image.url} alt={item.image.alt} loading="lazy" />
+              <div class="dmp-stack-chips">
+                <span>{item.tag}</span>
+                <span>{item.title}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <div class="dmp-stack-names" aria-hidden="true">
+          <span class="dmp-roll is-names"><span class="dmp-roll-col" data-stack-name>{w.items.map((item) => <span>{item.title}</span>)}</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

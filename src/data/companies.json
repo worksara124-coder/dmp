@@ -1,0 +1,132 @@
+[
+  {
+    "name": "Harvest Table Group",
+    "slug": "harvest-table-group",
+    "companyType": "Restaurant Group",
+    "logo": {
+      "url": "/images/companies/job-mark-12.svg",
+      "alt": "Harvest Table Group"
+    },
+    "website": "https://www.example.com",
+    "industry": "Food and Beverage",
+    "employees": "900+",
+    "location": "Chicago, USA"
+  },
+  {
+    "name": "Orbitly Apps",
+    "slug": "orbitly-apps",
+    "companyType": "Software Company",
+    "logo": {
+      "url": "/images/companies/job-mark-11.svg",
+      "alt": "Orbitly Apps"
+    },
+    "website": "https://www.example.com",
+    "industry": "Product Design",
+    "employees": "25+",
+    "location": "Austin, USA"
+  },
+  {
+    "name": "Quantra Software",
+    "slug": "quantra-software",
+    "companyType": "Software Company",
+    "logo": {
+      "url": "/images/companies/job-mark-16.svg",
+      "alt": "Quantra Software"
+    },
+    "website": "https://www.example.com",
+    "industry": "Technology",
+    "employees": "300+",
+    "location": "New York, USA"
+  },
+  {
+    "name": "Novalink Health",
+    "slug": "novalink-health",
+    "companyType": "Healthcare Services",
+    "logo": {
+      "url": "/images/companies/job-mark-18.svg",
+      "alt": "Novalink Health"
+    },
+    "website": "https://www.example.com",
+    "industry": "Healthcare",
+    "employees": "220+",
+    "location": "Boston, USA"
+  },
+  {
+    "name": "Brightly Digital",
+    "slug": "brightly-digital",
+    "companyType": "Digital Agency",
+    "logo": {
+      "url": "/images/companies/job-mark-10.svg",
+      "alt": "Brightly Digital"
+    },
+    "website": "https://www.example.com",
+    "industry": "Digital Services",
+    "employees": "80+",
+    "location": "Denver, USA"
+  },
+  {
+    "name": "Shieldpoint Security",
+    "slug": "shieldpoint-security",
+    "companyType": "Cybersecurity Company",
+    "logo": {
+      "url": "/images/companies/job-mark-2.svg",
+      "alt": "Shieldpoint Security"
+    },
+    "website": "https://www.example.com",
+    "industry": "Cybersecurity",
+    "employees": "120+",
+    "location": "Seattle, USA"
+  },
+  {
+    "name": "Clearline Support",
+    "slug": "clearline-support",
+    "companyType": "Customer Support Company",
+    "logo": {
+      "url": "/images/companies/job-mark-15.svg",
+      "alt": "Clearline Support"
+    },
+    "website": "https://www.example.com",
+    "industry": "Customer Service",
+    "employees": "450+",
+    "location": "Phoenix, USA"
+  },
+  {
+    "name": "Corehub Logistics",
+    "slug": "corehub-logistics",
+    "companyType": "Logistics Company",
+    "logo": {
+      "url": "/images/companies/job-mark-14.svg",
+      "alt": "Corehub Logistics"
+    },
+    "website": "https://www.example.com",
+    "industry": "Logistics",
+    "employees": "600+",
+    "location": "Atlanta, USA"
+  },
+  {
+    "name": "Stackwise Marketing",
+    "slug": "stackwise-marketing",
+    "companyType": "Marketing Agency",
+    "logo": {
+      "url": "/images/companies/job-mark-5.svg",
+      "alt": "Stackwise Marketing"
+    },
+    "website": "https://www.example.com",
+    "industry": "Marketing",
+    "employees": "90+",
+    "location": "Miami, USA"
+  },
+  {
+    "name": "Northlane Studio",
+    "slug": "northlane-studio",
+    "companyType": "Brand Studio",
+    "logo": {
+      "url": "/images/companies/job-mark-19.svg",
+      "alt": "Northlane Studio"
+    },
+    "website": "https://www.example.com",
+    "industry": "Design",
+    "employees": "40+",
+    "location": "Portland, USA"
+  }
+]

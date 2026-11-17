@@ -1,0 +1,32 @@
+---
+/** 10 — FAQ : titre centré, bouton, questions en accordéon (icône + qui pivote) */
+import data from '@/data/accueil.json';
+import SectionHead from '@/components/dmp/SectionHead.astro';
+import Button from '@/components/dmp/Button.astro';
+const f = data.faq;
+---
+
+<section class="dmp-section dmp-faq">
+  <div class="container-main">
+    <SectionHead eyebrow={f.eyebrow} title={f.title} text={f.text} align="center">
+      <div class="dmp-faq-cta"><Button href={f.button.url} label={f.button.label} variant="primary" arrow /></div>
+    </SectionHead>
+    <div class="dmp-faq-list" data-reveal>
+      {f.items.map((item, i) => (
+        <details class="dmp-faq-item" open={i === 0}>
+          <summary>
+            <span>{item.q}</span>
+            <span class="dmp-faq-plus" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: f.items.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })),
+})} />

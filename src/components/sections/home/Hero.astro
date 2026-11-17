@@ -1,0 +1,105 @@
+---
+// Hero de la page d'accueil (styles : src/styles/dmp.css, section « Hero accueil »)
+// Animations d'entrée : attributs data-hero (ordre via --i), déclenchées par html.dmp-ready (voir Intro.astro et accueil.css)
+import data from '@/data/accueil.json';
+const slides = data.hero.slides;
+---
+
+<section class="section_home-hero dmp-hero">
+  <div class="dmp-hero-bg">
+    <img src="/images/dmp/dmp-hero-agents.webp" loading="eager" fetchpriority="high" sizes="100vw" srcset="/images/dmp/dmp-hero-agents-p-500.webp 500w, /images/dmp/dmp-hero-agents-p-800.webp 800w, /images/dmp/dmp-hero-agents-p-1080.webp 1080w, /images/dmp/dmp-hero-agents.webp 1600w" alt="Deux agents DMP Services en tenue de travail avec un conteneur jaune pour DASRI, devant un véhicule de collecte" class="dmp-hero-image" width="1600" height="800">
+    <div class="dmp-slides" data-hero style="--i:6" data-slides>
+      <div class="dmp-slides-media">
+        {slides.map((sl, k) => <img src={sl.image} alt="" loading="lazy" class:list={[k === 0 && 'is-active']} />)}
+        <button type="button" class="dmp-slides-pause" data-slides-pause aria-label="Mettre le diaporama en pause">
+          <svg class="i-pause" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>
+          <svg class="i-play" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg>
+        </button>
+      </div>
+      <div class="dmp-slides-captions" aria-live="polite">
+        {slides.map((sl, k) => <p class:list={[k === 0 && 'is-active']}>{sl.title}</p>)}
+      </div>
+      <div class="dmp-slides-dots">
+        {slides.map((sl, k) => <button type="button" class:list={[k === 0 && 'is-active']} data-slide={k} aria-label={`Afficher : ${sl.title}`}><span></span></button>)}
+      </div>
+    </div>
+  </div>
+  <div class="dmp-hero-veil" aria-hidden="true"></div>
+  <div class="w-layout-blockcontainer container-main w-container">
+    <div class="dmp-hero-grid">
+      <div class="dmp-hero-content">
+        <div data-hero style="--i:0" class="dmp-hero-eyebrow">
+          Gestion des DASRI à Casablanca
+        </div>
+
+        <h1 class="dmp-hero-title"><span class="dmp-w"><span style="--w:0">Vos</span></span> <span class="dmp-w"><span style="--w:1">déchets</span></span> <span class="dmp-w"><span style="--w:2">médicaux</span></span> <span class="dmp-w"><span style="--w:3" class="dmp-hero-accent">gérés</span></span> <span class="dmp-hero-nowrap"><span class="dmp-w"><span style="--w:4">de</span></span> <span class="dmp-w"><span style="--w:5">A</span></span> <span class="dmp-w"><span style="--w:6">à</span></span> <span class="dmp-w"><span style="--w:7">Z</span></span></span></h1>
+
+        <p data-hero style="--i:2" class="dmp-hero-text">DMP Services prend en charge vos déchets de soins à risques infectieux (DASRI) : audit, formation, emballages, collecte, traitement et traçabilité, avec un seul interlocuteur.</p>
+
+        <div data-hero style="--i:3" class="hero-buttons dmp-hero-buttons">
+          <a data-wf-target="[[[&quot;dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a0&quot;,&quot;dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a0&quot;],[&quot;d8c45712-41b4-bbe7-6fa2-a03af41f1eba&quot;]]]" data-wf--primary-button--variant="base" data-wf-component-id="dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a0" data-wf-variant-state="base" href="/devis/" class="primary-button w-inline-block">
+            <div class="button-text-mask">
+              <div data-wf-target="[[[&quot;dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a0&quot;,&quot;dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a1&quot;],[&quot;d8c45712-41b4-bbe7-6fa2-a03af41f1eba&quot;]]]" class="button-text">Demander un devis</div>
+              <div aria-hidden="true" data-wf-target="[[[&quot;dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a0&quot;,&quot;d75b11c4-9757-6f05-c59f-d5b57a7ef595&quot;],[&quot;d8c45712-41b4-bbe7-6fa2-a03af41f1eba&quot;]]]" class="button-text is-hover">Demander un devis</div>
+            </div>
+            <div data-wf-target="[[[&quot;dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a0&quot;,&quot;dea1c01a-f24f-0134-f6ba-f9f2cd9dc9a2&quot;],[&quot;d8c45712-41b4-bbe7-6fa2-a03af41f1eba&quot;]]]" class="button-icon w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 12H20M14 18L20 12L14 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg></div>
+          </a>
+          <a data-wf-target="[[[&quot;1e2c535f-2848-2da9-efbf-1626e8f34f54&quot;,&quot;1e2c535f-2848-2da9-efbf-1626e8f34f54&quot;],[&quot;6042aa0d-2846-fdc4-9ec2-e75386ec61af&quot;]]]" data-wf-component-id="1e2c535f-2848-2da9-efbf-1626e8f34f54" data-wf-variant-state="base" href="/services/" class="secondary-button w-inline-block">
+            <div class="button-text-mask">
+              <div data-wf-target="[[[&quot;1e2c535f-2848-2da9-efbf-1626e8f34f54&quot;,&quot;1e2c535f-2848-2da9-efbf-1626e8f34f55&quot;],[&quot;6042aa0d-2846-fdc4-9ec2-e75386ec61af&quot;]]]" class="button-text">Nos services</div>
+              <div aria-hidden="true" data-wf-target="[[[&quot;1e2c535f-2848-2da9-efbf-1626e8f34f54&quot;,&quot;a5b1baf7-e958-5de4-eeb9-c9aef2ed3461&quot;],[&quot;6042aa0d-2846-fdc4-9ec2-e75386ec61af&quot;]]]" class="button-text is-hover">Nos services</div>
+            </div>
+          </a>
+        </div>
+
+        <ul data-hero style="--i:4" class="dmp-hero-checks" role="list">
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Véhicules agréés</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Agents formés ADR</li>
+          <li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Traitement en installation agréée</li>
+        </ul>
+
+        <div data-hero style="--i:5" class="dmp-hero-proof">
+          <div class="hero-avatar-group"><img src="/images/hero-avatar-1.webp" loading="lazy" alt="" class="hero-avatar"><img src="/images/hero-avatar-2.webp" loading="lazy" alt="" class="hero-avatar"><img src="/images/hero-avatar-3.webp" loading="lazy" alt="" class="hero-avatar"></div>
+          <p>Laboratoires, cabinets, cliniques et centres d’hémodialyse</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Diaporama de la carte du hero : 4 s par image, pause au bouton, points cliquables
+  document.querySelectorAll<HTMLElement>('[data-slides]').forEach((root) => {
+    const imgs = [...root.querySelectorAll<HTMLElement>('.dmp-slides-media img')];
+    const caps = [...root.querySelectorAll<HTMLElement>('.dmp-slides-captions p')];
+    const dots = [...root.querySelectorAll<HTMLButtonElement>('[data-slide]')];
+    const pause = root.querySelector<HTMLButtonElement>('[data-slides-pause]');
+    let i = 0;
+    let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let timer = 0;
+    const show = (n: number) => {
+      i = (n + imgs.length) % imgs.length;
+      [imgs, caps, dots].forEach((list) => list.forEach((el, k) => el.classList.toggle('is-active', k === i)));
+      dots.forEach((d) => d.classList.remove('is-running'));
+      if (!paused) requestAnimationFrame(() => dots[i]?.classList.add('is-running'));
+    };
+    const start = () => {
+      clearInterval(timer);
+      if (!paused) timer = window.setInterval(() => show(i + 1), 4000);
+    };
+    dots.forEach((d) => d.addEventListener('click', () => { show(Number(d.dataset.slide)); start(); }));
+    pause?.addEventListener('click', () => {
+      paused = !paused;
+      root.classList.toggle('is-paused', paused);
+      pause.setAttribute('aria-label', paused ? 'Relancer le diaporama' : 'Mettre le diaporama en pause');
+      show(i);
+      start();
+    });
+    root.classList.toggle('is-paused', paused);
+    show(0);
+    start();
+  });
+</script>

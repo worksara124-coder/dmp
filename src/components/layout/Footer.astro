@@ -1,0 +1,89 @@
+---
+/**
+ * 13 — Footer : logo, liens rapides, services, coordonnées, réseaux sociaux, mentions légales.
+ * Liens : src/config/menu.json (clé "main") ; coordonnées : src/data/accueil.json (clé "contact") ;
+ * réseaux : src/config/social.json. Styles : src/styles/dmp.css (section « Footer »).
+ */
+import config from '@/config/config.json';
+import menu from '@/config/menu.json';
+import social from '@/config/social.json';
+import data from '@/data/accueil.json';
+import SocialIcon from '@/components/ui/SocialIcon.astro';
+import { icon } from '@/lib/icons';
+
+interface Props {
+  /** Webflow page id (conservé pour compatibilité avec BaseLayout) */
+  wfPage?: string;
+}
+
+type Link = { name: string; url: string };
+const main = menu.main as { name: string; url?: string; children?: Link[] }[];
+const services = main.find((m) => m.name === 'Services')?.children ?? [];
+const quickLinks: Link[] = [
+  { name: 'Accueil', url: '/' },
+  { name: 'Services', url: '/services/' },
+  { name: 'Secteurs', url: '/secteurs/' },
+  { name: 'Zones', url: '/zones/' },
+  { name: 'DASRI News', url: '/blog/' },
+  { name: 'FAQ', url: '/faq/' },
+  { name: 'Contact', url: '/contact/' },
+];
+const legal: Link[] = [
+  { name: 'Mentions légales', url: '/mentions-legales/' },
+  { name: 'Politique de confidentialité', url: '/politique-de-confidentialite/' },
+  { name: 'Cookies', url: '/cookies/' },
+];
+const c = data.contact;
+const year = new Date().getFullYear();
+---
+
+<footer class="dmp-footer">
+  <div class="container-main">
+    <div class="dmp-footer-grid">
+      <div class="dmp-footer-brand">
+        <a href="/" class="dmp-footer-logo" aria-label="DMP Services, accueil">
+          <img src={config.site.logo} alt={config.site.logo_alt} width="333" height="180" loading="lazy" />
+        </a>
+        <p>Collecte, traitement et traçabilité de vos déchets de soins à risques infectieux (DASRI) à Casablanca.</p>
+        <div class="dmp-footer-socials">
+          {social.main.map((item) => (
+            <a href={item.link} target="_blank" rel="noopener" aria-label={item.name} class="dmp-footer-social">
+              <SocialIcon icon={item.icon} />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <nav class="dmp-footer-col" aria-label="Liens rapides">
+        <p class="dmp-footer-title">Liens rapides</p>
+        <ul role="list">
+          {quickLinks.map((l) => <li><a href={l.url}>{l.name}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="dmp-footer-col" aria-label="Nos services">
+        <p class="dmp-footer-title">Nos services</p>
+        <ul role="list">
+          {services.map((l) => <li><a href={l.url}>{l.name}</a></li>)}
+        </ul>
+      </nav>
+
+      <div class="dmp-footer-col">
+        <p class="dmp-footer-title">Coordonnées</p>
+        <ul role="list" class="dmp-footer-contact">
+          <li><span set:html={icon('pin', 18)} /><span>{c.address}</span></li>
+          <li><span set:html={icon('phone', 18)} /><a href={c.phoneHref}>{c.phone}</a></li>
+          <li><span set:html={icon('whatsapp', 18)} /><a href={`https://wa.me/${config.site.whatsapp}`} target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><span set:html={icon('mail', 18)} /><a href={`mailto:${c.email}`}>{c.email}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dmp-footer-bottom">
+      <p>© {year} {config.footer.copyright_name}. Tous droits réservés.</p>
+      <ul role="list">
+        {legal.map((l) => <li><a href={l.url}>{l.name}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>

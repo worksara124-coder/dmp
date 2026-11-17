@@ -1,0 +1,43 @@
+{
+  "site": {
+    "title": "DMP Services",
+    "base_url": "https://dmpservices.ma",
+    "trailing_slash": false,
+    "logo": "/images/1dmp-services-logo.png",
+    "logo_white": "/images/1dmp-services-logo.png",
+    "logo_alt": "Logo DMP Services",
+    "whatsapp": "212601452924"
+  },
+  "metadata": {
+    "meta_title": "DMP Services - Gestion des déchets médicaux à Casablanca",
+    "meta_description": "DMP Services gère vos déchets médicaux à risques infectieux (DASRI) à Casablanca : audit, formation, emballages, collecte, traitement et traçabilité.",
+    "meta_image": "/images/og-image.webp",
+    "meta_author": "DMP Services"
+  },
+  "navigation_buttons": [
+    {
+      "label": "Demander un devis",
+      "link": "/devis/",
+      "variant": "primary"
+    },
+    {
+      "label": "WhatsApp",
+      "link": "https://wa.me/212601452924",
+      "variant": "secondary"
+    }
+  ],
+  "footer": {
+    "newsletter_title": "Recevez nos actualités sur WhatsApp",
+    "chips": [
+      "Audit",
+      "Formation",
+      "Emballages",
+      "Collecte ADR",
+      "Traitement",
+      "Traçabilité",
+      "DASRI"
+    ],
+    "wordmark": "DMP",
+    "copyright_name": "DMP Services"
+  }
+}

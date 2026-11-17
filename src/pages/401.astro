@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import config from '@/config/config.json';
+---
+
+<BaseLayout
+  wfPage="6ac585ccd511fa26e581dd9a"
+  title="Mot de passe | DMP Services"
+  description="Cette page DMP Services est protégée par un mot de passe. Saisissez le mot de passe reçu pour continuer."
+  noindex
+  bare
+  wrapperClass="is-password"
+>
+  <div class="password-form-wrapper w-password-page w-form">
+    <form method="post" id="email-form" name="email-form" data-name="Email Form" class="password-form w-password-page" data-password-form data-wf-page-id="6ac585ccd511fa26e581dd9a" data-wf-element-id="6ac585ccd511fa26e581dd9e00000000000c">
+      <div aria-hidden="true" class="password-glow is-right"></div>
+      <div aria-hidden="true" class="password-glow"></div>
+      <img src={config.site.logo_white} alt={config.site.logo_alt} page-load-1="" class="password-logo" />
+      <h1 hero-title="" class="password-heading">Page <span class="heading-accent is-light">Protégée</span></h1>
+      <p page-load-2="" class="password-text">Cette page est réservée aux clients de DMP Services. Saisissez le mot de passe qui vous a été communiqué pour continuer.</p>
+      <div page-load-3="" class="password-field">
+        <label for="pass" class="form-label is-light w-password-page">Mot de passe</label>
+        <input class="form-input is-password w-password-page w-input" autofocus="true" maxlength="256" name="pass" data-name="field" placeholder="Votre mot de passe" type="password" id="pass" />
+      </div>
+      <div page-load-4="" class="password-button-wrap">
+        <input type="submit" data-wait="Vérification..." class="primary-button is-form-submit is-on-dark w-password-page w-button" value="Déverrouiller" />
+      </div>
+      <div class="form-message is-error w-password-page w-form-fail">
+        <div>Mot de passe incorrect. Veuillez réessayer.</div>
+      </div>
+    </form>
+  </div>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+/** En-tête de section : petite étiquette, titre H2, texte d'introduction */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  text?: string;
+  align?: 'left' | 'center';
+}
+const { eyebrow, title, text, align = 'left' } = Astro.props;
+---
+
+<div class:list={['dmp-head', align === 'center' && 'is-center']} data-reveal>
+  {eyebrow && <span class="dmp-eyebrow">({eyebrow})</span>}
+  <h2 class="dmp-h2">{title}</h2>
+  {text && <p class="dmp-lead">{text}</p>}
+  <slot />
+</div>

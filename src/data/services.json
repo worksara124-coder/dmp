@@ -1,0 +1,398 @@
+[
+  {
+    "name": "Audit et diagnostic",
+    "slug": "audit-et-diagnostic",
+    "cardTitle": "Audit & diagnostic",
+    "sortOrder": 1,
+    "shortDescription": "Un audit approfondi de votre gestion des DASRI pour repérer les non-conformités et sécuriser vos pratiques.",
+    "icon": {
+      "url": "/images/services/icon-audit.svg",
+      "alt": ""
+    },
+    "mainImage": {
+      "url": "/images/dmp/dmp-audit-cabinet-medical.webp",
+      "alt": "Une conseillère DMP Services remplit une liste de contrôle avec une médecin dans son cabinet"
+    },
+    "detailsImage": {
+      "url": "/images/jobs-interview.webp",
+      "alt": "Un homme lit un document face à une collègue lors d’un rendez-vous"
+    },
+    "offerings": [
+      "Analyse des flux de DASRI",
+      "Point sur le cadre réglementaire",
+      "Évaluation des pratiques et de la conformité",
+      "Recommandations personnalisées",
+      "Rapport détaillé et plan d’action"
+    ],
+    "price": "Gratuit",
+    "priceUnit": "",
+    "priceNote": "L’audit de votre site est offert : il permet d’évaluer vos besoins et d’identifier les points d’amélioration.",
+    "author": null,
+    "overview": [
+      "<h2>Évaluez Votre Gestion Des DASRI</h2>",
+      "<p>Une gestion des DASRI mal maîtrisée expose vos équipes, vos patients et l’environnement à des risques évitables. Avant de proposer une solution, nous prenons le temps de comprendre comment vos déchets sont produits, triés, stockés et éliminés.</p>",
+      "<p>L’audit commence par l’analyse de vos flux de DASRI, afin d’estimer la quantité moyenne produite. Ces données servent à définir des solutions d’emballage, de stockage, de collecte et d’élimination adaptées à votre structure.</p>",
+      "<h3>Ce Que Vous Recevez</h3>",
+      "<p>À l’issue de l’audit, vous recevez un rapport détaillé avec nos constats, des recommandations prioritaires et un plan d’action. Nous assurons ensuite un suivi pour vous accompagner dans la mise en œuvre des améliorations.</p>",
+      "<h3>Pourquoi Un Audit Est Essentiel</h3>",
+      "<p>Nous analysons vos processus actuels pour repérer les lacunes et les non-conformités. Nous vous aidons aussi à comprendre et à appliquer la réglementation en vigueur (loi 28-00 et décret n° 2-09-139), pour un tri, une gestion et un traitement conformes.</p>",
+      "<p>Points forts</p>",
+      "<ul>",
+      "<li>Pratiques sécurisées et risques réduits</li>",
+      "<li>Conformité à la réglementation en vigueur</li>",
+      "<li>Procédures et équipements optimisés</li>",
+      "<li>Solutions adaptées à votre structure</li>",
+      "</ul>",
+      "<h3>Des Recommandations Sur Mesure</h3>",
+      "<p>Optimisation des procédures, conseils sur les équipements à utiliser : chaque recommandation est construite pour votre établissement et votre activité.</p>"
+    ],
+    "stats": [
+      {
+        "value": "6",
+        "label": "volets d’analyse, des flux de déchets jusqu’à la formation de vos équipes"
+      },
+      {
+        "value": "1",
+        "label": "rapport détaillé : constats, recommandations prioritaires et plan d’action"
+      },
+      {
+        "value": "0 DH",
+        "label": "pour l’audit de votre site, offert par DMP Services"
+      }
+    ],
+    "overviewContinued": [
+      "<h3>Former Vos Équipes Aux Bons Gestes</h3>",
+      "<p>L’audit se prolonge par des ateliers de sensibilisation aux bonnes pratiques de gestion des DASRI, avec un accent sur la sécurité et le respect de l’environnement.</p>"
+    ]
+  },
+  {
+    "name": "Formation et signalétique",
+    "slug": "formation",
+    "cardTitle": "Formation",
+    "sortOrder": 2,
+    "shortDescription": "Des formations pour maîtriser le tri, le stockage et la traçabilité des DASRI, complétées par une signalétique claire.",
+    "icon": {
+      "url": "/images/services/icon-formation.svg",
+      "alt": ""
+    },
+    "mainImage": {
+      "url": "/images/dmp/dmp-reunion-equipe.webp",
+      "alt": "Réunion d’équipe DMP Services devant un tableau présentant le circuit des DASRI"
+    },
+    "detailsImage": {
+      "url": "/images/services/service-employer-branding.webp",
+      "alt": "Une responsable explique une procédure à un collègue devant un ordinateur"
+    },
+    "offerings": [
+      "Gestion des déchets médicaux",
+      "Bonnes pratiques d’hygiène",
+      "Cadre réglementaire et traçabilité",
+      "Évaluation et certificat de participation",
+      "Signalétique et affiches dans vos locaux"
+    ],
+    "price": "Sur devis",
+    "priceUnit": "",
+    "priceNote": "Programme et supports adaptés à votre activité, à vos équipes et à la configuration de vos locaux.",
+    "author": null,
+    "overview": [
+      "<h2>Formez Vos Équipes Aux Bons Gestes</h2>",
+      "<p>Le développement de votre capital humain est au cœur de nos priorités. Nos formations donnent à vos équipes les connaissances et les réflexes nécessaires pour gérer les DASRI en toute sécurité, à chaque étape.</p>",
+      "<p>Vos collaborateurs apprennent à reconnaître les catégories de déchets médicaux et leurs risques, et à maîtriser le tri, le stockage, la collecte et l’élimination, en conformité avec la réglementation en vigueur.</p>",
+      "<h3>Les Thèmes De Formation</h3>",
+      "<p>Gestion des déchets médicaux, bonnes pratiques d’hygiène (nettoyage, désinfection, équipements de protection individuelle, prévention des incidents), obligations réglementaires et traçabilité grâce aux bordereaux de suivi.</p>",
+      "<h3>Une Approche Personnalisée</h3>",
+      "<p>Chaque formation est adaptée à votre activité, à votre environnement de travail et à vos besoins. Nous analysons aussi les accidents liés à votre activité pour en tirer des mesures préventives.</p>",
+      "<p>Points forts</p>",
+      "<ul>",
+      "<li>Tests pratiques et théoriques</li>",
+      "<li>Certificat de participation</li>",
+      "<li>Guides, fiches pratiques et vidéos</li>",
+      "<li>Accompagnement dans la durée</li>",
+      "</ul>",
+      "<h3>Une Signalétique Claire Et Normée</h3>",
+      "<p>Après la formation, nous installons des panneaux et des pictogrammes clairs dans les zones de tri, de stockage et de collecte de vos DASRI.</p>"
+    ],
+    "stats": [
+      {
+        "value": "4",
+        "label": "thèmes de formation : déchets médicaux, hygiène, réglementation et approche personnalisée"
+      },
+      {
+        "value": "4",
+        "label": "volets de signalétique : panneaux, affiches, rappels des consignes et personnalisation"
+      },
+      {
+        "value": "1",
+        "label": "certificat de participation remis à chaque participant après évaluation"
+      }
+    ],
+    "overviewContinued": [
+      "<h3>Des Affiches Adaptées À Vos Locaux</h3>",
+      "<p>Procédures clés, règles de sécurité et rappels des consignes : les supports visuels sont personnalisés selon la configuration de votre établissement et les risques de votre activité.</p>"
+    ]
+  },
+  {
+    "name": "Fourniture des emballages",
+    "slug": "fourniture-des-emballages",
+    "cardTitle": "Emballages",
+    "sortOrder": 3,
+    "shortDescription": "Des contenants homologués et imperforables pour conditionner vos DASRI en toute sécurité, dès leur production.",
+    "icon": {
+      "url": "/images/services/icon-emballages.svg",
+      "alt": ""
+    },
+    "mainImage": {
+      "url": "/images/dmp/dmp-equipe-sensibilisation.webp",
+      "alt": "Un agent DMP Services échange avec deux collaboratrices, à côté d’un conteneur pour DASRI"
+    },
+    "detailsImage": {
+      "url": "/images/service-process-review.webp",
+      "alt": "Une équipe examine des documents autour d’une table"
+    },
+    "offerings": [
+      "Boîtes pour piquants, coupants, tranchants",
+      "Contenants en polypropylène imperforables",
+      "Jerricanes pour DASRI liquides",
+      "Normes NF X 30-511, ISO 23907, NF X 30-506",
+      "Fournis dès la signature de la convention"
+    ],
+    "price": "Sur devis",
+    "priceUnit": "",
+    "priceNote": "Emballages homologués fournis dès la signature de la convention, adaptés à la nature et au volume de vos déchets.",
+    "author": null,
+    "overview": [
+      "<h2>Des Contenants Adaptés À Chaque Déchet</h2>",
+      "<p>Un bon conditionnement est la première barrière contre les risques infectieux. Nous proposons une gamme de contenants conformes aux normes européennes, pour les professionnels de santé humaine, les vétérinaires et tous les acteurs du soin.</p>",
+      "<p>Les emballages homologués sont fournis dès la signature de la convention, et choisis selon la nature de vos déchets et vos besoins.</p>",
+      "<h3>Piquants, Coupants Et Tranchants</h3>",
+      "<p>Ces déchets, dangereux pour l’homme et l’environnement, sont conditionnés dans des boîtes imperforables conformes aux normes NF X 30-511 et ISO 23907.</p>",
+      "<h3>Déchets Mous Et Liquides</h3>",
+      "<p>Nos contenants en polypropylène imperforables reçoivent les déchets mous, les piquants et tranchants ou les poches de sang, et garantissent un entreposage sûr même en milieu humide. Pour les DASRI liquides, nous fournissons des jerricanes de 10 L et 20 L conformes à la norme NF X 30-506.</p>",
+      "<p>Points forts</p>",
+      "<ul>",
+      "<li>Tri sécurisé dès la source</li>",
+      "<li>Contenants imperforables</li>",
+      "<li>Entreposage sûr en milieu humide</li>",
+      "<li>Formats adaptés à vos besoins</li>",
+      "</ul>",
+      "<h3>Prêts Pour La Collecte</h3>",
+      "<p>Des contenants adaptés et bien fermés facilitent l’enlèvement par notre agent et la traçabilité de chaque passage.</p>"
+    ],
+    "stats": [
+      {
+        "value": "3",
+        "label": "familles de contenants : boîtes imperforables, polypropylène et jerricanes"
+      },
+      {
+        "value": "20 L",
+        "label": "jerricanes pour DASRI liquides, en 10 L et 20 L (norme NF X 30-506)"
+      },
+      {
+        "value": "3",
+        "label": "normes de référence : NF X 30-511, ISO 23907 et NF X 30-506"
+      }
+    ],
+    "overviewContinued": [
+      "<h3>Identifiés Dès La Source</h3>",
+      "<p>Chaque contenant homologué est étiqueté avec la catégorie de déchet, la date et l’origine : c’est la première étape de la traçabilité de vos DASRI.</p>"
+    ]
+  },
+  {
+    "name": "Collecte et transport",
+    "slug": "collecte-transport",
+    "cardTitle": "Collecte",
+    "sortOrder": 4,
+    "shortDescription": "Une collecte planifiée selon vos volumes et vos horaires, ou sur appel, par un agent formé ADR avec un véhicule autorisé.",
+    "icon": {
+      "url": "/images/services/icon-collecte.svg",
+      "alt": ""
+    },
+    "mainImage": {
+      "url": "/images/dmp/dmp-agents-collecte.webp",
+      "alt": "Trois agents DMP Services en tenue de travail discutent près d’une table"
+    },
+    "detailsImage": {
+      "url": "/images/dmp/dmp-agente-tablette.webp",
+      "alt": "Une agente DMP Services en tenue de travail, une tablette à la main"
+    },
+    "offerings": [
+      "Planning adapté à vos volumes et horaires",
+      "Collecte sur appel par téléphone",
+      "Agent formé ADR, votre interlocuteur habituel",
+      "Véhicule autorisé (catégories 1 et 2)",
+      "Bordereau de prise en charge signé"
+    ],
+    "price": "Sur devis",
+    "priceUnit": "",
+    "priceNote": "Tarif selon votre volume de déchets et la fréquence de collecte définie dans votre planning.",
+    "author": null,
+    "overview": [
+      "<h2>Une Collecte Sûre Et Régulière</h2>",
+      "<p>Les DASRI doivent être collectés, transportés et éliminés de manière sécurisée, selon des normes strictes, pour protéger la santé publique et l’environnement. Nous organisons cette étape pour qu’elle s’intègre simplement à votre activité.</p>",
+      "<p>Après la signature du contrat, nous validons avec vous un planning de collecte selon votre volume de déchets et vos horaires d’ouverture. Vous pouvez aussi nous appeler pour une collecte à la demande.</p>",
+      "<h3>Un Agent Formé ADR</h3>",
+      "<p>La collecte est assurée par un agent titulaire d’une formation ADR. C’est en général toujours la même personne qui intervient chez vous, pour une prestation rapide et efficace.</p>",
+      "<h3>Un Transport Autorisé</h3>",
+      "<p>Vos déchets sont acheminés jusqu’au site de traitement par un véhicule autorisé pour le transport des déchets médicaux et pharmaceutiques de catégories 1 et 2.</p>",
+      "<p>Points forts</p>",
+      "<ul>",
+      "<li>Planning validé avec vous</li>",
+      "<li>Collecte à la demande</li>",
+      "<li>Un interlocuteur habituel</li>",
+      "<li>Bordereau signé à chaque passage</li>",
+      "</ul>",
+      "<h3>Des Agents Équipés</h3>",
+      "<p>Gants et masques au chargement et au déchargement, uniforme et chaussures de sécurité : nos agents sont protégés contre tout contact avec des matières dangereuses.</p>"
+    ],
+    "stats": [
+      {
+        "value": "1",
+        "label": "agent formé ADR, en général toujours le même pour votre établissement"
+      },
+      {
+        "value": "2",
+        "label": "catégories de déchets médicaux et pharmaceutiques couvertes par notre véhicule autorisé"
+      },
+      {
+        "value": "100%",
+        "label": "des enlèvements accompagnés d’un bordereau de prise en charge signé"
+      }
+    ],
+    "overviewContinued": [
+      "<h3>Chaque Enlèvement Est Tracé</h3>",
+      "<p>À chaque passage, l’agent vous remet un bordereau de prise en charge contre signature. Ce document assure le suivi de vos déchets jusqu’à leur traitement.</p>"
+    ]
+  },
+  {
+    "name": "Traitement des DASRI",
+    "slug": "traitement",
+    "cardTitle": "Traitement",
+    "sortOrder": 5,
+    "shortDescription": "Le traitement de vos déchets dans une unité agréée, pour neutraliser les risques infectieux en toute sécurité.",
+    "icon": {
+      "url": "/images/services/icon-traitement.svg",
+      "alt": ""
+    },
+    "mainImage": {
+      "url": "/images/jobs-interview.webp",
+      "alt": "Un homme lit un document face à une collègue lors d’un rendez-vous"
+    },
+    "detailsImage": {
+      "url": "/images/service-process-audit.webp",
+      "alt": "Une formatrice présente un sujet à un groupe qui prend des notes"
+    },
+    "offerings": [
+      "Unité agréée par les autorités compétentes",
+      "Neutralisation des risques infectieux",
+      "DASRI solides et liquides",
+      "Équipements adaptés à la sécurité",
+      "Bordereaux de suivi mis à jour"
+    ],
+    "price": "Sur devis",
+    "priceUnit": "",
+    "priceNote": "Selon la nature et le volume de vos déchets, solides ou liquides, collectés par nos agents.",
+    "author": null,
+    "overview": [
+      "<h2>Neutraliser Les Risques Infectieux</h2>",
+      "<p>Le traitement est l’étape qui élimine le danger. Tous les déchets que nous collectons sont traités exclusivement dans une unité agréée par les autorités compétentes, qui respecte des normes strictes de sécurité et d’environnement.</p>",
+      "<p>Le procédé utilisé, simple, efficace, écologique et économique, transforme les déchets infectieux en simples déchets ménagers.</p>",
+      "<h3>Tous Types De DASRI</h3>",
+      "<p>Le procédé est conçu pour les DASRI solides comme liquides : seringues, aiguilles, plastiques, verres, textiles non tissés, tubulures ou filtres d’hémodialyse.</p>",
+      "<h3>La Sécurité Avant Tout</h3>",
+      "<p>Le site agréé dispose d’équipements adaptés pour éviter toute exposition des travailleurs et de l’environnement aux risques infectieux.</p>",
+      "<p>Points forts</p>",
+      "<ul>",
+      "<li>Unité de traitement agréée</li>",
+      "<li>Risques infectieux neutralisés</li>",
+      "<li>Procédé écologique et économique</li>",
+      "<li>Exigences réglementaires respectées</li>",
+      "</ul>",
+      "<h3>Une Traçabilité Complète</h3>",
+      "<p>Outils digitaux et bordereaux de suivi assurent la transparence des opérations, dans le respect des exigences réglementaires.</p>"
+    ],
+    "stats": [
+      {
+        "value": "100%",
+        "label": "des déchets collectés traités dans une unité agréée par les autorités compétentes"
+      },
+      {
+        "value": "2",
+        "label": "états pris en charge : DASRI solides et DASRI liquides"
+      },
+      {
+        "value": "1",
+        "label": "bordereau de suivi mis à jour pour confirmer la destruction de vos déchets"
+      }
+    ],
+    "overviewContinued": [
+      "<h3>La Destruction Confirmée</h3>",
+      "<p>Une fois vos DASRI traités, les bordereaux de suivi sont mis à jour pour confirmer leur destruction, et les documents sont conservés pour vos contrôles.</p>"
+    ]
+  },
+  {
+    "name": "Traçabilité des DASRI",
+    "slug": "tracabilite",
+    "cardTitle": "Traçabilité",
+    "sortOrder": 6,
+    "shortDescription": "Un suivi de chaque étape, du conditionnement au traitement, avec bordereaux, bilan mensuel et archivage pendant 3 ans.",
+    "icon": {
+      "url": "/images/services/icon-tracabilite.svg",
+      "alt": ""
+    },
+    "mainImage": {
+      "url": "/images/dmp/dmp-bordereaux-archives.webp",
+      "alt": "Une employée DMP Services range des classeurs pendant qu’un agent vérifie un bordereau de suivi"
+    },
+    "detailsImage": {
+      "url": "/images/dmp/dmp-espace-client.webp",
+      "alt": "Une conseillère DMP Services présente l’espace de suivi en ligne à une cliente"
+    },
+    "offerings": [
+      "Bordereau de suivi à chaque passage",
+      "Bilan mensuel",
+      "Archivage pendant 3 ans",
+      "Documents prêts en cas de contrôle",
+      "Rapport attestant d’une gestion conforme"
+    ],
+    "price": "Sur devis",
+    "priceUnit": "",
+    "priceNote": "Bordereau à chaque passage, bilan mensuel et bordereaux archivés pendant 3 ans dans votre espace abonné.",
+    "author": null,
+    "overview": [
+      "<h2>Suivez Vos Déchets À Chaque Étape</h2>",
+      "<p>La traçabilité garantit une gestion transparente, sécurisée et conforme de vos DASRI. Producteur, transporteur et site de traitement ont une visibilité complète sur le parcours de chaque déchet.</p>",
+      "<p>Elle réduit les risques d’exposition ou de contamination, vous aide à respecter vos obligations légales et facilite les contrôles des autorités.</p>",
+      "<h3>Identifiés Dès La Source</h3>",
+      "<p>Vos DASRI sont placés dans des contenants homologués, étiquetés avec la catégorie, la date et l’origine. Chaque transfert est ensuite documenté par un bordereau de suivi, obligatoire selon le décret n° 2-09-139, qui mentionne le producteur, le transporteur et le site de traitement.</p>",
+      "<h3>Du Transport Au Traitement</h3>",
+      "<p>Les déchets sont transportés par un véhicule agréé et enregistrés à chaque passage. Après leur traitement en unité agréée, les bordereaux sont mis à jour pour confirmer la destruction.</p>",
+      "<p>Points forts</p>",
+      "<ul>",
+      "<li>Bordereau à chaque passage</li>",
+      "<li>Bilan mensuel</li>",
+      "<li>Archivage pendant 3 ans</li>",
+      "<li>Documents prêts pour les contrôles</li>",
+      "</ul>",
+      "<h3>Un Rapport Pour Chaque Client</h3>",
+      "<p>Un rapport vous est remis pour attester d’une gestion conforme de vos déchets.</p>"
+    ],
+    "stats": [
+      {
+        "value": "100%",
+        "label": "des passages documentés par un bordereau de suivi"
+      },
+      {
+        "value": "12",
+        "label": "bilans par an : un bilan chaque mois"
+      },
+      {
+        "value": "3 ans",
+        "label": "d’archivage des bordereaux, disponibles en cas de contrôle"
+      }
+    ],
+    "overviewContinued": [
+      "<h3>Vos Documents Archivés</h3>",
+      "<p>Tous les bordereaux sont archivés pendant 3 ans dans votre espace abonné et restent disponibles en cas d’audit ou d’inspection.</p>"
+    ]
+  }
+]

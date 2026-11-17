@@ -1,0 +1,82 @@
+---
+/**
+ * 01 — Introduction animée : logo + slogan, une seule fois par visite (sessionStorage).
+ * Sortie : le logo glisse jusqu'à sa place dans le header, le fond s'efface,
+ * puis le header et le hero entrent en scène (classe html.dmp-ready, styles dans accueil.css).
+ * Sans animation si l'utilisateur a demandé moins de mouvement.
+ */
+import config from '@/config/config.json';
+import data from '@/data/accueil.json';
+---
+
+<div id="dmp-intro" class="dmp-intro" aria-hidden="true">
+  <div class="dmp-intro-inner">
+    <img src={config.site.logo} alt="" width="333" height="180" class="dmp-intro-logo" />
+    <p class="dmp-intro-slogan">{data.intro.slogan}</p>
+    <span class="dmp-intro-bar"><span></span></span>
+  </div>
+</div>
+<script is:inline>
+  (function () {
+    var root = document.documentElement;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // apparition douce des sections (Reveal.astro), activée avant l'affichage pour éviter tout clignotement
+    if (!reduced && 'IntersectionObserver' in window) root.classList.add('dmp-reveal-on');
+
+    var el = document.getElementById('dmp-intro');
+    var ready = function () { root.classList.add('dmp-ready'); };
+
+    if (reduced) { if (el) el.remove(); ready(); return; }
+    root.classList.add('dmp-anim'); // états de départ du header et du hero
+
+    var seen = false;
+    try { seen = sessionStorage.getItem('dmp-intro') === '1'; } catch (e) {}
+    if (!el || seen) {
+      if (el) el.remove();
+      // laisse le navigateur peindre l'état de départ, puis lance l'entrée du hero
+      requestAnimationFrame(function () { requestAnimationFrame(ready); });
+      return;
+    }
+    try { sessionStorage.setItem('dmp-intro', '1'); } catch (e) {}
+
+    root.classList.add('dmp-intro-lock', 'dmp-intro-playing');
+    el.classList.add('is-playing');
+
+    var finished = false;
+    var exit = function () {
+      if (finished) return;
+      finished = true;
+      var logo = el.querySelector('.dmp-intro-logo');
+      var target = document.querySelector('.nav-content-block > .brand-logo-block img');
+      el.classList.add('is-leaving');
+
+      // le logo de l'intro rejoint celui du header
+      if (logo && target) {
+        var a = logo.getBoundingClientRect();
+        var b = target.getBoundingClientRect();
+        if (a.width && b.width) {
+          var s = b.width / a.width;
+          var dx = b.left + b.width / 2 - (a.left + a.width / 2);
+          var dy = b.top + b.height / 2 - (a.top + a.height / 2);
+          logo.style.animation = 'none';
+          logo.style.opacity = '1';
+          logo.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')';
+        }
+      }
+      setTimeout(function () {
+        root.classList.remove('dmp-intro-lock');
+        ready();
+      }, 280);
+      setTimeout(function () {
+        root.classList.remove('dmp-intro-playing');
+        el.remove();
+      }, 950);
+    };
+
+    var start = Date.now();
+    var go = function () { setTimeout(exit, Math.max(0, 1600 - (Date.now() - start))); };
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+    setTimeout(exit, 4000); // sécurité si la page tarde à charger
+  })();
+</script>

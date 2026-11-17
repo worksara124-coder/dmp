@@ -1,0 +1,19 @@
+{
+  "main": [
+    {
+      "name": "Facebook",
+      "icon": "facebook",
+      "link": "https://www.facebook.com/share/16ExNUWvwo/"
+    },
+    {
+      "name": "Instagram",
+      "icon": "instagram",
+      "link": "https://www.instagram.com/dmpservices_"
+    },
+    {
+      "name": "LinkedIn",
+      "icon": "linkedin",
+      "link": "https://www.linkedin.com/in/dmp-services-6a0640366/"
+    }
+  ]
+}

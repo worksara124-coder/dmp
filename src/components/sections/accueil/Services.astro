@@ -1,0 +1,47 @@
+---
+/**
+ * 05 — Nos services : liste fixe à l'écran (ordinateur) pendant le défilement ;
+ * le service actif s'ouvre et sa photo apparaît à gauche. Sur mobile : liste à toucher.
+ */
+import data from '@/data/accueil.json';
+import SectionHead from '@/components/dmp/SectionHead.astro';
+import Button from '@/components/dmp/Button.astro';
+import { icon } from '@/lib/icons';
+const s = data.services;
+---
+
+<section class="dmp-section dmp-svc">
+  <div class="container-main">
+    <div class="dmp-head-row">
+      <SectionHead eyebrow={s.eyebrow} title={s.title} text={s.text} />
+      <div class="dmp-head-action" data-reveal><Button href={s.button.url} label={s.button.label} variant="secondary" arrow /></div>
+    </div>
+  </div>
+  <div class="dmp-svc-scroller" data-svc style={`--n:${s.items.length}`}>
+    <div class="dmp-svc-sticky">
+      <div class="container-main">
+        <div class="dmp-svc-grid">
+          <div class="dmp-svc-media">
+            {s.items.map((item, i) => <img src={item.image.url} alt={item.image.alt} loading="lazy" class:list={[i === 0 && 'is-active']} />)}
+          </div>
+          <ol class="dmp-svc-list" role="list">
+            {s.items.map((item, i) => (
+              <li class:list={['dmp-svc-item', i === 0 && 'is-active']}>
+                <button type="button" class="dmp-svc-title" data-svc-go={i} aria-expanded={i === 0 ? 'true' : 'false'}>
+                  <span class="dmp-svc-num">{String(i + 1).padStart(2, '0')}/</span>
+                  <span>{item.title}</span>
+                </button>
+                <div class="dmp-svc-body">
+                  <div>
+                    <p>{item.text}</p>
+                    <a href={item.url} class="dmp-link">En savoir plus <span set:html={icon('arrow', 16, 1.8)} /></a>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

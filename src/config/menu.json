@@ -1,0 +1,184 @@
+{
+  "main": [
+    {
+      "name": "Services",
+      "url": "/services/",
+      "all": "Tous nos services",
+      "children": [
+        {
+          "name": "Collecte",
+          "url": "/services/collecte-dechets-medicaux/",
+          "desc": "Sur appel, agent ADR et véhicule agréé",
+          "icon": "truck"
+        },
+        {
+          "name": "Traitement",
+          "url": "/services/traitement-dechets-medicaux/",
+          "desc": "Dans une installation agréée",
+          "icon": "flame"
+        },
+        {
+          "name": "Tri et formation",
+          "url": "/services/tri-dechets-medicaux/",
+          "desc": "Équipes formées, signalétique adaptée",
+          "icon": "training"
+        },
+        {
+          "name": "Emballages DASRI",
+          "url": "/services/emballages-dasri/",
+          "desc": "Contenants homologués fournis",
+          "icon": "package"
+        },
+        {
+          "name": "Audit",
+          "url": "/services/audit-diagnostic/",
+          "desc": "Diagnostic de vos pratiques de tri",
+          "icon": "audit"
+        },
+        {
+          "name": "Traçabilité",
+          "url": "/services/tracabilite-dasri/",
+          "desc": "Bordereaux, bilan mensuel, archives",
+          "icon": "file"
+        }
+      ]
+    },
+    {
+      "name": "Secteurs",
+      "url": "/secteurs/",
+      "all": "Tous les secteurs",
+      "children": [
+        {
+          "name": "Laboratoires",
+          "url": "/secteurs/laboratoire/",
+          "desc": "Déchets réguliers, suivi rigoureux",
+          "icon": "flask"
+        },
+        {
+          "name": "Cabinets dentaires",
+          "url": "/secteurs/cabinet-dentaire/",
+          "desc": "Petits volumes, prise en charge simple",
+          "icon": "tooth"
+        },
+        {
+          "name": "Cabinets médicaux",
+          "url": "/secteurs/cabinet-medical/",
+          "desc": "Une collecte conforme, sans contrainte",
+          "icon": "stethoscope"
+        },
+        {
+          "name": "Cliniques, hôpitaux",
+          "url": "/secteurs/clinique-hopital/",
+          "desc": "Prise en charge complète, tous services",
+          "icon": "hospital"
+        },
+        {
+          "name": "Hémodialyse",
+          "url": "/secteurs/centre-hemodialyse/",
+          "desc": "Adapté aux volumes importants",
+          "icon": "droplet"
+        },
+        {
+          "name": "Vétérinaires",
+          "url": "/secteurs/clinique-veterinaire/",
+          "desc": "Déchets de soins animaux",
+          "icon": "paw"
+        }
+      ]
+    },
+    {
+      "name": "Zones",
+      "url": "/zones/",
+      "all": "Toutes les zones",
+      "children": [
+        {
+          "name": "Casablanca",
+          "url": "/zones/casablanca/",
+          "desc": "Collecte dans toute la ville",
+          "icon": "pin"
+        }
+      ]
+    },
+    {
+      "name": "Parlons DASRI",
+      "children": [
+        {
+          "name": "DASRI News",
+          "url": "/blog/",
+          "desc": "Actualités et conseils de nos experts",
+          "icon": "news"
+        },
+        {
+          "name": "FAQ",
+          "url": "/faq/",
+          "desc": "Vos questions sur les DASRI",
+          "icon": "help"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "url": "/contact/"
+    }
+  ],
+  "footer": [
+    {
+      "title": "Navigation",
+      "links": [
+        {
+          "name": "Accueil",
+          "url": "/"
+        },
+        {
+          "name": "À propos",
+          "url": "/about"
+        },
+        {
+          "name": "Services",
+          "url": "/services"
+        },
+        {
+          "name": "Blog",
+          "url": "/blogs"
+        },
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "Emplois",
+          "url": "/jobs"
+        }
+      ]
+    },
+    {
+      "title": "Autres",
+      "links": [
+        {
+          "name": "Guide de style",
+          "url": "/style-guide"
+        },
+        {
+          "name": "Licences",
+          "url": "/licenses"
+        },
+        {
+          "name": "Mises à jour",
+          "url": "/changelog"
+        },
+        {
+          "name": "Instructions",
+          "url": "/instructions"
+        },
+        {
+          "name": "Page 404",
+          "url": "/404"
+        },
+        {
+          "name": "Mot de passe",
+          "url": "/401"
+        }
+      ]
+    }
+  ]
+}

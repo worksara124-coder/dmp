@@ -1,0 +1,21 @@
+---
+/** 07 — Notre méthode : 4 étapes, cartes avec bande dégradée « 01/ » */
+import data from '@/data/accueil.json';
+import SectionHead from '@/components/dmp/SectionHead.astro';
+const m = data.method;
+---
+
+<section class="dmp-section dmp-method is-white">
+  <div class="container-main">
+    <SectionHead eyebrow={m.eyebrow} title={m.title} align="center" />
+    <ol class="dmp-steps" role="list">
+      {m.steps.map((step, i) => (
+        <li class="dmp-step" data-reveal>
+          <span class="dmp-step-band">{String(i + 1).padStart(2, '0')}/</span>
+          <h3 class="dmp-h3">{step.title}</h3>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

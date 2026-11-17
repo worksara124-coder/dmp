@@ -1,0 +1,47 @@
+---
+/** 04 — À propos : texte qui se colore mot à mot au défilement, chiffres clés à rouleaux, bouton */
+import data from '@/data/accueil.json';
+import Button from '@/components/dmp/Button.astro';
+const a = data.about;
+const words = a.statement.split(' ');
+---
+
+<section class="dmp-section dmp-about is-white">
+  <div class="container-main">
+    <div class="dmp-about-grid">
+      <div class="dmp-about-media" data-reveal>
+        <img src={a.image.url} alt={a.image.alt} loading="lazy" width="1400" height="998" />
+      </div>
+      <div class="dmp-about-content">
+        <span class="dmp-eyebrow" data-reveal>({a.eyebrow})</span>
+        <h2 class="dmp-sr">{a.title}</h2>
+        <p class="dmp-statement" data-scrub>
+          {words.map((w) => <span class="dmp-word">{w} </span>)}
+        </p>
+        <div data-reveal><Button href={a.button.url} label={a.button.label} variant="primary" arrow /></div>
+        <dl class="dmp-stats" data-reveal>
+          {a.stats.map((s) => {
+            const m = s.value.match(/^(\d+)(.*)$/);
+            const digits = m ? m[1].split('') : [];
+            return (
+              <div class="dmp-stat">
+                <dt>
+                  <span class="dmp-sr">{s.value}</span>
+                  {m ? (
+                    <span class="dmp-odo" aria-hidden="true">
+                      {digits.map((d, i) => (
+                        <span class="dmp-odo-win"><span class="dmp-odo-col" style={`--d:${d};--k:${i}`}>{'0123456789'.split('').map((n) => <span>{n}</span>)}</span></span>
+                      ))}
+                      {m[2] && <span class="dmp-odo-rest">{m[2]}</span>}
+                    </span>
+                  ) : <span aria-hidden="true">{s.value}</span>}
+                </dt>
+                <dd>{s.label}</dd>
+              </div>
+            );
+          })}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
