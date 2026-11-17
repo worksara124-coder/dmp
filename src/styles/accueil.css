@@ -2049,3 +2049,8 @@ html.dmp-reveal-on .dmp-cta2-card.is-in .dmp-cta2-grid-bg {
     animation: none;
   }
 }
+
+/* Services (liste fixe + photo) : espace sous le texte de la description */
+.dmp-svc-body p {
+  margin-bottom: 1.25rem;
+}
